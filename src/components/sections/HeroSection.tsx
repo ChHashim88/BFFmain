@@ -27,8 +27,10 @@ export function HeroSection() {
       <img
         src="/darkhero.png"
         alt="Hero Background Desktop Dark"
-        className="hidden dark:lg:block absolute right-0 top-1/2 -translate-y-1/2 h-[82%] max-h-[640px] w-auto object-contain pointer-events-none z-0 [mask-image:linear-gradient(to_bottom,black_65%,transparent_100%)]"
+        className="hidden dark:lg:block absolute right-0 top-1/2 -translate-y-1/2 h-[82%] max-h-[640px] w-auto object-contain pointer-events-none z-0 [mask-image:linear-gradient(to_right,transparent_0%,black_30%)]"
       />
+      {/* Desktop Dark Mode Left Side Blend Gradient */}
+      <div className="hidden dark:lg:block absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-[82%] max-h-[640px] bg-gradient-to-r from-background via-background/70 to-transparent pointer-events-none z-[1]" />
 
       {/* Subtle Bottom Gradient Fade */}
       <div className="absolute inset-x-0 bottom-0 h-10 lg:h-28 bg-gradient-to-t from-white via-white/60 to-transparent dark:from-background dark:via-background/60 pointer-events-none z-[1]" />
