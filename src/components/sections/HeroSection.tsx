@@ -16,21 +16,12 @@ export function HeroSection() {
         className="block lg:hidden absolute inset-0 w-full h-full object-cover object-center opacity-30 dark:opacity-20 pointer-events-none z-0 [mask-image:linear-gradient(to_bottom,black_82%,transparent_100%)]"
       />
 
-      {/* Hero Background Image - Desktop Light Mode (>= lg) */}
+      {/* Hero Background Image - Desktop (>= lg) */}
       <img
         src="/herooo.png"
-        alt="Hero Background Desktop Light"
-        className="hidden lg:block dark:hidden absolute right-0 top-1/2 -translate-y-1/2 h-[82%] max-h-[640px] w-auto object-contain pointer-events-none z-0 [mask-image:linear-gradient(to_bottom,black_65%,transparent_100%)]"
+        alt="Hero Background Desktop"
+        className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 h-[82%] max-h-[640px] w-auto object-contain pointer-events-none z-0 [mask-image:linear-gradient(to_bottom,black_65%,transparent_100%)]"
       />
-
-      {/* Hero Background Image - Desktop Dark Mode (>= lg) */}
-      <img
-        src="/darkhero.png"
-        alt="Hero Background Desktop Dark"
-        className="hidden dark:lg:block absolute right-0 top-1/2 -translate-y-1/2 w-[45%] max-w-[600px] h-auto max-h-[600px] object-contain pointer-events-none z-0 [mask-image:linear-gradient(to_right,transparent_0%,black_35%)]"
-      />
-      {/* Desktop Dark Mode Left Side Blend Gradient */}
-      <div className="hidden dark:lg:block absolute left-0 top-0 w-[60%] h-full bg-gradient-to-r from-background via-background/90 to-transparent pointer-events-none z-[1]" />
 
       {/* Subtle Bottom Gradient Fade */}
       <div className="absolute inset-x-0 bottom-0 h-10 lg:h-28 bg-gradient-to-t from-white via-white/60 to-transparent dark:from-background dark:via-background/60 pointer-events-none z-[1]" />

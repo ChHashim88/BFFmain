@@ -21,16 +21,7 @@ interface NavLink {
 
 const navLinks: NavLink[] = [
   { label: "Solution", href: "#problem", id: "problem" },
-  {
-    label: "BFF Model",
-    href: "#new-model",
-    id: "new-model",
-    dropdown: [
-      { label: "Each Film. One Clean Economic Picture", href: "#clean-picture", id: "clean-picture" },
-      { label: "No Back of the Line", href: "#no-back", id: "no-back" },
-      { label: "Commercial Discipline, Built In", href: "#discipline", id: "discipline" },
-    ],
-  },
+  { label: "BFF Model", href: "#new-model", id: "new-model" },
   { label: "Platform", href: "#platform", id: "platform" },
   { label: "Opportunity", href: "#opportunity", id: "opportunity" },
   { label: "How We Make Money", href: "#revenue", id: "revenue" },
