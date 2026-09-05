@@ -62,6 +62,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/favi.png" />
         <link rel="preload" href="/hero.PNG" as="image" />
         <link rel="preload" href="/darkhe.PNG" as="image" />
+        <link rel="preload" href="/mobherodark.jpeg" as="image" />
       </head>
       <body className="antialiased selection:bg-destructive selection:text-white">
         <ThemeProvider>{children}</ThemeProvider>

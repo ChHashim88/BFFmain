@@ -9,13 +9,22 @@ export function HeroSection() {
 
   return (
     <section className="relative w-full pt-32 pb-20 lg:pt-40 lg:pb-24 px-6 md:px-12 xl:px-24 flex items-center justify-center overflow-hidden bg-white dark:bg-background">
-      {/* Hero Background Image - Mobile (< lg) */}
+      {/* Hero Background Image - Mobile Light Mode (< lg) */}
       <img
         src="/mobhero.jpeg"
-        alt="Hero Background Mobile"
+        alt="Hero Background Mobile Light"
         loading="eager"
         decoding="sync"
-        className="block lg:hidden absolute inset-0 w-full h-full object-cover object-center opacity-30 dark:opacity-20 pointer-events-none z-0 [mask-image:linear-gradient(to_bottom,black_82%,transparent_100%)]"
+        className="block dark:hidden lg:hidden absolute inset-0 w-full h-full object-cover object-center opacity-30 pointer-events-none z-0 [mask-image:linear-gradient(to_bottom,black_82%,transparent_100%)]"
+      />
+
+      {/* Hero Background Image - Mobile Dark Mode (< lg) */}
+      <img
+        src="/mobherodark.jpeg"
+        alt="Hero Background Mobile Dark"
+        loading="eager"
+        decoding="sync"
+        className="hidden dark:block dark:lg:hidden absolute inset-0 w-full h-full object-cover object-center opacity-40 pointer-events-none z-0 [mask-image:linear-gradient(to_bottom,black_82%,transparent_100%)]"
       />
 
       {/* Hero Background Image - Desktop Light Mode (>= lg) */}
