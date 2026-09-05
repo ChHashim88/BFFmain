@@ -53,28 +53,29 @@ export default function Investment() {
         {/* =====================================================
             HERO / INVESTMENT INTRO GRID
         ===================================================== */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start lg:items-end">
-          {/* Left Column: Heading & Info List */}
-          <div className="lg:col-span-7 flex flex-col gap-6 text-left">
-            <div>
-              <h3 className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3">
-                THE INVESTMENT
-              </h3>
-              <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm">
-                Own Part of the Company
-                <br />
-                Building <span className="text-destructive">What Comes Next.</span>
-              </h2>
-            </div>
+        <div className="flex flex-col gap-8">
+          {/* Section Heading Header */}
+          <div className="w-full text-left">
+            <h3 className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3">
+              THE INVESTMENT
+            </h3>
+            <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm">
+              Own Part of the Company
+              <br />
+              Building <span className="text-destructive">What Comes Next.</span>
+            </h2>
+          </div>
 
-            {/* Info Cards List */}
-            <div className="flex flex-col gap-4 mt-2">
-              {/* Card 1 */}
-              <div className="relative group flex items-start gap-4 p-5 sm:p-6 rounded-2xl bg-card/90 dark:bg-zinc-950/90 border border-border/80 shadow-sm transition-all duration-300 hover:border-destructive/40 hover:shadow-md">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 text-destructive mt-0.5">
+          {/* 2-Column Grid: Cards 1-5 (Left) and Selection Framework (Right) */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
+            {/* Left Column: Info Cards List */}
+            <div className="lg:col-span-7 flex flex-col gap-4">
+              {/* Card 1 - Primary Starting Statement */}
+              <div className="relative group flex items-start gap-4 p-5 sm:p-6 rounded-2xl bg-card dark:bg-zinc-950 border border-destructive/60 shadow-sm transition-all duration-300 hover:border-destructive hover:shadow-md">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-destructive/40 bg-destructive/10 text-destructive mt-0.5">
                   <Building2 size={22} strokeWidth={2} />
                 </div>
-                <p className="text-body-text text-foreground/90 font-normal leading-relaxed pt-1">
+                <p className="text-body-text font-semibold text-foreground leading-relaxed pt-1">
                   This offering is an opportunity to purchase shares in Big
                   Film Fund, Inc. – the company building the model, platform,
                   and operating system described on this page.
@@ -116,7 +117,7 @@ export default function Investment() {
                 </p>
               </div>
 
-              {/* Card 5 */}
+              {/* Card 5 - Ending Statement */}
               <div className="relative group flex items-start gap-4 p-5 sm:p-6 rounded-2xl bg-card/90 dark:bg-zinc-950/90 border border-border/80 shadow-sm transition-all duration-300 hover:border-destructive/40 hover:shadow-md">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 text-destructive mt-0.5">
                   <Star size={22} strokeWidth={2} />
@@ -127,101 +128,101 @@ export default function Investment() {
                 </p>
               </div>
             </div>
-          </div>
 
-          {/* Right Column: Selection Framework */}
-          <div className="lg:col-span-5 flex flex-col justify-end lg:self-end">
-            <div className="relative w-full rounded-3xl bg-card dark:bg-zinc-950 border border-border/80 p-6 sm:p-8 shadow-md flex flex-col gap-6 text-left">
-              {/* Card Header */}
-              <div className="flex items-center justify-between gap-4">
-                <div className="flex items-center gap-3.5">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 text-destructive">
-                    <Target size={22} strokeWidth={2} />
+            {/* Right Column: Selection Framework (Starts at Card 1, Ends at Card 5) */}
+            <div className="lg:col-span-5 flex flex-col h-full">
+              <div className="relative w-full h-full rounded-3xl bg-card dark:bg-zinc-950 border border-border/80 p-6 sm:p-8 lg:p-8 shadow-md flex flex-col justify-between gap-6 text-left">
+                {/* Card Header */}
+                <div className="flex items-center justify-between gap-4">
+                  <div className="flex items-center gap-3.5">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 text-destructive">
+                      <Target size={22} strokeWidth={2} />
+                    </div>
+                    <h3 className="text-xl font-bold text-foreground">
+                      Selection Framework
+                    </h3>
                   </div>
-                  <h3 className="text-xl font-bold text-foreground">
-                    Selection Framework
-                  </h3>
-                </div>
-                <span className="px-3 py-1 rounded-md bg-destructive text-white text-xs font-bold uppercase tracking-wider">
-                  Complete
-                </span>
-              </div>
-
-              <div>
-                <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-                  Phase 2 Implementation
-                </span>
-                <p className="text-body-text text-muted-foreground leading-relaxed mt-2">
-                  BFF has developed a structured methodology for evaluating
-                  projects across creative, audience, commercial, financial,
-                  production, and distribution criteria.
-                </p>
-              </div>
-
-              <div className="w-full h-px bg-border/60" />
-
-              {/* Progress Bar */}
-              <div className="flex flex-col gap-2.5" ref={progressRef}>
-                <div className="flex items-center justify-between text-sm">
-                  <div className="flex items-center gap-2 font-bold text-foreground">
-                    <Zap size={16} className="text-destructive fill-destructive" />
-                    <span>Evaluation Readiness</span>
-                  </div>
-                  <span className="font-extrabold text-destructive">{progress}%</span>
-                </div>
-                <div className="w-full h-2.5 rounded-full bg-muted overflow-hidden">
-                  <div
-                    className="h-full bg-destructive rounded-full transition-all duration-1000 ease-out"
-                    style={{ width: `${progress}%` }}
-                  />
-                </div>
-              </div>
-
-              <div className="w-full h-px bg-border/60" />
-
-              {/* Connected Nodes */}
-              <div className="flex flex-col gap-3">
-                <div className="flex items-center gap-2 text-xs font-bold text-muted-foreground uppercase tracking-wider">
-                  <Network size={14} className="text-destructive" />
-                  <span>Connected Core Modules</span>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                  <div className="flex items-center justify-between p-3 rounded-xl bg-muted/40 dark:bg-zinc-900 border border-border/50 text-xs font-bold text-foreground">
-                    <span>Pipeline Development</span>
-                    <ArrowRight size={14} className="text-destructive" />
-                  </div>
-                  <div className="flex items-center justify-between p-3 rounded-xl bg-muted/40 dark:bg-zinc-900 border border-border/50 text-xs font-bold text-foreground">
-                    <span>Platform Design</span>
-                    <ArrowRight size={14} className="text-destructive" />
-                  </div>
-                </div>
-              </div>
-
-              {/* 4 Framework Pillars */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
-                <div className="flex flex-col items-center text-center p-3 rounded-xl bg-muted/30 border border-border/40 gap-2">
-                  <Target size={18} className="text-destructive" />
-                  <span className="text-xs font-semibold text-foreground leading-tight">
-                    Pipeline<br />Dev
+                  <span className="px-3 py-1 rounded-md bg-destructive text-white text-xs font-bold uppercase tracking-wider">
+                    Complete
                   </span>
                 </div>
-                <div className="flex flex-col items-center text-center p-3 rounded-xl bg-muted/30 border border-border/40 gap-2">
-                  <Clapperboard size={18} className="text-destructive" />
-                  <span className="text-xs font-semibold text-foreground leading-tight">
-                    Platform<br />Design
+
+                <div>
+                  <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                    Phase 2 Implementation
                   </span>
+                  <p className="text-body-text text-muted-foreground leading-relaxed mt-2">
+                    BFF has developed a structured methodology for evaluating
+                    projects across creative, audience, commercial, financial,
+                    production, and distribution criteria.
+                  </p>
                 </div>
-                <div className="flex flex-col items-center text-center p-3 rounded-xl bg-muted/30 border border-border/40 gap-2">
-                  <Users size={18} className="text-destructive" />
-                  <span className="text-xs font-semibold text-foreground leading-tight">
-                    Industry<br />Network
-                  </span>
+
+                <div className="w-full h-px bg-border/60" />
+
+                {/* Progress Bar */}
+                <div className="flex flex-col gap-2.5" ref={progressRef}>
+                  <div className="flex items-center justify-between text-sm">
+                    <div className="flex items-center gap-2 font-bold text-foreground">
+                      <Zap size={16} className="text-destructive fill-destructive" />
+                      <span>Evaluation Readiness</span>
+                    </div>
+                    <span className="font-extrabold text-destructive">{progress}%</span>
+                  </div>
+                  <div className="w-full h-2.5 rounded-full bg-muted overflow-hidden">
+                    <div
+                      className="h-full bg-destructive rounded-full transition-all duration-1000 ease-out"
+                      style={{ width: `${progress}%` }}
+                    />
+                  </div>
                 </div>
-                <div className="flex flex-col items-center text-center p-3 rounded-xl bg-muted/30 border border-border/40 gap-2">
-                  <DollarSign size={18} className="text-destructive" />
-                  <span className="text-xs font-semibold text-foreground leading-tight">
-                    Financial<br />Model
-                  </span>
+
+                <div className="w-full h-px bg-border/60" />
+
+                {/* Connected Nodes */}
+                <div className="flex flex-col gap-3">
+                  <div className="flex items-center gap-2 text-xs font-bold text-muted-foreground uppercase tracking-wider">
+                    <Network size={14} className="text-destructive" />
+                    <span>Connected Core Modules</span>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    <div className="flex items-center justify-between p-3 rounded-xl bg-muted/40 dark:bg-zinc-900 border border-border/50 text-xs font-bold text-foreground">
+                      <span>Pipeline Development</span>
+                      <ArrowRight size={14} className="text-destructive" />
+                    </div>
+                    <div className="flex items-center justify-between p-3 rounded-xl bg-muted/40 dark:bg-zinc-900 border border-border/50 text-xs font-bold text-foreground">
+                      <span>Platform Design</span>
+                      <ArrowRight size={14} className="text-destructive" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* 4 Framework Pillars */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+                  <div className="flex flex-col items-center text-center p-3 rounded-xl bg-muted/30 border border-border/40 gap-2">
+                    <Target size={18} className="text-destructive" />
+                    <span className="text-xs font-semibold text-foreground leading-tight">
+                      Pipeline<br />Dev
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center text-center p-3 rounded-xl bg-muted/30 border border-border/40 gap-2">
+                    <Clapperboard size={18} className="text-destructive" />
+                    <span className="text-xs font-semibold text-foreground leading-tight">
+                      Platform<br />Design
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center text-center p-3 rounded-xl bg-muted/30 border border-border/40 gap-2">
+                    <Users size={18} className="text-destructive" />
+                    <span className="text-xs font-semibold text-foreground leading-tight">
+                      Industry<br />Network
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center text-center p-3 rounded-xl bg-muted/30 border border-border/40 gap-2">
+                    <DollarSign size={18} className="text-destructive" />
+                    <span className="text-xs font-semibold text-foreground leading-tight">
+                      Financial<br />Model
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>

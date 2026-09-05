@@ -4,6 +4,7 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 import { SparklesCore } from "@/components/ui/sparkles";
 import { motion } from "framer-motion";
+import { Rocket, Activity, CheckCircle2 } from "lucide-react";
 
 // Interface for individual process card props
 export interface ProcessCardProps {
@@ -103,16 +104,17 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
       className="relative w-full scroll-mt-24 py-16 md:py-20 lg:py-24 px-6 md:px-12 xl:px-24 overflow-hidden flex flex-col justify-center bg-background"
     >
       <div className="mx-auto w-full max-w-[1350px] flex flex-col space-y-10 lg:space-y-16">
+        {/* Top Grid: Left Side Text & Right Side Creative Visual Card */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          {/* Left Side - Text */}
-          <div className="flex flex-col gap-6 order-2 lg:order-1 mt-8 lg:mt-0 lg:pr-8 xl:pr-16 text-center lg:text-left">
-            <h3 className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3">
+          {/* Left Side - Text Content (Left Aligned) */}
+          <div className="flex flex-col gap-5 text-left items-start">
+            <h3 className="text-h3 text-destructive uppercase tracking-tight font-bold mb-1">
               {subtitle}
             </h3>
             <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm">
               Market <span className="text-destructive">Execution</span>
             </h2>
-            <div className="space-y-4 text-body-text text-muted-foreground transition-colors duration-300">
+            <div className="space-y-4 text-subtitle text-muted-foreground transition-colors duration-300">
               <p>{description}</p>
             </div>
             <p className="text-lg font-medium text-destructive mt-2">
@@ -120,22 +122,126 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
             </p>
           </div>
 
-          {/* Right Side - Stacked Video Player */}
-          <div className="relative w-full aspect-[4/3] sm:aspect-video lg:aspect-[4/3] xl:aspect-[16/10] lg:ml-4 sm:ml-8 order-1 lg:order-2">
-            <div className="absolute inset-y-6 -left-6 w-full bg-zinc-200 dark:bg-zinc-900 border border-border/40 shadow-2xl z-0 hidden sm:block" />
-            <div className="absolute inset-y-3 -left-3 w-full bg-zinc-300 dark:bg-zinc-900 border border-border/50 shadow-2xl z-10 hidden sm:block" />
+          {/* Right Side - Creative Sleek Glass Execution Card (NO Red Shadow - Hidden on Mobile) */}
+          <div className="hidden lg:block relative w-full aspect-[4/3] sm:aspect-video lg:aspect-[4/3] xl:aspect-[16/10]">
+            {/* Layered Backdrop Cards */}
+            <div className="absolute inset-y-5 -left-5 w-full rounded-3xl bg-zinc-200/50 dark:bg-zinc-900/50 border border-zinc-300/40 dark:border-zinc-800/40 shadow-lg z-0 hidden sm:block" />
+            <div className="absolute inset-y-2.5 -left-2.5 w-full rounded-3xl bg-zinc-300/50 dark:bg-zinc-900/70 border border-zinc-300/50 dark:border-zinc-800/60 shadow-xl z-10 hidden sm:block" />
 
-            <div className="absolute inset-0 w-full h-full bg-zinc-100 dark:bg-zinc-950 border border-border shadow-2xl overflow-hidden z-20 flex items-center justify-center group transition-transform duration-500 hover:-translate-y-2 hover:translate-x-2">
-              <div className="absolute inset-0 bg-black/10 dark:bg-black/40 group-hover:bg-black/5 dark:group-hover:bg-black/10 transition-colors duration-500 z-10" />
-              <span className="text-2xl sm:text-4xl font-black tracking-[0.2em] text-foreground/40 dark:text-white/30 uppercase z-20 transition-transform duration-500 group-hover:scale-105">
-                Video Player
-              </span>
+            {/* Main Glass Showcase Card */}
+            <div className="absolute inset-0 w-full h-full rounded-3xl bg-card/90 dark:bg-zinc-950/95 backdrop-blur-xl border border-zinc-200 dark:border-zinc-800 shadow-2xl overflow-hidden z-20 flex flex-col justify-between p-6 sm:p-8 group transition-all duration-500 hover:border-zinc-600 dark:hover:border-zinc-700">
+              {/* Subtle Monochrome Sparkle Overlay */}
+              <div className="absolute inset-0 z-0 hidden dark:block opacity-25 pointer-events-none">
+                <SparklesCore
+                  background="transparent"
+                  minSize={0.4}
+                  maxSize={1}
+                  particleDensity={30}
+                  className="w-full h-full"
+                  particleColor="#FFFFFF"
+                />
+              </div>
+
+              {/* Top Bar Header */}
+              <div className="relative z-10 flex items-center justify-between border-b border-zinc-200/80 dark:border-zinc-800/80 pb-4">
+                <div className="flex items-center gap-2.5">
+                  <span className="relative flex h-3 w-3">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-destructive opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-destructive"></span>
+                  </span>
+                  <span className="text-xs font-bold tracking-widest text-foreground dark:text-zinc-200 uppercase">
+                    Execution Pipeline
+                  </span>
+                </div>
+                <span className="text-[11px] font-mono font-bold text-destructive bg-zinc-100 dark:bg-zinc-900 px-3 py-1 rounded-full border border-zinc-200 dark:border-zinc-800">
+                  STATUS: ON TRACK
+                </span>
+              </div>
+
+              {/* Center Timeline Visual */}
+              <div className="relative z-10 my-auto py-2 space-y-4">
+                {/* Timeline Step 1 */}
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-destructive/10 border border-destructive/30 flex items-center justify-center text-destructive shrink-0 font-bold text-xs">
+                    ✓
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex justify-between items-center text-xs font-semibold text-foreground">
+                      <span>01. Foundation & Structuring</span>
+                      <span className="text-destructive text-[10px]">COMPLETED</span>
+                    </div>
+                    <div className="w-full bg-zinc-200 dark:bg-zinc-800 h-1.5 rounded-full mt-1 overflow-hidden">
+                      <div className="bg-destructive h-full w-full" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Timeline Step 2 (Active) */}
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-destructive/20 border border-destructive flex items-center justify-center text-destructive shrink-0 font-bold text-xs">
+                    ➔
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex justify-between items-center text-xs font-bold text-foreground">
+                      <span className="text-destructive">02. Market Execution</span>
+                      <span className="text-destructive text-[10px] animate-pulse">ACTIVE PHASE</span>
+                    </div>
+                    <div className="w-full bg-zinc-200 dark:bg-zinc-800 h-1.5 rounded-full mt-1 overflow-hidden">
+                      <motion.div
+                        className="bg-destructive h-full"
+                        animate={{ width: ["40%", "75%", "40%"] }}
+                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Timeline Step 3 */}
+                <div className="flex items-center gap-3 opacity-60">
+                  <div className="w-8 h-8 rounded-full bg-zinc-200 dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-800 flex items-center justify-center text-muted-foreground shrink-0 font-bold text-xs">
+                    03
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex justify-between items-center text-xs font-medium text-muted-foreground">
+                      <span>03. Platform Scaling</span>
+                      <span className="text-[10px]">UPCOMING</span>
+                    </div>
+                    <div className="w-full bg-zinc-200 dark:bg-zinc-900 h-1.5 rounded-full mt-1" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom Metrics Bar */}
+              <div className="relative z-10 grid grid-cols-2 gap-3 pt-4 border-t border-zinc-200/80 dark:border-zinc-800/80">
+                <div className="bg-zinc-100 dark:bg-zinc-900/80 p-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-destructive shrink-0" />
+                  <div>
+                    <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider block">
+                      Deliverables
+                    </span>
+                    <span className="text-xs font-bold text-foreground">
+                      6 Core Pillars
+                    </span>
+                  </div>
+                </div>
+                <div className="bg-zinc-100 dark:bg-zinc-900/80 p-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 flex items-center gap-2">
+                  <Activity className="w-4 h-4 text-destructive shrink-0" />
+                  <div>
+                    <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider block">
+                      Target Outcome
+                    </span>
+                    <span className="text-xs font-bold text-foreground">
+                      Market Expansion
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* 6 Process Cards Grid (Matching BUILT TO EXECUTE layout) */}
-        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-center items-stretch pt-4 pb-2">
+        {/* 6 Process Cards Grid */}
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-center items-stretch pt-2 pb-2 text-left">
           {items.map((item, index) => (
             <ProcessCard key={index} index={index} {...item} />
           ))}

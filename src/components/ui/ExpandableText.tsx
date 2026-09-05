@@ -48,7 +48,7 @@ export const ExpandableText: React.FC<ExpandableTextProps> = ({
           </button>
         </p>
       ) : (
-        <div className="space-y-3 animate-in fade-in duration-500">
+        <div className="space-y-2.5 animate-in fade-in duration-500 text-[12px] leading-relaxed">
           {fullText}
         </div>
       )}

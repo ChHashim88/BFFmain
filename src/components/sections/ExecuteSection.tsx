@@ -1,7 +1,7 @@
 "use client";
 
 import GlassCard from "@/components/ui/glass-card";
-import { Search, CheckCircle2, Clapperboard, Globe, ShieldCheck } from "lucide-react";
+import { Search, CheckCircle2, Clapperboard, Globe, ShieldCheck, Play } from "lucide-react";
 
 export function ExecuteSection() {
   return (
@@ -38,16 +38,33 @@ export function ExecuteSection() {
             </div>
           </div>
 
-          {/* Right Side - Stacked Video Player */}
-          <div className="relative w-full aspect-[4/3] sm:aspect-video lg:aspect-[4/3] xl:aspect-[16/10] lg:ml-4 sm:ml-8 order-1 lg:order-2">
-            <div className="absolute inset-y-6 -left-6 w-full bg-zinc-200 dark:bg-zinc-900 border border-border/40 shadow-2xl z-0 hidden sm:block" />
-            <div className="absolute inset-y-3 -left-3 w-full bg-zinc-300 dark:bg-zinc-900 border border-border/50 shadow-2xl z-10 hidden sm:block" />
+          {/* Right Side - Stacked Video Player with Image 6.png Thumbnail */}
+          <div className="relative w-full aspect-video lg:aspect-[4/3] xl:aspect-[16/10] lg:ml-4 sm:ml-8 order-1 lg:order-2">
+            <div className="absolute inset-y-6 -left-6 w-full bg-zinc-200 dark:bg-zinc-900 border border-border/40 shadow-2xl z-0 hidden sm:block rounded-2xl" />
+            <div className="absolute inset-y-3 -left-3 w-full bg-zinc-300 dark:bg-zinc-900 border border-border/50 shadow-2xl z-10 hidden sm:block rounded-2xl" />
 
-            <div className="absolute inset-0 w-full h-full bg-zinc-100 dark:bg-zinc-950 border border-border shadow-2xl overflow-hidden z-20 flex items-center justify-center group transition-transform duration-500 hover:-translate-y-2 hover:translate-x-2">
-              <div className="absolute inset-0 bg-black/10 dark:bg-black/40 group-hover:bg-black/5 dark:group-hover:bg-black/10 transition-colors duration-500 z-10" />
-              <span className="text-2xl sm:text-4xl font-black tracking-[0.2em] text-foreground/40 dark:text-white/30 uppercase z-20 transition-transform duration-500 group-hover:scale-105">
-                Video Player
-              </span>
+            <div className="absolute inset-0 w-full h-full rounded-2xl bg-zinc-100 dark:bg-zinc-950 border border-border shadow-2xl overflow-hidden z-20 flex items-center justify-center group cursor-pointer transition-transform duration-500 hover:-translate-y-2 hover:translate-x-2">
+              {/* Thumbnail Image 6.png */}
+              <img
+                src="/6.png"
+                alt="Built To Execute Overview"
+                loading="lazy"
+                decoding="async"
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 pointer-events-none"
+              />
+
+              {/* Dark Overlay */}
+              <div className="absolute inset-0 bg-black/40 dark:bg-black/55 group-hover:bg-black/30 transition-colors duration-500 z-10" />
+
+              {/* Centered Play Button & Label */}
+              <div className="relative z-20 flex flex-col items-center gap-3 text-center">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#C00000] text-white flex items-center justify-center shadow-[0_0_30px_rgba(192,0,0,0.6)] backdrop-blur-md group-hover:scale-110 transition-all duration-300 border border-white/20">
+                  <Play className="w-8 h-8 sm:w-10 sm:h-10 fill-white text-white translate-x-0.5" />
+                </div>
+                <span className="text-xs sm:text-sm font-bold tracking-widest text-white uppercase drop-shadow-md">
+                  Watch Capabilities
+                </span>
+              </div>
             </div>
           </div>
         </div>

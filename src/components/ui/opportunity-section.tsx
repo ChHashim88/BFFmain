@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import { Globe, Share2, Target, Clapperboard, Star, TrendingUp, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import MobileRadialCarousel from "@/components/ui/mobile-radial-carousel";
+import { opportunityTimelineData } from "@/components/sections/TimelineSection";
 
 function ExpandablePoint({
   icon: Icon,
@@ -49,8 +51,8 @@ export default function OpportunitySection() {
       id="opportunity"
       className="relative scroll-mt-24 w-full bg-background py-16 md:py-20 lg:py-24 px-6 md:px-12 xl:px-24 flex justify-center"
     >
-      <div className="mx-auto w-full max-w-[1350px]">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+      <div className="mx-auto w-full max-w-[1350px] flex flex-col gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Column */}
           <div className="flex flex-col space-y-8 text-center lg:text-left">
             <div className="space-y-4">
@@ -112,43 +114,36 @@ export default function OpportunitySection() {
             </div>
           </div>
 
-          {/* Right Column */}
-          <div className="flex flex-col gap-8 w-full h-full lg:pl-6 my-auto justify-center">
-            {/* Stacked Video Player */}
-            <div className="relative w-full aspect-[4/3] sm:aspect-video lg:aspect-[4/3] xl:aspect-[16/10] lg:ml-4 sm:ml-8">
-              {/* Back layers for stack effect */}
-              <div className="absolute inset-y-6 -left-6 w-full bg-zinc-200 dark:bg-zinc-900 border border-border/40 shadow-2xl z-0 hidden sm:block" />
-              <div className="absolute inset-y-3 -left-3 w-full bg-zinc-300 dark:bg-zinc-900 border border-border/50 shadow-2xl z-10 hidden sm:block" />
+          {/* Right Column: 6-Step Radial Carousel */}
+          <div className="flex flex-col w-full h-full my-auto justify-center items-center">
+            <MobileRadialCarousel timelineData={opportunityTimelineData} />
+          </div>
+        </div>
 
-              {/* Main Video frame */}
-              <div className="absolute inset-0 w-full h-full bg-zinc-100 dark:bg-zinc-950 border border-border shadow-2xl overflow-hidden z-20 flex items-center justify-center group transition-transform duration-500 hover:-translate-y-2 hover:translate-x-2">
-                <div className="absolute inset-0 bg-black/10 dark:bg-black/40 group-hover:bg-black/5 dark:group-hover:bg-black/10 transition-colors duration-500 z-10" />
-                <span className="text-2xl sm:text-4xl font-black tracking-[0.2em] text-foreground/40 dark:text-white/30 uppercase z-20 transition-transform duration-500 group-hover:scale-105">
-                  Video Player
-                </span>
-              </div>
-            </div>
+        {/* Full-Width Structural Shift Card */}
+        <div className="relative w-full rounded-3xl bg-gradient-to-r from-[#090909] via-[#121212] to-[#171717] border border-zinc-800/80 p-6 sm:p-8 md:p-10 shadow-2xl flex flex-col md:flex-row items-center gap-6 sm:gap-10 overflow-hidden text-left">
+          {/* Ambient Red Radial Glow */}
+          <div className="absolute left-0 top-1/2 -translate-y-1/2 w-80 h-80 bg-[#C00000]/20 rounded-full blur-3xl pointer-events-none" />
 
-            {/* Dark Liquid Glass Container */}
-            <div className="relative w-full rounded-3xl bg-zinc-950 border border-white/10 p-8 md:p-10 shadow-2xl overflow-hidden lg:ml-4 sm:ml-8">
-              {/* Subtle glass reflection effect */}
-              <div className="relative z-10 flex flex-col sm:flex-row gap-6 sm:items-start">
-                <div className="w-14 h-14 shrink-0 rounded-xl border border-white/20 bg-white/10 flex items-center justify-center">
-                  <TrendingUp className="w-7 h-7 text-white" />
-                </div>
+          {/* Red Glowing Icon Circle */}
+          <div className="relative z-10 flex h-16 w-16 md:h-20 md:w-20 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#C00000] via-[#470003] to-[#101010] border border-red-500/70 text-white shadow-[0_0_25px_rgba(192,0,0,0.4)]">
+            <TrendingUp size={32} strokeWidth={1.7} />
+          </div>
 
-                <div className="space-y-4">
-                  <h3 className="text-2xl md:text-3xl font-medium text-white tracking-tight">
-                    Investing itself has undergone a structural shift.
-                  </h3>
-                  <p className="text-zinc-400 leading-relaxed text-sm md:text-base">
-                    Platforms did more than open access to startups, real estate, and alternative
-                    assets. They created the infrastructure that made those opportunities easier to
-                    discover, evaluate, transact, manage, and understand.
-                  </p>
-                </div>
-              </div>
-            </div>
+          {/* Content Text */}
+          <div className="relative z-10 max-w-4xl space-y-2.5">
+            <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+              Investing itself has undergone a <span className="text-[#C00000]">structural shift.</span>
+            </h3>
+            <p className="text-zinc-300 leading-relaxed text-sm md:text-base font-normal">
+              Platforms did more than open access to startups, real estate, and alternative assets. They created the infrastructure that made those opportunities easier to discover, evaluate, transact, manage, and understand.
+            </p>
+          </div>
+
+          {/* Subtle Decorative Light Trails */}
+          <div className="absolute right-0 top-0 w-1/2 h-full pointer-events-none opacity-30 hidden sm:flex flex-col justify-around overflow-hidden">
+            <div className="w-full h-px bg-gradient-to-r from-transparent via-[#C00000]/50 to-transparent transform -rotate-12 translate-x-10" />
+            <div className="w-full h-px bg-gradient-to-r from-transparent via-[#C00000]/70 to-transparent transform -rotate-12 translate-x-4" />
           </div>
         </div>
       </div>

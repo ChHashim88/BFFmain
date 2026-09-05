@@ -198,3 +198,16 @@
 .animate-border-spin {
   animation: borderSpin 6s linear infinite;
 }
+
+@keyframes svgDash {
+  0% {
+    stroke-dashoffset: 800;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-svg-dash {
+  animation: svgDash 5s linear infinite;
+}

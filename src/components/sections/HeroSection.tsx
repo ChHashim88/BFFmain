@@ -13,14 +13,27 @@ export function HeroSection() {
       <img
         src="/mobhero.png"
         alt="Hero Background Mobile"
+        loading="eager"
+        decoding="sync"
         className="block lg:hidden absolute inset-0 w-full h-full object-cover object-center opacity-30 dark:opacity-20 pointer-events-none z-0 [mask-image:linear-gradient(to_bottom,black_82%,transparent_100%)]"
       />
 
-      {/* Hero Background Image - Desktop (>= lg) */}
+      {/* Hero Background Image - Desktop Light Mode (>= lg) */}
       <img
         src="/herooo.png"
-        alt="Hero Background Desktop"
-        className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 h-[82%] max-h-[640px] w-auto object-contain pointer-events-none z-0 [mask-image:linear-gradient(to_bottom,black_65%,transparent_100%)]"
+        alt="Hero Background Desktop Light"
+        loading="eager"
+        decoding="sync"
+        className="hidden lg:block dark:hidden absolute inset-0 w-full h-full object-cover object-right pointer-events-none z-0 opacity-90 [mask-image:linear-gradient(to_bottom,black_75%,transparent_100%)]"
+      />
+
+      {/* Hero Background Image - Desktop Dark Mode (>= lg) */}
+      <img
+        src="/darkhe.PNG"
+        alt="Hero Background Desktop Dark"
+        loading="eager"
+        decoding="sync"
+        className="hidden dark:lg:block absolute inset-0 w-full h-full object-cover object-right pointer-events-none z-0 opacity-85 [mask-image:linear-gradient(to_bottom,black_75%,transparent_100%)]"
       />
 
       {/* Subtle Bottom Gradient Fade */}

@@ -2,57 +2,90 @@ export function ModelSection() {
   return (
     <section
       id="new-model"
-      className="relative w-full scroll-mt-24 bg-background py-16 md:py-20 lg:py-24 px-6 md:px-12 xl:px-24 flex flex-col justify-center"
+      className="relative w-full scroll-mt-24 bg-background py-14 md:py-18 lg:py-20 px-6 md:px-12 xl:px-24 flex flex-col justify-center"
     >
-      <div className="mx-auto w-full max-w-[1350px]">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          {/* Left Side - Text & Content */}
-          <div className="flex flex-col gap-6 order-2 lg:order-1 mt-8 lg:mt-0 lg:pr-8 xl:pr-16 text-center lg:text-left">
-            <div>
-              <h3 className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3">
-                THE BFF MODEL
-              </h3>
-              <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm">
-                A New Model For
-                <br />
-                <span className="text-destructive">Film Investing</span>
-              </h2>
-            </div>
+      <div className="mx-auto w-full max-w-[1400px] text-center flex flex-col items-center gap-8">
+        <div>
+          <h3 className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3">
+            THE BFF MODEL
+          </h3>
+          <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm">
+            A New Model For{" "}
+            <span className="text-destructive">Film Investing</span>
+          </h2>
+        </div>
 
-            <div className="flex flex-col gap-4 sm:gap-6 mt-2">
-              <div className="flex flex-col space-y-2 group bg-muted/40 dark:bg-muted/10 border border-border/50 p-5 sm:p-6 rounded-2xl lg:bg-transparent lg:border-transparent lg:p-0 lg:rounded-none transition-colors hover:bg-muted/60 dark:hover:bg-muted/20">
-                <span className="text-destructive text-label transition-transform duration-300 lg:group-hover:-translate-x-2">
-                  01
-                </span>
-                <p className="text-body-text text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
-                  Big Film Fund is building a platform designed to make film
-                  investing more accessible, and fundamentally, more
-                  investor-focused.
-                </p>
-              </div>
-              <div className="flex flex-col space-y-2 group bg-muted/40 dark:bg-muted/10 border border-border/50 p-5 sm:p-6 rounded-2xl lg:bg-transparent lg:border-transparent lg:p-0 lg:rounded-none transition-colors hover:bg-muted/60 dark:hover:bg-muted/20">
-                <span className="text-destructive text-label transition-transform duration-300 lg:group-hover:-translate-x-2">
-                  02
-                </span>
-                <p className="text-body-text text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
-                  In addition to opening the door to film investment
-                  opportunities for every day investors, BFF has designed a
-                  new model around a few clear principles.
-                </p>
-              </div>
+        {/* Both cards in ONE row on desktop (grid-cols-2) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 w-full max-w-[1350px] mx-auto text-left mt-2">
+          {/* Card 01 */}
+          <div className="relative w-full rounded-2xl bg-card/40 dark:bg-zinc-950/40 backdrop-blur-md px-6 py-4 sm:px-7 sm:py-5 border border-border/80 dark:border-zinc-800/80 shadow-md group overflow-hidden transition-all duration-300">
+            {/* Pixel-perfect Animated SVG Moving Red Border Beam */}
+            <svg
+              className="absolute inset-0 w-full h-full pointer-events-none rounded-2xl z-20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                x="1"
+                y="1"
+                rx="15"
+                ry="15"
+                fill="none"
+                stroke="#C00000"
+                strokeWidth="2"
+                strokeDasharray="160 700"
+                className="animate-svg-dash drop-shadow-[0_0_6px_rgba(192,0,0,0.8)]"
+                style={{
+                  width: "calc(100% - 2px)",
+                  height: "calc(100% - 2px)",
+                }}
+              />
+            </svg>
+
+            <div className="relative z-10 flex flex-row items-center gap-4 sm:gap-6 h-full">
+              <span className="text-destructive font-black text-2xl sm:text-3xl tracking-wider shrink-0 min-w-[36px]">
+                01
+              </span>
+              <p className="text-foreground/90 dark:text-zinc-200 font-normal leading-relaxed text-sm sm:text-base">
+                Big Film Fund is building a platform designed to make film
+                investing more accessible, and fundamentally, more
+                investor-focused.
+              </p>
             </div>
           </div>
 
-          {/* Right Side - Stacked Video Player */}
-          <div className="relative w-full aspect-[4/3] sm:aspect-video lg:aspect-[4/3] xl:aspect-[16/10] lg:ml-4 sm:ml-8 order-1 lg:order-2">
-            <div className="absolute inset-y-6 -left-6 w-full bg-zinc-200 dark:bg-zinc-900 border border-border/40 shadow-2xl z-0 hidden sm:block" />
-            <div className="absolute inset-y-3 -left-3 w-full bg-zinc-300 dark:bg-zinc-900 border border-border/50 shadow-2xl z-10 hidden sm:block" />
+          {/* Card 02 */}
+          <div className="relative w-full rounded-2xl bg-card/40 dark:bg-zinc-950/40 backdrop-blur-md px-6 py-4 sm:px-7 sm:py-5 border border-border/80 dark:border-zinc-800/80 shadow-md group overflow-hidden transition-all duration-300">
+            {/* Pixel-perfect Animated SVG Moving Red Border Beam */}
+            <svg
+              className="absolute inset-0 w-full h-full pointer-events-none rounded-2xl z-20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                x="1"
+                y="1"
+                rx="15"
+                ry="15"
+                fill="none"
+                stroke="#C00000"
+                strokeWidth="2"
+                strokeDasharray="160 700"
+                className="animate-svg-dash drop-shadow-[0_0_6px_rgba(192,0,0,0.8)]"
+                style={{
+                  width: "calc(100% - 2px)",
+                  height: "calc(100% - 2px)",
+                }}
+              />
+            </svg>
 
-            <div className="absolute inset-0 w-full h-full bg-zinc-100 dark:bg-zinc-950 border border-border shadow-2xl overflow-hidden z-20 flex items-center justify-center group transition-transform duration-500 hover:-translate-y-2 hover:translate-x-2">
-              <div className="absolute inset-0 bg-black/10 dark:bg-black/40 group-hover:bg-black/5 dark:group-hover:bg-black/10 transition-colors duration-500 z-10" />
-              <span className="text-2xl sm:text-4xl font-black tracking-[0.2em] text-foreground/40 dark:text-white/30 uppercase z-20 transition-transform duration-500 group-hover:scale-105">
-                Video Player
+            <div className="relative z-10 flex flex-row items-center gap-4 sm:gap-6 h-full">
+              <span className="text-destructive font-black text-2xl sm:text-3xl tracking-wider shrink-0 min-w-[36px]">
+                02
               </span>
+              <p className="text-foreground/90 dark:text-zinc-200 font-normal leading-relaxed text-sm sm:text-base">
+                In addition to opening the door to film investment
+                opportunities for everyday investors, BFF has designed a
+                new model around a few clear principles.
+              </p>
             </div>
           </div>
         </div>

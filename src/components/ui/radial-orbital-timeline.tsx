@@ -1,8 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import { ArrowRight, Link, Zap } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 interface TimelineItem {
@@ -376,53 +374,6 @@ export default function RadialOrbitalTimeline({
                     </CardHeader>
                     <CardContent className="text-xs text-foreground/80">
                       <p>{item.content}</p>
-
-                      <div className="mt-4 pt-3 border-t border-border">
-                        <div className="flex justify-between items-center text-xs mb-1">
-                          <span className="flex items-center">
-                            <Zap size={10} className="mr-1" />
-                            Energy Level
-                          </span>
-                          <span className="font-mono">{item.energy}%</span>
-                        </div>
-                        <div className="w-full h-1 bg-foreground/10 rounded-full overflow-hidden">
-                          <div
-                            className={`h-full ${c.bg}`}
-                            style={{ width: `${item.energy}%` }}
-                          ></div>
-                        </div>
-                      </div>
-
-                      {item.relatedIds.length > 0 && (
-                        <div className="mt-4 pt-3 border-t border-border">
-                          <div className="flex items-center mb-2">
-                            <Link size={10} className="text-muted-foreground mr-1" />
-                            <h4 className="text-xs uppercase tracking-wider font-medium text-muted-foreground">
-                              Connected Nodes
-                            </h4>
-                          </div>
-                          <div className="flex flex-wrap gap-1">
-                            {item.relatedIds.map((relatedId) => {
-                              const relatedItem = timelineData.find((i) => i.id === relatedId);
-                              return (
-                                <Button
-                                  key={relatedId}
-                                  variant="outline"
-                                  size="sm"
-                                  className={`flex items-center h-6 px-2 py-0 text-xs rounded-none ${c.border30} bg-transparent ${c.hoverBg5} text-foreground/80 ${c.hoverText} transition-all`}
-                                  onClick={(e) => {
-                                    e.stopPropagation();
-                                    toggleItem(relatedId);
-                                  }}
-                                >
-                                  {relatedItem?.title}
-                                  <ArrowRight size={8} className="ml-1 text-foreground/60" />
-                                </Button>
-                              );
-                            })}
-                          </div>
-                        </div>
-                      )}
                     </CardContent>
                   </Card>
                 )}

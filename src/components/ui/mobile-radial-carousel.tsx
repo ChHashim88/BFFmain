@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import { LucideIcon, ArrowRight, Zap } from "lucide-react";
+import { LucideIcon } from "lucide-react";
 
 interface TimelineItem {
   id: number;
@@ -303,68 +303,25 @@ export default function MobileRadialCarousel({ timelineData }: MobileRadialCarou
         </div>
 
         {/* PERFECT CIRCULAR CENTER SPHERE (rounded-full) */}
-        <div className="absolute inset-0 m-auto w-[190px] h-[190px] sm:w-[270px] sm:h-[270px] lg:w-[340px] lg:h-[340px] rounded-full bg-background/95 dark:bg-zinc-950/95 border border-border/80 shadow-2xl flex flex-col items-center justify-center p-2.5 sm:p-5 text-center z-20 backdrop-blur-xl transition-all duration-500 overflow-hidden">
+        <div className="absolute inset-0 m-auto w-[190px] h-[190px] sm:w-[270px] sm:h-[270px] lg:w-[340px] lg:h-[340px] rounded-full bg-background/95 dark:bg-zinc-950/95 border border-border/80 shadow-2xl flex flex-col items-center justify-center p-3 sm:p-6 text-center z-20 backdrop-blur-xl transition-all duration-500 overflow-hidden">
 
           {/* Top Icon */}
-          <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-destructive/10 border border-destructive/20 flex items-center justify-center text-destructive shrink-0 mb-0.5">
-            <ActiveIcon className="w-3 h-3 sm:w-4 sm:h-4 transition-transform duration-300" />
+          <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-destructive/10 border border-destructive/20 flex items-center justify-center text-destructive shrink-0 mb-1">
+            <ActiveIcon className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5 transition-transform duration-300" />
           </div>
 
-          {/* Category */}
-          <span className="text-[8px] sm:text-[10px] font-mono font-semibold text-destructive uppercase tracking-wider">
-            {activeData.category}
-          </span>
-
           {/* Title */}
-          <h4 className="text-[11px] sm:text-sm lg:text-base font-bold text-foreground tracking-tight leading-tight line-clamp-1 my-0.5">
+          <h4 className="text-xs sm:text-base lg:text-lg font-bold text-foreground tracking-tight leading-tight line-clamp-1 mb-1 sm:mb-1.5">
             {activeData.title}
           </h4>
 
-          {/* Compact Description */}
-          <p className="text-[8.5px] sm:text-xs text-muted-foreground leading-snug font-medium line-clamp-2 px-2 my-0.5 max-w-[92%]">
+          {/* Description */}
+          <p className="text-[9px] sm:text-xs text-muted-foreground leading-relaxed font-medium line-clamp-3 px-3 mb-2 sm:mb-3 max-w-[90%]">
             {activeData.description || activeData.content}
           </p>
 
-          {/* Compact Energy Level Bar */}
-          <div className="w-[80%] flex flex-col gap-0.5 mt-0.5 pt-0.5 border-t border-border/40">
-            <div className="flex justify-between items-center text-[8px] sm:text-[9px] font-mono text-muted-foreground px-1">
-              <span className="flex items-center gap-0.5 font-semibold text-foreground/80">
-                <Zap size={9} className="text-destructive" />
-                Energy
-              </span>
-              <span className="font-bold text-destructive">{activeData.energy}%</span>
-            </div>
-            <div className="w-full h-1 bg-zinc-200 dark:bg-zinc-800 rounded-full overflow-hidden">
-              <div
-                className="h-full bg-[#C00000] transition-all duration-500 rounded-full"
-                style={{ width: `${activeData.energy}%` }}
-              />
-            </div>
-          </div>
-
-          {/* Connected Nodes */}
-          {activeData.relatedIds.length > 0 && (
-            <div className="flex items-center justify-center gap-1 mt-0.5">
-              {activeData.relatedIds.map((relId) => {
-                const targetIdx = timelineData.findIndex((i) => i.id === relId);
-                const relItem = timelineData[targetIdx];
-                if (!relItem) return null;
-                return (
-                  <button
-                    key={relId}
-                    onClick={() => selectStep(targetIdx)}
-                    className="inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[7.5px] sm:text-[8px] font-medium rounded border border-border/60 bg-background/80 hover:bg-destructive/10 hover:text-destructive transition-colors cursor-pointer"
-                  >
-                    <span>{relItem.title}</span>
-                    <ArrowRight size={8} />
-                  </button>
-                );
-              })}
-            </div>
-          )}
-
           {/* Red Status Badge at the End/Bottom */}
-          <span className={`mt-0.5 px-2 py-0.5 text-[7.5px] sm:text-[9px] font-mono font-bold rounded-full border ${statusBadge.bg}`}>
+          <span className={`px-2.5 py-0.5 sm:px-3 sm:py-1 text-[8px] sm:text-[10px] font-mono font-bold rounded-full border ${statusBadge.bg}`}>
             {statusBadge.label}
           </span>
         </div>

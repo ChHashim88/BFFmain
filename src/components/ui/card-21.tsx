@@ -114,7 +114,7 @@ const DestinationCard = React.forwardRef<HTMLDivElement, DestinationCardProps>(
                 <h3 className="text-subtitle min-h-[56px] mb-4 drop-shadow-md">
                   {readMoreContent.title}
                 </h3>
-                <div className="text-body-text text-white/95 mt-3 space-y-4">
+                <div className="text-[12px] text-white/95 mt-3 space-y-3 leading-relaxed">
                   {readMoreContent.description}
                 </div>
 

@@ -21,7 +21,7 @@ interface NavLink {
 
 const navLinks: NavLink[] = [
   { label: "Solution", href: "#problem", id: "problem" },
-  { label: "BFF Model", href: "#new-model", id: "new-model" },
+  { label: "The BFF Model", href: "#new-model", id: "new-model" },
   { label: "Platform", href: "#platform", id: "platform" },
   { label: "Opportunity", href: "#opportunity", id: "opportunity" },
   { label: "How We Make Money", href: "#revenue", id: "revenue" },
@@ -37,12 +37,9 @@ export function Navbar() {
   const [activeSection, setActiveSection] = useState<string>("");
 
   useEffect(() => {
-    const allIds = [
+    const sectionIds = [
       "problem",
       "new-model",
-      "clean-picture",
-      "no-back",
-      "discipline",
       "platform",
       "opportunity",
       "revenue",
@@ -52,23 +49,26 @@ export function Navbar() {
       "contact",
     ];
 
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + 220;
-      for (let i = allIds.length - 1; i >= 0; i--) {
-        const el = document.getElementById(allIds[i]);
-        if (el) {
-          const top = el.offsetTop;
-          if (scrollPosition >= top) {
-            setActiveSection(allIds[i]);
-            break;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
           }
-        }
+        });
+      },
+      {
+        rootMargin: "-15% 0px -50% 0px",
+        threshold: 0,
       }
-    };
+    );
 
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
   }, []);
 
   const handleLinkClick = (targetId: string) => {
@@ -97,6 +97,7 @@ export function Navbar() {
             <img
               src="/images/1212.png"
               alt="BFF Logo"
+              decoding="async"
               className="h-12 sm:h-14 w-auto lg:h-16 scale-[1.25] sm:scale-[1.35] lg:scale-[1.5] origin-left transition-transform duration-300 pointer-events-auto"
             />
           </a>
@@ -111,9 +112,8 @@ export function Navbar() {
                 <li key={link.label} className="group relative">
                   {link.dropdown ? (
                     <div
-                      className={`flex cursor-pointer items-center gap-1 py-4 transition-colors duration-150 relative ${
-                        active ? "text-destructive font-semibold" : "hover:text-destructive group-hover:text-destructive"
-                      }`}
+                      className={`flex cursor-pointer items-center gap-1 py-4 transition-colors duration-150 relative ${active ? "text-destructive font-bold" : "hover:text-destructive group-hover:text-destructive"
+                        }`}
                     >
                       <a
                         href={link.href}
@@ -125,8 +125,8 @@ export function Navbar() {
                       <ChevronDown size={12} />
                       {active && (
                         <motion.span
-                          layoutId="activeDot"
-                          className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-destructive shadow-[0_0_8px_rgba(239,68,68,0.8)]"
+                          layoutId="activeUnderline"
+                          className="absolute bottom-1 left-0 right-0 h-[2px] rounded-full bg-destructive shadow-[0_0_8px_rgba(239,68,68,0.8)]"
                         />
                       )}
 
@@ -139,11 +139,10 @@ export function Navbar() {
                               key={sublink.label}
                               href={sublink.href}
                               onClick={() => handleLinkClick(sublink.id)}
-                              className={`px-3 py-2.5 text-xs transition-colors duration-150 rounded-lg ${
-                                subActive
-                                  ? "bg-destructive/15 text-destructive font-semibold"
-                                  : "text-muted-foreground hover:bg-muted hover:text-destructive"
-                              }`}
+                              className={`px-3 py-2.5 text-xs transition-colors duration-150 rounded-lg ${subActive
+                                ? "bg-destructive/15 text-destructive font-semibold"
+                                : "text-muted-foreground hover:bg-muted hover:text-destructive"
+                                }`}
                             >
                               {sublink.label}
                             </a>
@@ -155,15 +154,14 @@ export function Navbar() {
                     <a
                       href={link.href}
                       onClick={() => handleLinkClick(link.id)}
-                      className={`block py-4 transition-colors duration-150 relative ${
-                        active ? "text-destructive font-semibold" : "hover:text-destructive"
-                      }`}
+                      className={`block py-4 transition-colors duration-150 relative ${active ? "text-destructive font-bold" : "hover:text-destructive"
+                        }`}
                     >
                       {link.label}
                       {active && (
                         <motion.span
-                          layoutId="activeDot"
-                          className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-destructive shadow-[0_0_8px_rgba(239,68,68,0.8)]"
+                          layoutId="activeUnderline"
+                          className="absolute bottom-1 left-0 right-0 h-[2px] rounded-full bg-destructive shadow-[0_0_8px_rgba(239,68,68,0.8)]"
                         />
                       )}
                     </a>
@@ -214,11 +212,10 @@ export function Navbar() {
                       <div>
                         <button
                           onClick={() => setMobileModelDropdown(!mobileModelDropdown)}
-                          className={`w-full flex items-center justify-between py-2 px-3 text-sm font-semibold transition-colors rounded-xl ${
-                            active
-                              ? "text-destructive bg-destructive/10"
-                              : "text-foreground hover:text-destructive hover:bg-muted/40"
-                          }`}
+                          className={`w-full flex items-center justify-between py-2 px-3 text-sm font-semibold transition-colors rounded-xl ${active
+                            ? "text-destructive bg-destructive/10"
+                            : "text-foreground hover:text-destructive hover:bg-muted/40"
+                            }`}
                         >
                           <span className="flex items-center gap-2">
                             {active && <span className="w-2 h-2 rounded-full bg-destructive" />}
@@ -239,11 +236,10 @@ export function Navbar() {
                                   key={sublink.label}
                                   href={sublink.href}
                                   onClick={() => handleLinkClick(sublink.id)}
-                                  className={`block py-1.5 px-3 text-xs transition-colors rounded-lg ${
-                                    subActive
-                                      ? "text-destructive font-semibold bg-destructive/15"
-                                      : "text-muted-foreground hover:text-destructive hover:bg-muted/30"
-                                  }`}
+                                  className={`block py-1.5 px-3 text-xs transition-colors rounded-lg ${subActive
+                                    ? "text-destructive font-semibold bg-destructive/15"
+                                    : "text-muted-foreground hover:text-destructive hover:bg-muted/30"
+                                    }`}
                                 >
                                   {sublink.label}
                                 </a>
@@ -256,11 +252,10 @@ export function Navbar() {
                       <a
                         href={link.href}
                         onClick={() => handleLinkClick(link.id)}
-                        className={`flex items-center justify-between py-2.5 px-3 text-sm font-semibold transition-colors rounded-xl ${
-                          active
-                            ? "text-destructive bg-destructive/10"
-                            : "text-foreground hover:text-destructive hover:bg-muted/40"
-                        }`}
+                        className={`flex items-center justify-between py-2.5 px-3 text-sm font-semibold transition-colors rounded-xl ${active
+                          ? "text-destructive bg-destructive/10"
+                          : "text-foreground hover:text-destructive hover:bg-muted/40"
+                          }`}
                       >
                         <span className="flex items-center gap-2">
                           {active && <span className="w-2 h-2 rounded-full bg-destructive" />}
