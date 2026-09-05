@@ -1,6 +1,7 @@
 "use client";
 
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
+import MobileRadialCarousel from "@/components/ui/mobile-radial-carousel";
 import {
   Search,
   FileText,
@@ -109,9 +110,17 @@ export function TimelineSection() {
           </div>
         </div>
 
-        {/* Right side orbital */}
-        <div className="relative w-full h-[500px] flex items-center justify-center order-1 lg:order-2">
-          <RadialOrbitalTimeline timelineData={opportunityTimelineData} />
+        {/* Right side circle system */}
+        <div className="relative w-full flex items-center justify-center order-1 lg:order-2">
+          {/* Desktop Version: Unchanged Radial Orbital Timeline */}
+          <div className="hidden lg:flex w-full h-[500px] items-center justify-center">
+            <RadialOrbitalTimeline timelineData={opportunityTimelineData} />
+          </div>
+
+          {/* Mobile Version: 6-Step Radial Carousel System */}
+          <div className="block lg:hidden w-full">
+            <MobileRadialCarousel timelineData={opportunityTimelineData} />
+          </div>
         </div>
       </div>
     </section>
