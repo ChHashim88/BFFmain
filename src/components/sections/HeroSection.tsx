@@ -81,15 +81,15 @@ export function HeroSection() {
           </div>
 
           {/* Callout box / Feature point */}
-          <div className="hidden lg:flex items-start gap-3.5 border border-border/80 bg-white/80 backdrop-blur-md p-4 shadow-sm">
-            <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 text-destructive">
+          <div className="hidden lg:flex items-start gap-3.5 border border-border/80 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md p-4 shadow-sm rounded-xl">
+            <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 text-destructive rounded-md">
               <Check size={12} strokeWidth={3.5} />
             </div>
             <div>
-              <p className="text-body-text font-bold text-foreground">
+              <p className="text-base font-bold text-foreground">
                 No more opaque Hollywood economics.
               </p>
-              <p className="text-label text-muted-foreground mt-0.5">
+              <p className="text-sm text-muted-foreground mt-0.5">
                 This is an opportunity to own part of the company building that
                 future.
               </p>
