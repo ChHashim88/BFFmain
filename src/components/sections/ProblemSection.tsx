@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { useState, useRef } from "react";
+import { ChevronDown, Play } from "lucide-react";
 
 interface ProblemPointProps {
   number: string;
@@ -38,6 +38,16 @@ function ProblemPointItem({ number, shortText, fullText }: ProblemPointProps) {
 }
 
 export function ProblemSection() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handlePlay = () => {
+    if (videoRef.current) {
+      videoRef.current.play();
+      setIsPlaying(true);
+    }
+  };
+
   return (
     <section
       id="problem"
@@ -81,11 +91,30 @@ export function ProblemSection() {
               <div className="absolute inset-y-6 -left-6 w-full bg-zinc-200 dark:bg-zinc-900 border border-border/40 shadow-2xl z-0 hidden sm:block" />
               <div className="absolute inset-y-3 -left-3 w-full bg-zinc-300 dark:bg-zinc-900 border border-border/50 shadow-2xl z-10 hidden sm:block" />
 
-              <div className="absolute inset-0 w-full h-full bg-zinc-100 dark:bg-zinc-950 border border-border shadow-2xl overflow-hidden z-20 flex items-center justify-center group transition-transform duration-500 hover:-translate-y-2 hover:translate-x-2">
-                <div className="absolute inset-0 bg-black/10 dark:bg-black/40 group-hover:bg-black/5 dark:group-hover:bg-black/10 transition-colors duration-500 z-10" />
-                <span className="text-2xl sm:text-4xl font-black tracking-[0.2em] text-foreground/40 dark:text-white/30 uppercase z-20 transition-transform duration-500 group-hover:scale-105">
-                  Video Player
-                </span>
+              <div className="absolute inset-0 w-full h-full bg-zinc-100 dark:bg-zinc-950 border border-border shadow-2xl overflow-hidden z-20 group transition-transform duration-500 hover:-translate-y-2 hover:translate-x-2">
+                <video
+                  ref={videoRef}
+                  src="https://www.dropbox.com/scl/fo/fr0i9s0r31wvmmwctfvf3/ACgQM7ywKfShxxLvdVhG4sw?dl=1&e=1&preview=bff_promo_1_introduction_alt_disco_song_v1.mp4&rlkey=d1069gkyon7op9goc3htz7340&st=jocnlbtx"
+                  poster="/ts.png"
+                  controls={isPlaying}
+                  preload="metadata"
+                  onPlay={() => setIsPlaying(true)}
+                  onPause={() => setIsPlaying(false)}
+                  onEnded={() => setIsPlaying(false)}
+                  className="w-full h-full object-cover"
+                />
+
+                {!isPlaying && (
+                  <div
+                    onClick={handlePlay}
+                    className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center cursor-pointer z-30"
+                  >
+                    {/* YouTube-style Play Button */}
+                    <div className="w-20 h-14 sm:w-24 sm:h-16 bg-red-600 hover:bg-red-700 active:scale-95 transition-all duration-300 rounded-2xl flex items-center justify-center shadow-2xl group-hover:scale-110">
+                      <Play className="w-8 h-8 sm:w-10 sm:h-10 text-white fill-white translate-x-0.5" />
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -94,3 +123,4 @@ export function ProblemSection() {
     </section>
   );
 }
+
