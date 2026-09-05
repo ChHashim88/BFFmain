@@ -23,8 +23,8 @@ export function HeroSection() {
         className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 h-[82%] max-h-[640px] w-auto object-contain pointer-events-none z-0 [mask-image:linear-gradient(to_bottom,black_65%,transparent_100%)]"
       />
 
-      {/* Subtle Bottom Gradient Fade */}
-      <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none z-[1]" />
+      {/* Subtle Bottom Gradient Fade - Desktop Only */}
+      <div className="hidden lg:block absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none z-[1]" />
 
       <div className="relative z-10 mx-auto grid w-full max-w-[1350px] items-center gap-12 lg:grid-cols-2">
         <div className="z-10 flex flex-col items-center justify-center space-y-6 text-center max-w-2xl mx-auto lg:mx-0 lg:items-start lg:text-left opacity-100">
