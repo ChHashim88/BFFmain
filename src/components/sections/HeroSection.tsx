@@ -13,7 +13,7 @@ export function HeroSection() {
       <img
         src="/mobhero.png"
         alt="Hero Background Mobile"
-        className="block lg:hidden absolute top-16 bottom-0 left-0 right-0 w-full h-[calc(100%-4rem)] object-cover object-top opacity-35 dark:opacity-25 pointer-events-none z-0 [mask-image:linear-gradient(to_bottom,black_60%,transparent_100%)]"
+        className="block lg:hidden absolute inset-0 w-full h-full object-cover object-center opacity-30 dark:opacity-20 pointer-events-none z-0"
       />
 
       {/* Hero Background Image - Desktop (>= lg) */}
