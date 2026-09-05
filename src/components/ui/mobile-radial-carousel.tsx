@@ -162,7 +162,7 @@ export default function MobileRadialCarousel({ timelineData }: MobileRadialCarou
       </div>
 
       {/* Main Radial System Container */}
-      <div className="relative w-full max-w-[340px] aspect-square flex items-center justify-center">
+      <div className="relative w-full max-w-[340px] sm:max-w-[420px] lg:max-w-[460px] aspect-square flex items-center justify-center">
         {/* SVG Track & Arcs */}
         <svg
           viewBox={`0 0 ${size} ${size}`}
@@ -214,16 +214,16 @@ export default function MobileRadialCarousel({ timelineData }: MobileRadialCarou
         </svg>
 
         {/* Center Active Content Card */}
-        <div className="absolute inset-0 m-auto w-[170px] h-[170px] rounded-full bg-background/95 dark:bg-zinc-950/95 border border-border/80 shadow-2xl flex flex-col items-center justify-center p-3 text-center z-20 backdrop-blur-md transition-all duration-500">
-          <div className="w-10 h-10 rounded-full bg-destructive/10 border border-destructive/20 flex items-center justify-center mb-1 text-destructive">
-            <ActiveIcon size={20} className="animate-pulse" />
+        <div className="absolute inset-0 m-auto w-[170px] h-[170px] sm:w-[210px] sm:h-[210px] lg:w-[230px] lg:h-[230px] rounded-full bg-background/95 dark:bg-zinc-950/95 border border-border/80 shadow-2xl flex flex-col items-center justify-center p-3 sm:p-5 text-center z-20 backdrop-blur-md transition-all duration-500">
+          <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-full bg-destructive/10 border border-destructive/20 flex items-center justify-center mb-1 text-destructive">
+            <ActiveIcon className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 animate-pulse" />
           </div>
 
-          <h4 className="text-sm font-bold text-foreground leading-snug line-clamp-2 px-1">
+          <h4 className="text-sm sm:text-base lg:text-lg font-bold text-foreground leading-snug line-clamp-2 px-1">
             {activeData.title}
           </h4>
 
-          <span className="text-[10px] font-mono font-medium text-destructive mt-1 uppercase tracking-wider">
+          <span className="text-[10px] sm:text-xs font-mono font-semibold text-destructive mt-1 uppercase tracking-wider">
             {activeData.category}
           </span>
         </div>
@@ -253,18 +253,18 @@ export default function MobileRadialCarousel({ timelineData }: MobileRadialCarou
             >
               {/* Node Outer Circle */}
               <div
-                className={`w-11 h-11 rounded-full flex items-center justify-center transition-all duration-300 shadow-md ${
+                className={`w-11 h-11 sm:w-13 sm:h-13 lg:w-14 lg:h-14 rounded-full flex items-center justify-center transition-all duration-300 shadow-md ${
                   isActive
-                    ? "bg-[#C00000] text-white shadow-[0_0_18px_rgba(192,0,0,0.6)] border-2 border-white/40 ring-4 ring-[#C00000]/20"
+                    ? "bg-[#C00000] text-white shadow-[0_0_22px_rgba(192,0,0,0.6)] border-2 border-white/40 ring-4 ring-[#C00000]/20"
                     : "bg-white dark:bg-zinc-900 text-foreground/80 dark:text-white/80 border border-border hover:border-destructive/50"
                 }`}
               >
-                <ItemIcon size={18} />
+                <ItemIcon className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
               </div>
 
               {/* Step Number Tag */}
               <span
-                className={`absolute -bottom-4 text-[10px] font-mono font-bold tracking-tight px-1 rounded ${
+                className={`absolute -bottom-4 sm:-bottom-5 text-[10px] sm:text-xs font-mono font-bold tracking-tight px-1 rounded ${
                   isActive
                     ? "text-destructive font-extrabold scale-110"
                     : "text-muted-foreground"
@@ -278,8 +278,8 @@ export default function MobileRadialCarousel({ timelineData }: MobileRadialCarou
       </div>
 
       {/* Description text right below radial system */}
-      <div className="mt-8 text-center max-w-[280px] px-2 min-h-[54px] flex items-center justify-center">
-        <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed transition-opacity duration-300">
+      <div className="mt-8 text-center max-w-[280px] sm:max-w-[380px] lg:max-w-[420px] px-2 min-h-[54px] flex items-center justify-center">
+        <p className="text-xs sm:text-sm lg:text-base text-muted-foreground leading-relaxed transition-opacity duration-300">
           {activeData.content}
         </p>
       </div>
@@ -293,8 +293,8 @@ export default function MobileRadialCarousel({ timelineData }: MobileRadialCarou
             aria-label={`Go to slide ${index + 1}`}
             className={`h-2 rounded-full transition-all duration-300 ${
               index === activeIndex
-                ? "w-6 bg-[#C00000]"
-                : "w-2 bg-zinc-300 dark:bg-zinc-700 hover:bg-zinc-400"
+                ? "w-6 sm:w-8 bg-[#C00000]"
+                : "w-2 sm:w-2.5 bg-zinc-300 dark:bg-zinc-700 hover:bg-zinc-400"
             }`}
           />
         ))}
