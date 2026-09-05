@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import { LucideIcon } from "lucide-react";
+import { LucideIcon, ArrowRight, Zap } from "lucide-react";
 
 interface TimelineItem {
   id: number;
@@ -20,10 +20,9 @@ interface MobileRadialCarouselProps {
   timelineData: TimelineItem[];
 }
 
-const AUTO_PLAY_INTERVAL = 4000; // 4 seconds
+const AUTO_PLAY_INTERVAL = 4000; // 4 seconds per step
 
 export default function MobileRadialCarousel({ timelineData }: MobileRadialCarouselProps) {
-  // continuous step counter so wheel rotates continuously forward without unwinding
   const [stepCounter, setStepCounter] = useState(0);
   const [progress, setProgress] = useState(0);
   const [isInView, setIsInView] = useState(false);
@@ -37,12 +36,11 @@ export default function MobileRadialCarousel({ timelineData }: MobileRadialCarou
   const touchStartY = useRef<number | null>(null);
 
   const totalSteps = timelineData.length;
-  // Calculate current active index (0 to 5)
   const activeIndex = ((stepCounter % totalSteps) + totalSteps) % totalSteps;
   const activeData = timelineData[activeIndex];
   const ActiveIcon = activeData.icon;
 
-  // IntersectionObserver to run autoplay only when visible
+  // IntersectionObserver to pause when off screen
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
@@ -75,7 +73,6 @@ export default function MobileRadialCarousel({ timelineData }: MobileRadialCarou
       setStepCounter((prev) => {
         const currentIdx = ((prev % totalSteps) + totalSteps) % totalSteps;
         let diff = targetIndex - currentIdx;
-        // Take shortest rotational direction
         if (diff > totalSteps / 2) diff -= totalSteps;
         if (diff < -totalSteps / 2) diff += totalSteps;
         return prev + diff;
@@ -83,15 +80,14 @@ export default function MobileRadialCarousel({ timelineData }: MobileRadialCarou
       setProgress(0);
       startTimeRef.current = performance.now();
 
-      // Pause briefly on manual tap
       setIsPaused(true);
       if (pauseTimerRef.current) clearTimeout(pauseTimerRef.current);
-      pauseTimerRef.current = setTimeout(() => setIsPaused(false), 3000);
+      pauseTimerRef.current = setTimeout(() => setIsPaused(false), 3500);
     },
     [totalSteps]
   );
 
-  // Smooth arc progress fill timer loop
+  // Smooth arc progress animation loop
   useEffect(() => {
     if (!isInView || isPaused) {
       if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
@@ -144,25 +140,38 @@ export default function MobileRadialCarousel({ timelineData }: MobileRadialCarou
       }
       setIsPaused(true);
       if (pauseTimerRef.current) clearTimeout(pauseTimerRef.current);
-      pauseTimerRef.current = setTimeout(() => setIsPaused(false), 3000);
+      pauseTimerRef.current = setTimeout(() => setIsPaused(false), 3500);
     }
 
     touchStartX.current = null;
     touchStartY.current = null;
   };
 
-  // Wheel rotation angle: rotate wheel so active step stays at top (0 deg)
+  // Continuous wheel rotation angle
   const wheelRotationAngle = -stepCounter * (360 / totalSteps);
 
-  // SVG Geometry
-  const size = 320;
-  const center = size / 2;
-  const radius = 115;
-  const strokeWidth = 5;
-  const gapDegree = 6;
+  // SVG Geometry for Large Radial Orbit
+  const size = 500;
+  const center = size / 2; // 250
+  const radius = 185;
+  const strokeWidth = 1.5;
+  const gapDegree = 8;
   const segmentDegree = 360 / totalSteps;
   const arcLength = ((segmentDegree - gapDegree) / 360) * (2 * Math.PI * radius);
   const totalCircumference = 2 * Math.PI * radius;
+
+  const getStatusBadge = (status: TimelineItem["status"]) => {
+    switch (status) {
+      case "completed":
+        return { label: "COMPLETED", bg: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20" };
+      case "in-progress":
+        return { label: "IN PROGRESS", bg: "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20" };
+      default:
+        return { label: "PENDING", bg: "bg-zinc-500/10 text-zinc-500 border-zinc-500/20" };
+    }
+  };
+
+  const statusBadge = getStatusBadge(activeData.status);
 
   return (
     <div
@@ -171,21 +180,15 @@ export default function MobileRadialCarousel({ timelineData }: MobileRadialCarou
       onTouchEnd={handleTouchEnd}
       className="w-full flex flex-col items-center justify-center py-4 px-2 select-none"
     >
-      {/* Top Header Badge */}
-      <div className="mb-4 flex items-center gap-2 px-3.5 py-1 rounded-full bg-destructive/10 border border-destructive/25 text-destructive text-xs font-bold tracking-wider uppercase shadow-sm">
-        <span className="w-2 h-2 rounded-full bg-destructive animate-ping" />
-        <span>Step 0{activeData.id} of 0{totalSteps}</span>
-      </div>
-
-      {/* Main Radial System Container */}
-      <div className="relative w-full max-w-[340px] sm:max-w-[420px] lg:max-w-[460px] aspect-square flex items-center justify-center">
+      {/* Radial System Container */}
+      <div className="relative w-full max-w-[420px] sm:max-w-[540px] lg:max-w-[620px] aspect-square flex items-center justify-center">
         
         {/* Rotating Wheel Group (SVG Track + Outer Nodes) */}
         <div
-          className="absolute inset-0 w-full h-full transition-transform duration-700 ease-in-out"
+          className="absolute inset-0 w-full h-full transition-transform duration-700 cubic-bezier(0.4, 0, 0.2, 1)"
           style={{ transform: `rotate(${wheelRotationAngle}deg)` }}
         >
-          {/* SVG Arcs */}
+          {/* SVG Arcs - Thin Minimalist Lines */}
           <svg
             viewBox={`0 0 ${size} ${size}`}
             className="w-full h-full transform -rotate-90"
@@ -201,18 +204,18 @@ export default function MobileRadialCarousel({ timelineData }: MobileRadialCarou
 
               return (
                 <g key={index}>
-                  {/* Base Track Segment */}
+                  {/* Thin Base Track Segment */}
                   <circle
                     cx={center}
                     cy={center}
                     r={radius}
                     fill="none"
-                    stroke={isActive ? "rgba(192, 0, 0, 0.3)" : "currentColor"}
+                    stroke={isActive ? "rgba(192, 0, 0, 0.4)" : "currentColor"}
                     strokeWidth={strokeWidth}
                     strokeDasharray={strokeDasharray}
                     strokeLinecap="round"
                     transform={`rotate(${rotationOffset} ${center} ${center})`}
-                    className={isActive ? "" : "text-zinc-200 dark:text-zinc-800"}
+                    className={isActive ? "" : "text-zinc-200 dark:text-zinc-800/80"}
                   />
 
                   {/* Active Segment Arc Fill */}
@@ -223,11 +226,11 @@ export default function MobileRadialCarousel({ timelineData }: MobileRadialCarou
                       r={radius}
                       fill="none"
                       stroke="#C00000"
-                      strokeWidth={strokeWidth + 2}
+                      strokeWidth={strokeWidth + 1.5}
                       strokeDasharray={activeDasharray}
                       strokeLinecap="round"
                       transform={`rotate(${rotationOffset} ${center} ${center})`}
-                      className="transition-all duration-75 drop-shadow-[0_0_8px_rgba(192,0,0,0.8)]"
+                      className="transition-all duration-75"
                     />
                   )}
                 </g>
@@ -237,7 +240,7 @@ export default function MobileRadialCarousel({ timelineData }: MobileRadialCarou
 
           {/* 6 Outer Radial Nodes */}
           {timelineData.map((item, index) => {
-            const angleDeg = index * segmentDegree - 90; // Top position is 0 index
+            const angleDeg = index * segmentDegree - 90;
             const angleRad = (angleDeg * Math.PI) / 180;
             const x = center + radius * Math.cos(angleRad);
             const y = center + radius * Math.sin(angleRad);
@@ -248,79 +251,114 @@ export default function MobileRadialCarousel({ timelineData }: MobileRadialCarou
               <button
                 key={item.id}
                 onClick={() => selectStep(index)}
-                aria-label={`View step ${item.id}: ${item.title}`}
+                aria-label={`View step: ${item.title}`}
                 style={{
                   left: `${(x / size) * 100}%`,
                   top: `${(y / size) * 100}%`,
                 }}
                 className={`absolute -translate-x-1/2 -translate-y-1/2 group flex items-center justify-center transition-all duration-500 z-30 cursor-pointer ${
-                  isActive ? "scale-115 z-40" : "scale-95 opacity-75 hover:opacity-100"
+                  isActive ? "scale-110 z-40" : "scale-95 opacity-70 hover:opacity-100"
                 }`}
               >
-                {/* Counter-rotate inner content so icons & text stay perfectly upright! */}
+                {/* Counter-rotate inner content so icons remain upright */}
                 <div
-                  className="flex flex-col items-center justify-center transition-transform duration-700 ease-in-out"
+                  className="flex items-center justify-center transition-transform duration-700 cubic-bezier(0.4, 0, 0.2, 1)"
                   style={{ transform: `rotate(${-wheelRotationAngle}deg)` }}
                 >
                   <div
-                    className={`w-11 h-11 sm:w-13 sm:h-13 lg:w-14 lg:h-14 rounded-full flex items-center justify-center transition-all duration-300 shadow-md ${
+                    className={`w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-full flex items-center justify-center transition-all duration-300 ${
                       isActive
-                        ? "bg-[#C00000] text-white shadow-[0_0_24px_rgba(192,0,0,0.7)] border-2 border-white ring-4 ring-[#C00000]/25 scale-110"
-                        : "bg-white dark:bg-zinc-900 text-foreground/80 dark:text-white/80 border border-border hover:border-destructive/50"
+                        ? "bg-[#C00000] text-white border-2 border-white shadow-lg scale-105"
+                        : "bg-white dark:bg-zinc-900 text-foreground/75 dark:text-white/75 border border-border hover:border-destructive/50"
                     }`}
                   >
-                    <ItemIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+                    <ItemIcon className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7" />
                   </div>
-
-                  <span
-                    className={`mt-1 text-[10px] sm:text-xs font-mono font-bold tracking-tight px-1.5 py-0.5 rounded-full transition-colors ${
-                      isActive
-                        ? "bg-destructive text-white font-extrabold shadow-sm"
-                        : "text-muted-foreground bg-background/80 dark:bg-zinc-900/80 border border-border/50"
-                    }`}
-                  >
-                    0{item.id}
-                  </span>
                 </div>
               </button>
             );
           })}
         </div>
 
-        {/* Center Active Content Display Card */}
-        <div className="absolute inset-0 m-auto w-[180px] h-[180px] sm:w-[220px] sm:h-[220px] lg:w-[240px] lg:h-[240px] rounded-full bg-background/95 dark:bg-zinc-950/95 border-2 border-destructive/40 shadow-[0_0_30px_rgba(192,0,0,0.15)] flex flex-col items-center justify-center p-4 sm:p-6 text-center z-20 backdrop-blur-xl transition-all duration-500">
-          <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-full bg-destructive/10 border border-destructive/30 flex items-center justify-center mb-1.5 text-destructive shadow-inner">
-            <ActiveIcon className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 animate-pulse" />
+        {/* PERFECT CIRCULAR CENTER SPHERE (rounded-full with compact scaled content & zero overflow) */}
+        <div className="absolute inset-0 m-auto w-[240px] h-[240px] sm:w-[300px] sm:h-[300px] lg:w-[340px] lg:h-[340px] rounded-full bg-background/95 dark:bg-zinc-950/95 border border-border/80 shadow-2xl flex flex-col items-center justify-center p-3 sm:p-5 text-center z-20 backdrop-blur-xl transition-all duration-500 overflow-hidden">
+          
+          {/* Status Badge */}
+          <span className={`px-2 py-0.5 text-[8px] sm:text-[9px] font-mono font-bold rounded-full border mb-1 ${statusBadge.bg}`}>
+            {statusBadge.label}
+          </span>
+
+          {/* Icon */}
+          <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-destructive/10 border border-destructive/20 flex items-center justify-center text-destructive shrink-0 mb-0.5">
+            <ActiveIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-300" />
           </div>
 
-          <h4 className="text-base sm:text-lg lg:text-xl font-black text-foreground tracking-tight leading-snug line-clamp-1">
+          {/* Category */}
+          <span className="text-[9px] sm:text-[10px] font-mono font-semibold text-destructive uppercase tracking-wider">
+            {activeData.category}
+          </span>
+
+          {/* Title */}
+          <h4 className="text-xs sm:text-sm lg:text-base font-bold text-foreground tracking-tight leading-tight line-clamp-1 my-0.5">
             {activeData.title}
           </h4>
 
-          <span className="text-[10px] sm:text-xs font-mono font-bold text-destructive mt-1 uppercase tracking-widest bg-destructive/10 px-2 py-0.5 rounded-full border border-destructive/20">
-            {activeData.category}
-          </span>
+          {/* Compact Description tailored for circular fit */}
+          <p className="text-[10px] sm:text-xs text-muted-foreground leading-snug font-medium line-clamp-2 px-3 my-0.5 max-w-[92%]">
+            {activeData.description || activeData.content}
+          </p>
+
+          {/* Compact Energy Level Bar */}
+          <div className="w-[85%] flex flex-col gap-0.5 mt-1 pt-1 border-t border-border/40">
+            <div className="flex justify-between items-center text-[9px] font-mono text-muted-foreground px-1">
+              <span className="flex items-center gap-1 font-semibold text-foreground/80">
+                <Zap size={10} className="text-destructive" />
+                Energy
+              </span>
+              <span className="font-bold text-destructive">{activeData.energy}%</span>
+            </div>
+            <div className="w-full h-1 bg-zinc-200 dark:bg-zinc-800 rounded-full overflow-hidden">
+              <div
+                className="h-full bg-[#C00000] transition-all duration-500 rounded-full"
+                style={{ width: `${activeData.energy}%` }}
+              />
+            </div>
+          </div>
+
+          {/* Connected Nodes */}
+          {activeData.relatedIds.length > 0 && (
+            <div className="flex items-center justify-center gap-1 mt-1">
+              {activeData.relatedIds.map((relId) => {
+                const targetIdx = timelineData.findIndex((i) => i.id === relId);
+                const relItem = timelineData[targetIdx];
+                if (!relItem) return null;
+                return (
+                  <button
+                    key={relId}
+                    onClick={() => selectStep(targetIdx)}
+                    className="inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[8px] font-medium rounded border border-border/60 bg-background/80 hover:bg-destructive/10 hover:text-destructive transition-colors cursor-pointer"
+                  >
+                    <span>{relItem.title}</span>
+                    <ArrowRight size={8} />
+                  </button>
+                );
+              })}
+            </div>
+          )}
         </div>
       </div>
 
-      {/* Rich Description Box below Radial Wheel */}
-      <div className="mt-8 text-center max-w-[320px] sm:max-w-[400px] lg:max-w-[460px] px-4 min-h-[64px] flex items-center justify-center bg-muted/30 dark:bg-muted/10 border border-border/60 p-4 rounded-2xl shadow-sm transition-all duration-500">
-        <p className="text-xs sm:text-sm lg:text-base text-foreground/90 leading-relaxed transition-opacity duration-300 font-medium">
-          {activeData.description || activeData.content}
-        </p>
-      </div>
-
-      {/* 6 Step Dot Navigation Indicator */}
-      <div className="flex items-center justify-center gap-2 mt-5">
+      {/* Modern Minimalist Dot Indicator */}
+      <div className="flex items-center justify-center gap-2 mt-6">
         {timelineData.map((_, index) => (
           <button
             key={index}
             onClick={() => selectStep(index)}
             aria-label={`Go to step ${index + 1}`}
-            className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
+            className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
               index === activeIndex
-                ? "w-7 sm:w-9 bg-[#C00000] shadow-[0_0_10px_rgba(192,0,0,0.5)]"
-                : "w-2.5 bg-zinc-300 dark:bg-zinc-700 hover:bg-zinc-400 dark:hover:bg-zinc-600"
+                ? "w-6 bg-[#C00000]"
+                : "w-2 bg-zinc-300 dark:bg-zinc-700 hover:bg-zinc-400 dark:hover:bg-zinc-600"
             }`}
           />
         ))}

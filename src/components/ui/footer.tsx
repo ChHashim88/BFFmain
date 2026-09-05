@@ -93,18 +93,7 @@ export default function Footer() {
             <span className="font-black text-xl tracking-tighter text-[#C00000]">BFF</span>
           </p>
         </a>
-        <p className="bg-transparent text-center text-xs leading-4 text-primary/60 md:text-left">
-          Welcome to Designali, where creativity meets strategy to bring your
-          vision to life. I am passionate about transforming ideas into
-          compelling visual experiences. I specialize in crafting unique brand
-          identities, immersive digital experiences, and engaging content that
-          resonates with your audience. My mission is to empower businesses and
-          brands to stand out in a crowded market. I believe in the power of
-          design to tell stories, evoke emotions, and drive meaningful
-          connections. I believe in quality, not quantity. Designali is actually
-          an agency of one. This means you'll work directly with me, founder of
-          Designali.
-        </p>
+
       </div>
 
       <div className="mx-auto max-w-7xl px-6 py-10">
@@ -146,7 +135,7 @@ export default function Footer() {
         <div className="flex flex-wrap items-center justify-center gap-6 gap-y-4 px-6">
           <a
             aria-label="Email"
-            href="mailto:contact@designali.in"
+            href=""
             rel="noreferrer"
             target="_blank"
             className={Underline}
@@ -155,7 +144,7 @@ export default function Footer() {
           </a>
           <a
             aria-label="X"
-            href="https://x.com/designali_in"
+            href=""
             rel="noreferrer"
             target="_blank"
             className={Underline}
@@ -166,7 +155,7 @@ export default function Footer() {
           </a>
           <a
             aria-label="Instagram"
-            href="https://www.instagram.com/designali.in/"
+            href=""
             rel="noreferrer"
             target="_blank"
             className={Underline}
@@ -175,7 +164,7 @@ export default function Footer() {
           </a>
           <a
             aria-label="Facebook"
-            href="https://www.facebook.com/designali.agency"
+            href=""
             rel="noreferrer"
             target="_blank"
             className={Underline}
@@ -184,7 +173,7 @@ export default function Footer() {
           </a>
           <a
             aria-label="LinkedIn"
-            href="https://www.linkedin.com/company/designali"
+            href=""
             rel="noreferrer"
             target="_blank"
             className={Underline}
@@ -193,7 +182,7 @@ export default function Footer() {
           </a>
           <a
             aria-label="YouTube"
-            href="https://www.youtube.com/@designali-in"
+            href=""
             rel="noreferrer"
             target="_blank"
             className={Underline}
@@ -207,7 +196,7 @@ export default function Footer() {
       <div className="mx-auto mb-10 mt-10 flex flex-col justify-between text-center text-xs md:max-w-7xl">
         <div className="flex flex-row items-center justify-center gap-1 text-slate-600 dark:text-slate-400">
           <p className="text-sm">
-            Today, you can own part of the company building a future where more people can own part of the movies they believe in.
+
           </p>
         </div>
       </div>

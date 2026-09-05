@@ -89,11 +89,10 @@ export function ContactSection() {
               {/* Card 1: Investor Relations */}
               <div
                 onClick={() => setActiveTab("Investor Relations")}
-                className={`relative group p-5 sm:p-6 rounded-2xl bg-card dark:bg-zinc-950 border transition-all duration-300 cursor-pointer ${
-                  activeTab === "Investor Relations"
+                className={`relative group p-5 sm:p-6 rounded-2xl bg-card dark:bg-zinc-950 border transition-all duration-300 cursor-pointer ${activeTab === "Investor Relations"
                     ? "border-destructive shadow-md ring-1 ring-destructive/40"
                     : "border-border/80 hover:border-destructive/40"
-                }`}
+                  }`}
               >
                 <div className="flex items-start gap-4">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 text-destructive">
@@ -112,11 +111,10 @@ export function ContactSection() {
               {/* Card 2: Film Submissions */}
               <div
                 onClick={() => setActiveTab("Film Submissions")}
-                className={`relative group p-5 sm:p-6 rounded-2xl bg-card dark:bg-zinc-950 border transition-all duration-300 cursor-pointer ${
-                  activeTab === "Film Submissions"
+                className={`relative group p-5 sm:p-6 rounded-2xl bg-card dark:bg-zinc-950 border transition-all duration-300 cursor-pointer ${activeTab === "Film Submissions"
                     ? "border-destructive shadow-md ring-1 ring-destructive/40"
                     : "border-border/80 hover:border-destructive/40"
-                }`}
+                  }`}
               >
                 <div className="flex items-start gap-4">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 text-destructive">
@@ -135,11 +133,10 @@ export function ContactSection() {
               {/* Card 3: Press & Media */}
               <div
                 onClick={() => setActiveTab("Press & Media")}
-                className={`relative group p-5 sm:p-6 rounded-2xl bg-card dark:bg-zinc-950 border transition-all duration-300 cursor-pointer ${
-                  activeTab === "Press & Media"
+                className={`relative group p-5 sm:p-6 rounded-2xl bg-card dark:bg-zinc-950 border transition-all duration-300 cursor-pointer ${activeTab === "Press & Media"
                     ? "border-destructive shadow-md ring-1 ring-destructive/40"
                     : "border-border/80 hover:border-destructive/40"
-                }`}
+                  }`}
               >
                 <div className="flex items-start gap-4">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 text-destructive">
@@ -191,11 +188,10 @@ export function ContactSection() {
                       key={type.id}
                       type="button"
                       onClick={() => setActiveTab(type.id)}
-                      className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold transition-all duration-200 cursor-pointer ${
-                        isActive
+                      className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold transition-all duration-200 cursor-pointer ${isActive
                           ? "bg-destructive text-white shadow-sm"
                           : "text-muted-foreground hover:text-foreground hover:bg-zinc-200/60 dark:hover:bg-zinc-800/60"
-                      }`}
+                        }`}
                     >
                       <Icon size={14} />
                       <span>{type.label}</span>
