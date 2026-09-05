@@ -39,7 +39,7 @@ export function Navbar() {
             <img
               src="/images/1212.png"
               alt="BFF Logo"
-              className="h-14 w-auto lg:h-16 scale-[1.18] lg:scale-[1.28] origin-left transition-transform duration-300 pointer-events-auto"
+              className="h-14 w-auto lg:h-16 scale-[1.35] lg:scale-[1.5] origin-left transition-transform duration-300 pointer-events-auto"
             />
           </a>
         </div>
