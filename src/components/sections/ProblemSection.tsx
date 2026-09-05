@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { ChevronDown, Play } from "lucide-react";
+import { ChevronDown, Play, Pause } from "lucide-react";
 
 interface ProblemPointProps {
   number: string;
@@ -41,10 +41,15 @@ export function ProblemSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  const handlePlay = () => {
+  const togglePlay = () => {
     if (videoRef.current) {
-      videoRef.current.play();
-      setIsPlaying(true);
+      if (isPlaying) {
+        videoRef.current.pause();
+        setIsPlaying(false);
+      } else {
+        videoRef.current.play();
+        setIsPlaying(true);
+      }
     }
   };
 
@@ -106,11 +111,11 @@ export function ProblemSection() {
 
                 {!isPlaying && (
                   <div
-                    onClick={handlePlay}
+                    onClick={togglePlay}
                     className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center cursor-pointer z-30"
                   >
-                    {/* YouTube-style Play Button */}
-                    <div className="w-20 h-14 sm:w-24 sm:h-16 bg-red-600 hover:bg-red-700 active:scale-95 transition-all duration-300 rounded-2xl flex items-center justify-center shadow-2xl group-hover:scale-110">
+                    {/* Circle Play Button */}
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-red-600 hover:bg-red-700 active:scale-95 transition-all duration-300 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 border-2 border-white/20">
                       <Play className="w-8 h-8 sm:w-10 sm:h-10 text-white fill-white translate-x-0.5" />
                     </div>
                   </div>
@@ -123,4 +128,5 @@ export function ProblemSection() {
     </section>
   );
 }
+
 
