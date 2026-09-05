@@ -133,9 +133,9 @@ export default function VerticalTabs() {
             </div>
           </div>
 
-          <div className="lg:col-span-7 flex flex-col justify-end h-full order-1 lg:order-2">
-            <div className="relative group/gallery">
-              <div className="relative aspect-4/5 md:aspect-4/3 lg:aspect-16/11 rounded-3xl md:rounded-[2.5rem] overflow-hidden bg-muted/30 border border-border/40">
+          <div className="lg:col-span-7 flex flex-col justify-end h-full order-1 lg:order-2 w-full">
+            <div className="relative group/gallery w-full">
+              <div className="relative w-full aspect-[16/10] sm:aspect-[4/3] lg:aspect-[16/11] rounded-2xl sm:rounded-3xl md:rounded-[2.5rem] overflow-hidden bg-muted/30 border border-border/40 shadow-xl">
                 <AnimatePresence>
                   <motion.div
                     key={activeIndex}
@@ -155,30 +155,30 @@ export default function VerticalTabs() {
                       className="w-full h-full object-cover m-0! p-0! block"
                     />
 
-                    <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-60" />
+                    <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-80" />
                   </motion.div>
                 </AnimatePresence>
 
-                <div className="absolute bottom-6 right-6 md:bottom-8 md:right-8 flex gap-2 md:gap-3 z-20">
+                <div className="absolute bottom-3 right-3 sm:bottom-6 sm:right-6 md:bottom-8 md:right-8 flex gap-2 md:gap-3 z-20">
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
                       handlePrev();
                     }}
-                    className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-background/80 backdrop-blur-md border border-border/50 flex items-center justify-center text-foreground hover:bg-background transition-all active:scale-90"
+                    className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-background/80 backdrop-blur-md border border-border/50 flex items-center justify-center text-foreground hover:bg-background transition-all active:scale-90 shadow-md"
                     aria-label="Previous"
                   >
-                    <HugeiconsIcon icon={ArrowLeft01Icon} size={20} />
+                    <HugeiconsIcon icon={ArrowLeft01Icon} size={18} />
                   </button>
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
                       handleNext();
                     }}
-                    className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-background/80 backdrop-blur-md border border-border/50 flex items-center justify-center text-foreground hover:bg-background transition-all active:scale-90"
+                    className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-background/80 backdrop-blur-md border border-border/50 flex items-center justify-center text-foreground hover:bg-background transition-all active:scale-90 shadow-md"
                     aria-label="Next"
                   >
-                    <HugeiconsIcon icon={ArrowRight01Icon} size={20} />
+                    <HugeiconsIcon icon={ArrowRight01Icon} size={18} />
                   </button>
                 </div>
               </div>

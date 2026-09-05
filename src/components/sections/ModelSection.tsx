@@ -7,7 +7,7 @@ export function ModelSection() {
       <div className="mx-auto w-full max-w-[1350px]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left Side - Text & Content */}
-          <div className="flex flex-col gap-6 order-2 lg:order-1 mt-8 lg:mt-0 lg:pr-8 xl:pr-16 text-left">
+          <div className="flex flex-col gap-6 order-2 lg:order-1 mt-8 lg:mt-0 lg:pr-8 xl:pr-16 text-center lg:text-left">
             <div>
               <h3 className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3">
                 THE BFF MODEL

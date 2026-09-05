@@ -91,7 +91,7 @@ export function TimelineSection() {
     <section className="relative w-full bg-background py-16 md:py-20 lg:py-24 px-6 md:px-12 xl:px-24 flex justify-center overflow-hidden">
       <div className="mx-auto w-full max-w-[1350px] grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
         {/* Left side text */}
-        <div className="flex flex-col gap-6 lg:pr-8 xl:pr-16 z-10 text-foreground order-2 lg:order-1 text-left">
+        <div className="flex flex-col gap-6 lg:pr-8 xl:pr-16 z-10 text-foreground order-1 lg:order-1 text-center lg:text-left">
           <div>
             <h3 className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3">
               FILM IS NEXT
@@ -117,7 +117,7 @@ export function TimelineSection() {
         </div>
 
         {/* Right side circle system: 6-Step Radial Carousel for Desktop, Tablet, & Mobile */}
-        <div className="relative w-full flex items-center justify-center order-1 lg:order-2">
+        <div className="relative w-full flex items-center justify-center order-2 lg:order-2">
           <MobileRadialCarousel timelineData={opportunityTimelineData} />
         </div>
       </div>

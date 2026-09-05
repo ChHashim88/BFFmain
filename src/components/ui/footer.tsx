@@ -1,203 +1,119 @@
 "use client";
 
 import React from "react";
-import { Sun, Moon, ArrowUp, Mail, Instagram, Facebook, Linkedin, Youtube } from "lucide-react";
-import { useTheme } from "@/components/theme-provider";
+import { ArrowUp, Mail, Instagram, Facebook, Linkedin, Youtube } from "lucide-react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 function handleScrollTop() {
-  window.scroll({
+  window.scrollTo({
     top: 0,
     behavior: "smooth",
   });
 }
 
-const ThemeToogle = () => {
-  const { setTheme } = useTheme();
+const navLinks = [
+  { name: "Solution", href: "#problem" },
+  { name: "Model", href: "#new-model" },
+  { name: "Platform", href: "#platform" },
+  { name: "Opportunity", href: "#opportunity" },
+  { name: "Revenue", href: "#revenue" },
+  { name: "Execute", href: "#execute" },
+  { name: "Founders Club", href: "#founders-club" },
+  { name: "Contact", href: "#contact" },
+];
 
-  return (
-    <div className="flex items-center justify-center">
-      <div className="flex items-center rounded-full border border-dotted">
-        <button
-          onClick={() => setTheme("light")}
-          className="bg-black mr-3 rounded-full p-2 text-white dark:bg-background dark:text-white"
-        >
-          <Sun className="h-5 w-5" strokeWidth={1} />
-          <span className="sr-only">T</span>
-        </button>
-
-        <button type="button" onClick={handleScrollTop}>
-          <ArrowUp className="h-3 w-3" />
-          <span className="sr-only">Top</span>
-        </button>
-
-        <button
-          onClick={() => setTheme("dark")}
-          className="dark:bg-black ml-3 rounded-full p-2 text-black dark:text-white"
-        >
-          <Moon className="h-5 w-5" strokeWidth={1} />
-          <span className="sr-only">T</span>
-        </button>
-      </div>
-    </div>
-  );
-};
-
-const navigation = {
-  categories: [
-    {
-      id: "main",
-      name: "Main",
-      sections: [
-        {
-          id: "navigation",
-          name: "NAVIGATION",
-          items: [
-            { name: "Home", href: "/" },
-            { name: "Why BFF", href: "#why-bff" },
-            { name: "The Solution", href: "#problem" },
-            { name: "Our Solution", href: "#solution" },
-            { name: "The Platform", href: "#platform" },
-          ],
-        },
-        {
-          id: "platform",
-          name: "PLATFORM",
-          items: [
-            { name: "The Opportunity", href: "#opportunity" },
-            { name: "How It Works", href: "#how-it-works" },
-            { name: "Selection & Execution", href: "#execution" },
-            { name: "The Investment", href: "#investment" },
-            { name: "Founders Club", href: "#founders-club" },
-          ],
-        },
-        {
-          id: "connect",
-          name: "CONNECT",
-          items: [
-            { name: "Contact Us", href: "#contact" },
-          ],
-        },
-      ],
-    },
-  ],
-};
-
-const Underline = `hover:-translate-y-1 border border-dotted rounded-xl p-2.5 transition-transform `;
+const socialLinks = [
+  { name: "Email", href: "mailto:investors@bigfilmfund.com", icon: Mail },
+  {
+    name: "X",
+    href: "https://x.com",
+    icon: () => (
+      <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4 fill-current">
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+      </svg>
+    ),
+  },
+  { name: "Instagram", href: "https://instagram.com", icon: Instagram },
+  { name: "Facebook", href: "https://facebook.com", icon: Facebook },
+  { name: "LinkedIn", href: "https://linkedin.com", icon: Linkedin },
+  { name: "YouTube", href: "https://youtube.com", icon: Youtube },
+];
 
 export default function Footer() {
   return (
-    <footer className="border-ali/20 :px-4 mx-auto w-full border-b border-t px-2 text-foreground">
-      <div className="relative mx-auto grid max-w-7xl items-center justify-center gap-6 p-10 pb-0 md:flex">
-        <a href="/">
-          <p className="flex items-center justify-center rounded-full">
-            <span className="font-black text-xl tracking-tighter text-[#C00000]">BFF</span>
+    <footer className="w-full bg-background border-t border-border/50 text-foreground py-10">
+      <div className="mx-auto w-full max-w-[1350px] px-6 sm:px-10 lg:px-16 flex flex-col gap-8">
+        {/* Main Minimalist Header Row */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+          {/* Logo & Brief Tagline */}
+          <div className="flex flex-col sm:flex-row items-center gap-4">
+            <a href="#" className="flex items-center">
+              <img
+                src="/images/1212.png"
+                alt="BFF Logo"
+                className="h-12 sm:h-14 w-auto origin-center sm:origin-left transition-transform duration-300"
+              />
+            </a>
+            <span className="hidden sm:inline text-border font-light text-lg">|</span>
+            <p className="text-xs text-muted-foreground font-medium tracking-wide">
+              Modern Film Investment Infrastructure
+            </p>
+          </div>
+
+          {/* Minimal Links */}
+          <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs font-medium text-muted-foreground">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="hover:text-destructive transition-colors duration-150"
+              >
+                {link.name}
+              </a>
+            ))}
+          </nav>
+        </div>
+
+        {/* Separator */}
+        <div className="w-full border-t border-border/40" />
+
+        {/* Bottom Social, Controls & Copyright */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-muted-foreground text-center md:text-left">
+          {/* Social Icons */}
+          <div className="flex items-center gap-2.5">
+            {socialLinks.map((social) => {
+              const Icon = social.icon;
+              return (
+                <a
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={social.name}
+                  className="flex items-center justify-center w-8 h-8 rounded-full border border-border/60 bg-muted/20 text-muted-foreground hover:text-destructive hover:border-destructive/40 hover:bg-destructive/10 transition-all duration-200"
+                >
+                  <Icon />
+                </a>
+              );
+            })}
+          </div>
+
+          {/* Copyright */}
+          <p className="text-[11px] text-muted-foreground/70">
+            © {new Date().getFullYear()} Big Film Fund. All rights reserved.
           </p>
-        </a>
 
-      </div>
-
-      <div className="mx-auto max-w-7xl px-6 py-10">
-        <div className="border-b border-dotted"> </div>
-        <div className="py-10">
-          {navigation.categories.map((category) => (
-            <div
-              key={category.name}
-              className="grid grid-cols-3 flex-row justify-between gap-6 leading-6 md:flex"
+          {/* Theme & Scroll Controls */}
+          <div className="flex items-center gap-3">
+            <ThemeToggle />
+            <button
+              onClick={handleScrollTop}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border/60 bg-muted/20 text-xs text-muted-foreground hover:text-foreground hover:border-border transition-all duration-200 cursor-pointer"
             >
-              {category.sections.map((section) => (
-                <div key={section.name}>
-                  <h3 className="text-sm font-semibold text-foreground mb-4">{section.name}</h3>
-                  <ul
-                    role="list"
-                    aria-labelledby={`${category.id}-${section.id}-heading-mobile`}
-                    className="flex flex-col space-y-2"
-                  >
-                    {section.items.map((item) => (
-                      <li key={item.name} className="flow-root">
-                        <a
-                          href={item.href}
-                          className="text-sm text-slate-600 hover:text-black dark:text-slate-400 hover:dark:text-white md:text-xs"
-                        >
-                          {item.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
-        <div className="border-b border-dotted"> </div>
-      </div>
-
-      <div className="flex flex-wrap justify-center gap-y-6">
-        <div className="flex flex-wrap items-center justify-center gap-6 gap-y-4 px-6">
-          <a
-            aria-label="Email"
-            href=""
-            rel="noreferrer"
-            target="_blank"
-            className={Underline}
-          >
-            <Mail strokeWidth={1.5} className="h-5 w-5" />
-          </a>
-          <a
-            aria-label="X"
-            href=""
-            rel="noreferrer"
-            target="_blank"
-            className={Underline}
-          >
-            <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5 fill-current">
-              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
-            </svg>
-          </a>
-          <a
-            aria-label="Instagram"
-            href=""
-            rel="noreferrer"
-            target="_blank"
-            className={Underline}
-          >
-            <Instagram className="h-5 w-5" />
-          </a>
-          <a
-            aria-label="Facebook"
-            href=""
-            rel="noreferrer"
-            target="_blank"
-            className={Underline}
-          >
-            <Facebook className="h-5 w-5" />
-          </a>
-          <a
-            aria-label="LinkedIn"
-            href=""
-            rel="noreferrer"
-            target="_blank"
-            className={Underline}
-          >
-            <Linkedin className="h-5 w-5" />
-          </a>
-          <a
-            aria-label="YouTube"
-            href=""
-            rel="noreferrer"
-            target="_blank"
-            className={Underline}
-          >
-            <Youtube className="h-5 w-5" />
-          </a>
-        </div>
-        <ThemeToogle />
-      </div>
-
-      <div className="mx-auto mb-10 mt-10 flex flex-col justify-between text-center text-xs md:max-w-7xl">
-        <div className="flex flex-row items-center justify-center gap-1 text-slate-600 dark:text-slate-400">
-          <p className="text-sm">
-
-          </p>
+              <span>Top</span>
+              <ArrowUp className="h-3.5 w-3.5 text-destructive" />
+            </button>
+          </div>
         </div>
       </div>
     </footer>

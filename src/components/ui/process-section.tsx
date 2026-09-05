@@ -61,15 +61,19 @@ const ProcessCard: React.FC<ProcessCardProps> = ({ icon: Icon, title, descriptio
     {/* Interactive Hover Light Sheen */}
     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 dark:via-white/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out pointer-events-none z-10" />
 
-    {/* Icon Container */}
-    <div className="relative z-20 mb-4 flex h-14 w-14 items-center justify-center rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 text-destructive transition-all duration-300 group-hover:bg-destructive group-hover:border-destructive shadow-md group-hover:shadow-lg">
-      <Icon className="h-7 w-7 text-destructive group-hover:text-white transition-colors duration-300" />
+    {/* Header Row: Icon + Title (Inline on Mobile < sm, Stacked on Desktop >= sm) */}
+    <div className="relative z-20 flex flex-row sm:flex-col items-center sm:items-start gap-4 mb-3 sm:mb-4">
+      {/* Icon Container */}
+      <div className="relative z-20 shrink-0 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 text-destructive transition-all duration-300 group-hover:bg-destructive group-hover:border-destructive shadow-md group-hover:shadow-lg">
+        <Icon className="h-6 w-6 sm:h-7 sm:w-7 text-destructive group-hover:text-white transition-colors duration-300" />
+      </div>
+
+      <h3 className="text-base sm:text-lg font-bold text-foreground group-hover:text-destructive transition-colors duration-300">{title}</h3>
     </div>
 
     {/* Content */}
     <div className="relative z-20 flex flex-col">
-      <h3 className="mb-1 text-lg font-bold text-foreground group-hover:text-destructive transition-colors duration-300">{title}</h3>
-      <p className="text-sm text-muted-foreground">{description}</p>
+      <p className="text-xs sm:text-sm text-muted-foreground">{description}</p>
     </div>
   </motion.div>
 );
@@ -101,7 +105,7 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
       <div className="mx-auto w-full max-w-[1350px] flex flex-col space-y-10 lg:space-y-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left Side - Text */}
-          <div className="flex flex-col gap-6 order-2 lg:order-1 mt-8 lg:mt-0 lg:pr-8 xl:pr-16 text-left">
+          <div className="flex flex-col gap-6 order-2 lg:order-1 mt-8 lg:mt-0 lg:pr-8 xl:pr-16 text-center lg:text-left">
             <h3 className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3">
               {subtitle}
             </h3>

@@ -8,7 +8,7 @@ export function RevenueSection() {
         <div className="w-full text-center lg:text-left">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             {/* Left Side - Content */}
-            <div className="flex flex-col gap-4 sm:gap-6 lg:pr-8 xl:pr-16 order-2 lg:order-1 mt-8 lg:mt-0 text-left">
+            <div className="flex flex-col gap-4 sm:gap-6 lg:pr-8 xl:pr-16 order-2 lg:order-1 mt-8 lg:mt-0 text-center lg:text-left">
               <h3 className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3">
                 HOW WE MAKE MONEY
               </h3>

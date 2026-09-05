@@ -57,7 +57,7 @@ export function ContactSection() {
 
       <div className="mx-auto w-full max-w-[1350px] space-y-14">
         {/* Header Section */}
-        <div className="flex flex-col text-left space-y-2">
+        <div className="flex flex-col text-center lg:text-left space-y-2 items-center lg:items-start">
           <h3 className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3">
             CONTACT US
           </h3>
@@ -73,8 +73,8 @@ export function ContactSection() {
 
         {/* Contact Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-          {/* Left Column: Direct Channels & Information */}
-          <div className="lg:col-span-5 flex flex-col gap-6 text-left">
+          {/* Left Column: Direct Channels & Information - Hidden on Mobile View */}
+          <div className="hidden lg:flex lg:col-span-5 flex-col gap-6 text-left">
             <div className="space-y-2">
               <h3 className="text-xl font-bold text-foreground tracking-tight">
                 Direct Communication Desks
@@ -173,32 +173,10 @@ export function ContactSection() {
           </div>
 
           {/* Right Column: Creative Contact Form */}
-          <div className="lg:col-span-7">
+          <div className="w-full lg:col-span-7">
             <div className="relative w-full rounded-3xl bg-card dark:bg-zinc-950 border border-border/80 p-6 sm:p-10 shadow-xl text-left overflow-hidden">
               {/* Subtle top metallic highlight */}
               <div className="absolute top-0 inset-x-8 h-[1px] bg-gradient-to-r from-transparent via-destructive/50 to-transparent pointer-events-none" />
-
-              {/* Topic Selector Tabs */}
-              <div className="mb-6 flex flex-wrap gap-2 p-1.5 rounded-2xl bg-zinc-100 dark:bg-zinc-900/80 border border-border/60">
-                {inquiryTypes.map((type) => {
-                  const Icon = type.icon;
-                  const isActive = activeTab === type.id;
-                  return (
-                    <button
-                      key={type.id}
-                      type="button"
-                      onClick={() => setActiveTab(type.id)}
-                      className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold transition-all duration-200 cursor-pointer ${isActive
-                          ? "bg-destructive text-white shadow-sm"
-                          : "text-muted-foreground hover:text-foreground hover:bg-zinc-200/60 dark:hover:bg-zinc-800/60"
-                        }`}
-                    >
-                      <Icon size={14} />
-                      <span>{type.label}</span>
-                    </button>
-                  );
-                })}
-              </div>
 
               {!isSubmitted ? (
                 <form onSubmit={handleSubmit} className="space-y-5">
@@ -207,16 +185,16 @@ export function ContactSection() {
                       Send a Direct Message
                     </h3>
                     <p className="text-xs sm:text-sm text-muted-foreground">
-                      Currently directing message to: <span className="font-semibold text-destructive">{activeTab}</span>
+                      Our executive team will review and respond to your message promptly.
                     </p>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {/* Name */}
                     <div className="space-y-1.5">
-                      <label className="text-[21px] font-bold uppercase tracking-wider text-foreground/80 flex items-center gap-1.5">
-                        <User size={16} className="text-destructive" />
-                        Full Name <span className="text-destructive">*</span>
+                      <label className="text-xs font-bold uppercase tracking-wider text-foreground/80 flex items-center gap-1.5">
+                        <User size={15} className="text-destructive" />
+                        Full Name
                       </label>
                       <input
                         type="text"
@@ -230,9 +208,9 @@ export function ContactSection() {
 
                     {/* Email */}
                     <div className="space-y-1.5">
-                      <label className="text-[21px] font-bold uppercase tracking-wider text-foreground/80 flex items-center gap-1.5">
-                        <Mail size={16} className="text-destructive" />
-                        Email Address <span className="text-destructive">*</span>
+                      <label className="text-xs font-bold uppercase tracking-wider text-foreground/80 flex items-center gap-1.5">
+                        <Mail size={15} className="text-destructive" />
+                        Email Address
                       </label>
                       <input
                         type="email"
@@ -247,13 +225,13 @@ export function ContactSection() {
 
                   {/* Subject Line */}
                   <div className="space-y-1.5">
-                    <label className="text-[21px] font-bold uppercase tracking-wider text-foreground/80 flex items-center gap-1.5">
-                      <HelpCircle size={16} className="text-destructive" />
+                    <label className="text-xs font-bold uppercase tracking-wider text-foreground/80 flex items-center gap-1.5">
+                      <HelpCircle size={15} className="text-destructive" />
                       Subject Line
                     </label>
                     <input
                       type="text"
-                      placeholder={`Summary of your ${activeTab} inquiry`}
+                      placeholder="Summary of your inquiry"
                       value={formData.subject}
                       onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                       className="w-full bg-background dark:bg-zinc-900 border border-border/80 rounded-xl px-4 py-3 text-sm text-foreground placeholder-muted-foreground focus:outline-none focus:border-destructive focus:ring-1 focus:ring-destructive transition-all"
@@ -262,9 +240,9 @@ export function ContactSection() {
 
                   {/* Message */}
                   <div className="space-y-1.5">
-                    <label className="text-[21px] font-bold uppercase tracking-wider text-foreground/80 flex items-center gap-1.5">
-                      <MessageSquare size={16} className="text-destructive" />
-                      Message <span className="text-destructive">*</span>
+                    <label className="text-xs font-bold uppercase tracking-wider text-foreground/80 flex items-center gap-1.5">
+                      <MessageSquare size={15} className="text-destructive" />
+                      Message
                     </label>
                     <textarea
                       required

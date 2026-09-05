@@ -10,15 +10,20 @@ export function StickyFooterCTA() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Show sticky footer CTA after scrolling past hero section (300px)
-      if (window.scrollY > 300) {
+      const scrollPosition = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const bodyHeight = document.body.offsetHeight;
+
+      // Show sticky bar after hero (300px), but hide when reaching near the footer
+      if (scrollPosition > 300 && scrollPosition + windowHeight < bodyHeight - 300) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 

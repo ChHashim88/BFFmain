@@ -8,12 +8,12 @@ export function HeroSection() {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <section className="relative w-full pt-32 pb-20 lg:pt-40 lg:pb-24 px-6 md:px-12 xl:px-24 flex items-center justify-center overflow-hidden bg-white">
-      {/* Background Image with Bottom Fade */}
+    <section className="relative w-full pt-32 pb-20 lg:pt-40 lg:pb-24 px-6 md:px-12 xl:px-24 flex items-center justify-center overflow-hidden bg-white dark:bg-background">
+      {/* Hero Background Image - Desktop Only (Hidden on Mobile) */}
       <img
         src="/herooo.png"
         alt="Hero Background"
-        className="absolute right-0 top-1/2 -translate-y-1/2 h-[82%] max-h-[640px] w-auto object-contain pointer-events-none z-0 [mask-image:linear-gradient(to_bottom,black_65%,transparent_100%)]"
+        className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 h-[82%] max-h-[640px] w-auto object-contain pointer-events-none z-0 [mask-image:linear-gradient(to_bottom,black_65%,transparent_100%)]"
       />
 
       {/* Subtle Bottom Gradient Fade */}

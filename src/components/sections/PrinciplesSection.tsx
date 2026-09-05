@@ -24,7 +24,7 @@ export function PrinciplesSection() {
       </div>
 
       <div className="mx-auto w-full max-w-[1350px] grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch mt-12 lg:mt-16">
-        <div className="w-full min-h-[580px] lg:min-h-[640px] h-full">
+        <div id="clean-picture" className="w-full min-h-[580px] lg:min-h-[640px] h-full scroll-mt-28">
           <DestinationCard
             imageUrl="/images/1.jpeg"
             location="Each Film. One Clean Economic Picture."
@@ -81,7 +81,7 @@ export function PrinciplesSection() {
             }}
           />
         </div>
-        <div className="w-full min-h-[580px] lg:min-h-[640px] h-full">
+        <div id="no-back" className="w-full min-h-[580px] lg:min-h-[640px] h-full scroll-mt-28">
           <DestinationCard
             imageUrl="/images/2.jpeg"
             location="No Back of the Line."
@@ -142,7 +142,7 @@ export function PrinciplesSection() {
             }}
           />
         </div>
-        <div className="w-full min-h-[580px] lg:min-h-[640px] h-full">
+        <div id="discipline" className="w-full min-h-[580px] lg:min-h-[640px] h-full scroll-mt-28">
           <DestinationCard
             imageUrl="/images/3.jpeg"
             location="Commercial Discipline, Built In"
