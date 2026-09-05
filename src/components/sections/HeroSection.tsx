@@ -11,7 +11,7 @@ export function HeroSection() {
     <section className="relative w-full pt-32 pb-20 lg:pt-40 lg:pb-24 px-6 md:px-12 xl:px-24 flex items-center justify-center overflow-hidden bg-white dark:bg-background">
       {/* Hero Background Image - Mobile (< lg) */}
       <img
-        src="/mobhero.png"
+        src="/mobhero.jpeg"
         alt="Hero Background Mobile"
         loading="eager"
         decoding="sync"

@@ -98,7 +98,7 @@ export function Navbar() {
               src="/images/1212.png"
               alt="BFF Logo"
               decoding="async"
-              className="h-12 sm:h-14 w-auto lg:h-16 scale-[1.25] sm:scale-[1.35] lg:scale-[1.5] origin-left transition-transform duration-300 pointer-events-auto"
+              className="h-18 sm:h-14 w-auto lg:h-16 scale-[1.25] sm:scale-[1.35] lg:scale-[1.5] origin-left transition-transform duration-300 pointer-events-auto"
             />
           </a>
         </div>
