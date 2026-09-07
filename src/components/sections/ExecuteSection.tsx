@@ -2,6 +2,7 @@
 
 import GlassCard from "@/components/ui/glass-card";
 import { Search, CheckCircle2, Clapperboard, Globe, ShieldCheck, Play } from "lucide-react";
+import { TypewriterText } from "@/components/ui/TypewriterText";
 
 export function ExecuteSection() {
   return (
@@ -13,9 +14,10 @@ export function ExecuteSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left Side - Text */}
           <div className="flex flex-col gap-6 order-2 lg:order-1 mt-8 lg:mt-0 lg:pr-8 xl:pr-16 text-center lg:text-left">
-            <h3 className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3">
-              BUILT TO EXECUTE
-            </h3>
+            <TypewriterText
+              text="BUILT TO EXECUTE"
+              className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3"
+            />
             <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm">
               The Capabilities <span className="text-destructive">Behind the Model</span>
             </h2>

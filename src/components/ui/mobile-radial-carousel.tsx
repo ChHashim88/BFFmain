@@ -306,24 +306,19 @@ export default function MobileRadialCarousel({ timelineData }: MobileRadialCarou
         <div className="absolute inset-0 m-auto w-[190px] h-[190px] sm:w-[270px] sm:h-[270px] lg:w-[340px] lg:h-[340px] rounded-full bg-background/95 dark:bg-zinc-950/95 border border-border/80 shadow-2xl flex flex-col items-center justify-center p-3 sm:p-6 text-center z-20 backdrop-blur-xl transition-all duration-500 overflow-hidden">
 
           {/* Top Icon */}
-          <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-destructive/10 border border-destructive/20 flex items-center justify-center text-destructive shrink-0 mb-1">
+          <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-destructive/10 border border-destructive/20 flex items-center justify-center text-destructive shrink-0 mb-1 sm:mb-1.5">
             <ActiveIcon className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5 transition-transform duration-300" />
           </div>
 
           {/* Title */}
-          <h4 className="text-xs sm:text-base lg:text-lg font-bold text-foreground tracking-tight leading-tight line-clamp-1 mb-1 sm:mb-1.5">
+          <h4 className="text-xs sm:text-base lg:text-lg font-bold text-foreground tracking-tight leading-tight line-clamp-1 mb-1 sm:mb-2">
             {activeData.title}
           </h4>
 
           {/* Description */}
-          <p className="text-[9px] sm:text-xs text-muted-foreground leading-relaxed font-medium line-clamp-3 px-3 mb-2 sm:mb-3 max-w-[90%]">
+          <p className="text-[9.5px] sm:text-xs text-muted-foreground leading-relaxed font-medium line-clamp-3 sm:line-clamp-4 px-3 max-w-[92%]">
             {activeData.description || activeData.content}
           </p>
-
-          {/* Red Status Badge at the End/Bottom */}
-          <span className={`px-2.5 py-0.5 sm:px-3 sm:py-1 text-[8px] sm:text-[10px] font-mono font-bold rounded-full border ${statusBadge.bg}`}>
-            {statusBadge.label}
-          </span>
         </div>
       </div>
 

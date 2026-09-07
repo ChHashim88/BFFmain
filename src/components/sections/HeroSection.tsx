@@ -1,11 +1,81 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Check, ArrowRight, ChevronDown } from "lucide-react";
 import { openWaitlistModal } from "@/components/ui/WaitlistModal";
+import { cn } from "@/lib/utils";
+
+const LINE_1 = "Film Investing.";
+const LINE_2 = "Reimagined";
+const LINE_3 = "for Investors.";
 
 export function HeroSection() {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [typedCount, setTypedCount] = useState(0);
+  const [showCursor, setShowCursor] = useState(true);
+
+  useEffect(() => {
+    // Respect prefers-reduced-motion
+    const prefersReduced =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (prefersReduced) {
+      setTypedCount(39);
+      setShowCursor(false);
+      return;
+    }
+
+    let timeoutId: NodeJS.Timeout;
+
+    const scheduleNextChar = (currentCount: number) => {
+      if (currentCount >= 39) {
+        setShowCursor(false);
+        return;
+      }
+
+      // Exact 65ms per character typing speed
+      let delay = 65;
+
+      // Immediate start for character 1 (0ms initial delay)
+      if (currentCount === 0) {
+        delay = 0;
+      }
+      // Natural pause after "Film Investing." (at count 15): 350ms
+      else if (currentCount === 15) {
+        delay = 350;
+      }
+
+      timeoutId = setTimeout(() => {
+        const nextCount = currentCount + 1;
+        setTypedCount(nextCount);
+        if (nextCount >= 39) {
+          setShowCursor(false);
+        }
+        scheduleNextChar(nextCount);
+      }, delay);
+    };
+
+    scheduleNextChar(0);
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, []);
+
+  const line1Typed = LINE_1.slice(0, Math.min(typedCount, 15));
+  const line2Typed = typedCount >= 15 ? LINE_2.slice(0, Math.min(typedCount - 15, 10)) : "";
+  const line3Typed = typedCount >= 25 ? LINE_3.slice(0, Math.min(typedCount - 25, 14)) : "";
+
+  const CursorIndicator = () => (
+    <span
+      className={cn(
+        "inline-block w-[3px] sm:w-[4px] md:w-[5px] h-[0.82em] bg-destructive ml-0.5 sm:ml-1 align-baseline rounded-full transition-opacity duration-300 animate-typewriter-cursor shrink-0",
+        showCursor ? "opacity-100" : "opacity-0 pointer-events-none"
+      )}
+      aria-hidden="true"
+    />
+  );
 
   return (
     <section className="relative w-full pt-32 pb-20 lg:pt-40 lg:pb-24 px-6 md:px-12 xl:px-24 flex items-center justify-center overflow-hidden bg-white dark:bg-background">
@@ -50,13 +120,40 @@ export function HeroSection() {
 
       <div className="relative z-10 mx-auto grid w-full max-w-[1350px] items-center gap-12 lg:grid-cols-2">
         <div className="z-10 flex flex-col items-center justify-center space-y-6 text-center max-w-2xl mx-auto lg:mx-0 lg:items-start lg:text-left opacity-100">
-          <h1 className="text-h1 text-foreground">
-            Film Investing.
-            <br />
-            <span className="text-destructive">Reimagined</span>
-            <br />
-            for Investors.
-          </h1>
+
+          {/* Main Heading with Zero Layout Shift Ghost Reservation & Typewriter Animation */}
+          <div className="relative max-w-full">
+            {/* Invisible Ghost Heading - Reserves exact container height/width from frame 0 */}
+            <h1 className="text-h1 text-foreground invisible select-none pointer-events-none" aria-hidden="true">
+              Film Investing.
+              <br />
+              <span className="text-destructive">Reimagined</span>
+              <br />
+              for Investors.
+            </h1>
+
+            {/* Visible Typewriter Heading */}
+            <h1 className="text-h1 text-foreground absolute inset-0">
+              <span className="inline-flex items-center">
+                <span>{line1Typed}</span>
+                {showCursor && typedCount <= 15 && <CursorIndicator />}
+              </span>
+              {typedCount > 15 && <br />}
+              {typedCount > 15 && (
+                <span className="text-destructive inline-flex items-center">
+                  <span>{line2Typed}</span>
+                  {showCursor && typedCount > 15 && typedCount <= 25 && <CursorIndicator />}
+                </span>
+              )}
+              {typedCount > 25 && <br />}
+              {typedCount > 25 && (
+                <span className="inline-flex items-center">
+                  <span>{line3Typed}</span>
+                  {showCursor && typedCount > 25 && typedCount < 39 && <CursorIndicator />}
+                </span>
+              )}
+            </h1>
+          </div>
 
           <div className="flex flex-col items-center lg:items-start space-y-4">
             {/* Subtitle text */}

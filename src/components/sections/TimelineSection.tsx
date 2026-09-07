@@ -12,6 +12,8 @@ import {
   Play,
 } from "lucide-react";
 
+import { TypewriterText } from "@/components/ui/TypewriterText";
+
 export const opportunityTimelineData = [
   {
     id: 1,
@@ -94,9 +96,10 @@ export function TimelineSection() {
         {/* Left side text */}
         <div className="flex flex-col gap-6 lg:pr-8 xl:pr-16 z-10 text-foreground order-1 lg:order-1 text-center lg:text-left">
           <div>
-            <h3 className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3">
-              FILM IS NEXT
-            </h3>
+            <TypewriterText
+              text="FILM IS NEXT"
+              className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3"
+            />
             <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm">
               Building the System for <br />
               <span className="text-destructive">Modern Film Investing</span>

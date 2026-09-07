@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils';
 import { SparklesCore } from "@/components/ui/sparkles";
 import { motion } from "framer-motion";
 import { Rocket, Activity, CheckCircle2 } from "lucide-react";
+import { TypewriterText } from "@/components/ui/TypewriterText";
 
 // Interface for individual process card props
 export interface ProcessCardProps {
@@ -108,9 +109,10 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left Side - Text Content (Left Aligned) */}
           <div className="flex flex-col gap-5 text-left items-start">
-            <h3 className="text-h3 text-destructive uppercase tracking-tight font-bold mb-1">
-              {subtitle}
-            </h3>
+            <TypewriterText
+              text={subtitle}
+              className="text-h3 text-destructive uppercase tracking-tight font-bold mb-1"
+            />
             <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm">
               Market <span className="text-destructive">Execution</span>
             </h2>

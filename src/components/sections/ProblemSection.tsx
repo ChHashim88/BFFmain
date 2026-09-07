@@ -3,6 +3,8 @@
 import { useState, useRef } from "react";
 import { ChevronDown, Play, Pause } from "lucide-react";
 
+import { TypewriterText } from "@/components/ui/TypewriterText";
+
 interface ProblemPointProps {
   number: string;
   shortText: string;
@@ -60,9 +62,10 @@ export function ProblemSection() {
     >
       <div className="mx-auto w-full max-w-[1350px] flex flex-col space-y-10 lg:space-y-16">
         <div className="w-full text-center lg:text-left">
-          <h3 className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3">
-            THE Solution
-          </h3>
+          <TypewriterText
+            text="THE SOLUTION"
+            className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3"
+          />
           <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm">
             Film investing has never been <span className="text-destructive"><br />built for investors.</span>
           </h2>
@@ -99,7 +102,7 @@ export function ProblemSection() {
               <div className="absolute inset-0 w-full h-full bg-zinc-100 dark:bg-zinc-950 border border-border shadow-2xl overflow-hidden z-20 group transition-transform duration-500 hover:-translate-y-2 hover:translate-x-2">
                 <video
                   ref={videoRef}
-                  src="https://www.dropbox.com/scl/fo/fr0i9s0r31wvmmwctfvf3/ACgQM7ywKfShxxLvdVhG4sw?dl=1&e=1&preview=bff_promo_1_introduction_alt_disco_song_v1.mp4&rlkey=d1069gkyon7op9goc3htz7340&st=jocnlbtx"
+                  src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
                   poster="/ts.png"
                   controls={isPlaying}
                   preload="metadata"
@@ -115,7 +118,7 @@ export function ProblemSection() {
                     className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center cursor-pointer z-30"
                   >
                     {/* Circle Play Button */}
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-red-600 hover:bg-red-700 active:scale-95 transition-all duration-300 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 border-2 border-white/20">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-[#C00000] hover:bg-[#990000] active:scale-95 transition-all duration-300 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 border-2 border-white/20">
                       <Play className="w-8 h-8 sm:w-10 sm:h-10 text-white fill-white translate-x-0.5" />
                     </div>
                   </div>

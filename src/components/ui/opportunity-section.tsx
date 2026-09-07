@@ -6,6 +6,8 @@ import { cn } from "@/lib/utils";
 import MobileRadialCarousel from "@/components/ui/mobile-radial-carousel";
 import { opportunityTimelineData } from "@/components/sections/TimelineSection";
 
+import { TypewriterText } from "@/components/ui/TypewriterText";
+
 function ExpandablePoint({
   icon: Icon,
   shortText,
@@ -56,9 +58,10 @@ export default function OpportunitySection() {
           {/* Left Column */}
           <div className="flex flex-col space-y-8 text-center lg:text-left">
             <div className="space-y-4">
-              <h3 className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3">
-                THE OPPORTUNITY
-              </h3>
+              <TypewriterText
+                text="THE OPPORTUNITY"
+                className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3"
+              />
               <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm">
                 Film is Ready for <br />
                 <span className="text-destructive">Modern Investment Infrastructure.</span>

@@ -1,3 +1,5 @@
+import { TypewriterText } from "@/components/ui/TypewriterText";
+
 export function ModelSection() {
   return (
     <section
@@ -6,9 +8,10 @@ export function ModelSection() {
     >
       <div className="mx-auto w-full max-w-[1400px] text-center flex flex-col items-center gap-8">
         <div>
-          <h3 className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3">
-            THE BFF MODEL
-          </h3>
+          <TypewriterText
+            text="THE BFF MODEL"
+            className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3"
+          />
           <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm">
             A New Model For{" "}
             <span className="text-destructive">Film Investing</span>

@@ -2,6 +2,7 @@
 
 import { DestinationCard } from "@/components/ui/card-21";
 import { ExpandableText } from "@/components/ui/ExpandableText";
+import { TypewriterText } from "@/components/ui/TypewriterText";
 
 export function PrinciplesSection() {
   return (
@@ -10,9 +11,10 @@ export function PrinciplesSection() {
       className="relative w-full scroll-mt-24 bg-background py-16 md:py-20 lg:py-24 px-6 md:px-12 xl:px-24 flex flex-col justify-center"
     >
       <div className="mx-auto w-full max-w-[1350px] flex flex-col items-center text-center space-y-6">
-        <h3 className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3">
-          THREE CORE PRINCIPLES
-        </h3>
+        <TypewriterText
+          text="THREE CORE PRINCIPLES"
+          className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3"
+        />
         <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm">
           The BFF Model Is Built On
           <br />
@@ -152,7 +154,7 @@ export function PrinciplesSection() {
             themeColor="150 50% 25%"
             description={
               <ExpandableText
-                shortText="At BFF, commercial discipline isn’t a checkpoint. It’s a design principle."
+                shortText="At BFF, commercial discipline isn’t a checkpoint. It’s a design principle.From the first review"
                 fullText={
                   <>
                     <p>

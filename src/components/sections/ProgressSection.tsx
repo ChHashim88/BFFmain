@@ -2,6 +2,7 @@
 
 import MobileRadialCarousel from "@/components/ui/mobile-radial-carousel";
 import { PlayCircle, Target, MonitorSmartphone, DollarSign, Network } from "lucide-react";
+import { TypewriterText } from "@/components/ui/TypewriterText";
 
 const progressTimelineData = [
   {
@@ -76,9 +77,10 @@ export function ProgressSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left Side - Content */}
           <div className="flex flex-col gap-4 sm:gap-6 lg:pr-8 xl:pr-16 order-2 lg:order-1 mt-8 lg:mt-0 text-center lg:text-left">
-            <h3 className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3">
-              PROGRESS TO DATE
-            </h3>
+            <TypewriterText
+              text="PROGRESS TO DATE"
+              className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3"
+            />
             <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm">
               From Foundation to <span className="text-destructive">Launch</span>
             </h2>

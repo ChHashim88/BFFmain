@@ -211,3 +211,16 @@
 .animate-svg-dash {
   animation: svgDash 5s linear infinite;
 }
+
+@keyframes typewriterBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.1;
+  }
+}
+
+.animate-typewriter-cursor {
+  animation: typewriterBlink 650ms ease-in-out infinite;
+}

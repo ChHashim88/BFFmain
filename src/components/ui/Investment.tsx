@@ -20,6 +20,7 @@ import {
   BarChart3,
 } from "lucide-react";
 import "./Investment.css";
+import { TypewriterText } from "@/components/ui/TypewriterText";
 
 export default function Investment() {
   const progressRef = useRef<HTMLDivElement>(null);
@@ -56,9 +57,10 @@ export default function Investment() {
         <div className="flex flex-col gap-8">
           {/* Section Heading Header */}
           <div className="w-full text-left">
-            <h3 className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3">
-              THE INVESTMENT
-            </h3>
+            <TypewriterText
+              text="THE INVESTMENT"
+              className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3"
+            />
             <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm">
               Own Part of the Company
               <br />
