@@ -27,15 +27,12 @@ export function HeroSection() {
     }
 
     let timeoutId: NodeJS.Timeout;
-    let fadeTimeoutId: NodeJS.Timeout;
 
     const initialDelay = 120;
 
     const scheduleNextChar = (currentCount: number) => {
       if (currentCount >= 39) {
-        fadeTimeoutId = setTimeout(() => {
-          setShowCursor(false);
-        }, 1200);
+        setShowCursor(false);
         return;
       }
 
@@ -52,6 +49,9 @@ export function HeroSection() {
       timeoutId = setTimeout(() => {
         const nextCount = currentCount + 1;
         setTypedCount(nextCount);
+        if (nextCount >= 39) {
+          setShowCursor(false);
+        }
         scheduleNextChar(nextCount);
       }, delay);
     };
@@ -60,7 +60,6 @@ export function HeroSection() {
 
     return () => {
       clearTimeout(timeoutId);
-      clearTimeout(fadeTimeoutId);
     };
   }, []);
 
@@ -134,7 +133,7 @@ export function HeroSection() {
               {/* Line 1 */}
               <span className="block whitespace-pre-wrap" aria-hidden="true">
                 <span>{LINE_1.slice(0, line1Count)}</span>
-                {typedCount <= 15 && <CursorIndicator />}
+                {showCursor && typedCount <= 15 && <CursorIndicator />}
                 <span className="opacity-0 select-none pointer-events-none" aria-hidden="true">
                   {LINE_1.slice(line1Count)}
                 </span>
@@ -143,7 +142,7 @@ export function HeroSection() {
               {/* Line 2 */}
               <span className="block text-destructive whitespace-pre-wrap" aria-hidden="true">
                 <span>{LINE_2.slice(0, line2Count)}</span>
-                {typedCount > 15 && typedCount <= 25 && <CursorIndicator />}
+                {showCursor && typedCount > 15 && typedCount <= 25 && <CursorIndicator />}
                 <span className="opacity-0 select-none pointer-events-none" aria-hidden="true">
                   {LINE_2.slice(line2Count)}
                 </span>
@@ -152,7 +151,7 @@ export function HeroSection() {
               {/* Line 3 */}
               <span className="block whitespace-pre-wrap" aria-hidden="true">
                 <span>{LINE_3.slice(0, line3Count)}</span>
-                {typedCount > 25 && <CursorIndicator />}
+                {showCursor && typedCount > 25 && typedCount < 39 && <CursorIndicator />}
                 <span className="opacity-0 select-none pointer-events-none" aria-hidden="true">
                   {LINE_3.slice(line3Count)}
                 </span>
