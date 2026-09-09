@@ -67,7 +67,7 @@ export function ProblemSection() {
             className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3"
           />
           <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm">
-            Film investing has never been <span className="text-destructive"><br />built for investors.</span>
+            Film investing has never been <span className="text-destructive"><br className="hidden sm:inline" /> built for investors.</span>
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center mt-8 lg:mt-12">
             {/* Left Side - Points */}

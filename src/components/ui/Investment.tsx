@@ -62,8 +62,8 @@ export default function Investment() {
               className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3"
             />
             <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm">
-              Own Part of the Company
-              <br />
+              Own Part of the Company{" "}
+              <br className="hidden sm:inline" />
               Building <span className="text-destructive">What Comes Next.</span>
             </h2>
           </div>

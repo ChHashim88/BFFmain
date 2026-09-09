@@ -20,7 +20,7 @@ export function FoundersClubSection() {
                 className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3"
               />
               <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm">
-                More Than an Investment. <br />
+                More Than an Investment. <br className="hidden sm:inline" />
                 <span className="text-destructive">Join the Story.</span>
               </h2>
               <div className="space-y-4 text-body-text text-muted-foreground mt-4 max-w-md mx-auto lg:max-w-none lg:mx-0">

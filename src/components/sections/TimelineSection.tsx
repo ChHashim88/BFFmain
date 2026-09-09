@@ -101,7 +101,7 @@ export function TimelineSection() {
               className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3"
             />
             <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm">
-              Building the System for <br />
+              Building the System for <br className="hidden sm:inline" />
               <span className="text-destructive">Modern Film Investing</span>
             </h2>
           </div>

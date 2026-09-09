@@ -62,8 +62,8 @@ export function ContactSection() {
             CONTACT US
           </h3>
           <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm">
-            Have Questions?
-            <br />
+            Have Questions?{" "}
+            <br className="hidden sm:inline" />
             <span className="text-destructive">Let&apos;s Connect.</span>
           </h2>
           <p className="text-subtitle text-muted-foreground leading-relaxed max-w-md mx-auto lg:max-w-2xl lg:mx-0 pt-1">

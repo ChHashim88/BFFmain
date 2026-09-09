@@ -16,8 +16,8 @@ export function PrinciplesSection() {
           className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3"
         />
         <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm">
-          The BFF Model Is Built On
-          <br />
+          The BFF Model Is Built On{" "}
+          <br className="hidden sm:inline" />
           <span className="text-destructive">Three Core Principles</span>
         </h2>
         <p className="text-subtitle text-muted-foreground max-w-md mx-auto lg:max-w-2xl lg:mx-auto">

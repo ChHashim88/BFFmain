@@ -63,7 +63,7 @@ export default function OpportunitySection() {
                 className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3"
               />
               <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm">
-                Film is Ready for <br />
+                Film is Ready for <br className="hidden sm:inline" />
                 <span className="text-destructive">Modern Investment Infrastructure.</span>
               </h2>
             </div>
