@@ -35,99 +35,107 @@ const GlassCard = React.forwardRef<HTMLDivElement, GlassCardProps>(
           scale: 1.015,
           transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] },
         }}
-        className={`group relative w-full h-full min-h-0 sm:min-h-[290px] rounded-3xl bg-card/95 dark:bg-zinc-950/90 border border-zinc-200/90 dark:border-zinc-800/90 p-5 sm:p-8 flex flex-col justify-between text-left transition-colors duration-300 shadow-sm hover:border-zinc-300 dark:hover:border-zinc-700 hover:shadow-md cursor-pointer overflow-hidden backdrop-blur-xl ${className || ""}`}
+        className={`group relative w-full h-full min-h-0 sm:min-h-[290px] p-[1.5px] rounded-3xl overflow-hidden shadow-md cursor-pointer ${className || ""}`}
         {...props}
       >
-        {/* Continuous Automatic Glass Shine Beam (45-degree angle sweep) */}
-        <motion.div
-          className="absolute inset-0 z-10 pointer-events-none opacity-20 group-hover:opacity-40 transition-opacity duration-500"
-          style={{
-            background:
-              "linear-gradient(115deg, transparent 20%, rgba(255, 255, 255, 0.25) 45%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.25) 55%, transparent 80%)",
-          }}
-          animate={{
-            x: ["-150%", "200%"],
-          }}
-          transition={{
-            duration: 4.5,
-            repeat: Infinity,
-            repeatDelay: 3,
-            ease: [0.25, 1, 0.5, 1],
-            delay: delay * 0.4,
-          }}
-        />
+        {/* Continuous Rotating Red Glowing Border Beam */}
+        {isRedVariant && (
+          <div className="absolute -inset-[200%] bg-[conic-gradient(from_0deg,transparent_0_270deg,rgba(192,0,0,0.6)_310deg,#C00000_360deg)] animate-border-spin pointer-events-none" />
+        )}
 
-        {/* TOP SECTION: Icon Badge & Title */}
-        <div className="relative w-full flex flex-row sm:flex-col items-center sm:items-start gap-4 mb-3 sm:mb-6 z-20">
-          {/* Circular Icon Badge with Silky-Smooth Continuous Beat Animation */}
-          <div className="relative flex items-center justify-center shrink-0 w-14 h-14 sm:w-16 sm:h-16">
-            {/* Outer Soft Pulse Glow Ring */}
-            <motion.div
-              className={`absolute inset-0 rounded-full pointer-events-none transform-gpu ${
-                isRedVariant
-                  ? "bg-[#C00000]/25 dark:bg-[#C00000]/30 border border-[#C00000]/40 shadow-[0_0_18px_rgba(192,0,0,0.3)]"
-                  : "bg-zinc-400/20 dark:bg-zinc-600/20 border border-zinc-300/30"
-              }`}
-              animate={{
-                scale: [1, 1.24, 1],
-                opacity: [0.35, 0.85, 0.35],
-              }}
-              transition={{
-                duration: 2.4,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            />
+        {/* Inner Card Container */}
+        <div className="relative w-full h-full rounded-[22.5px] bg-card/95 dark:bg-zinc-950/95 border border-zinc-200/90 dark:border-zinc-800/90 p-5 sm:p-8 flex flex-col justify-between text-left transition-colors duration-300 shadow-sm backdrop-blur-xl overflow-hidden z-10">
+          {/* Continuous Automatic Glass Shine Beam (45-degree angle sweep) */}
+          <motion.div
+            className="absolute inset-0 z-10 pointer-events-none opacity-20 group-hover:opacity-40 transition-opacity duration-500"
+            style={{
+              background:
+                "linear-gradient(115deg, transparent 20%, rgba(255, 255, 255, 0.25) 45%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.25) 55%, transparent 80%)",
+            }}
+            animate={{
+              x: ["-150%", "200%"],
+            }}
+            transition={{
+              duration: 4.5,
+              repeat: Infinity,
+              repeatDelay: 3,
+              ease: [0.25, 1, 0.5, 1],
+              delay: delay * 0.4,
+            }}
+          />
 
-            {/* Inner Snug Breathing Ring */}
-            <motion.div
-              className={`absolute inset-1 rounded-full pointer-events-none transform-gpu ${
-                isRedVariant
-                  ? "bg-[#C00000]/15 dark:bg-[#C00000]/20 shadow-[0_0_10px_rgba(192,0,0,0.2)]"
-                  : "bg-zinc-200/40 dark:bg-zinc-800/40"
-              }`}
-              animate={{
-                scale: [0.98, 1.12, 0.98],
-                opacity: [0.4, 0.9, 0.4],
-              }}
-              transition={{
-                duration: 2.4,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            />
+          {/* TOP SECTION: Icon Badge & Title */}
+          <div className="relative w-full flex flex-row sm:flex-col items-center sm:items-start gap-4 mb-3 sm:mb-6 z-20">
+            {/* Circular Icon Badge with Silky-Smooth Continuous Beat Animation */}
+            <div className="relative flex items-center justify-center shrink-0 w-14 h-14 sm:w-16 sm:h-16">
+              {/* Outer Soft Pulse Glow Ring */}
+              <motion.div
+                className={`absolute inset-0 rounded-full pointer-events-none transform-gpu ${
+                  isRedVariant
+                    ? "bg-[#C00000]/25 dark:bg-[#C00000]/30 border border-[#C00000]/40 shadow-[0_0_18px_rgba(192,0,0,0.3)]"
+                    : "bg-zinc-400/20 dark:bg-zinc-600/20 border border-zinc-300/30"
+                }`}
+                animate={{
+                  scale: [1, 1.24, 1],
+                  opacity: [0.35, 0.85, 0.35],
+                }}
+                transition={{
+                  duration: 2.4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
 
-            {/* Solid White Center Icon Circle */}
-            <div
-              className={`relative z-10 w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-transform duration-300 ${
-                isRedVariant
-                  ? "bg-white dark:bg-zinc-900 border border-red-500/30 dark:border-red-500/40 shadow-sm text-[#C00000]"
-                  : "bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm text-foreground"
-              }`}
-            >
-              {Icon && (
-                <Icon className={`w-5 h-5 sm:w-6 sm:h-6 stroke-[2.2] ${
-                  isRedVariant ? "text-[#C00000]" : "text-foreground"
-                }`} />
-              )}
+              {/* Inner Snug Breathing Ring */}
+              <motion.div
+                className={`absolute inset-1 rounded-full pointer-events-none transform-gpu ${
+                  isRedVariant
+                    ? "bg-[#C00000]/15 dark:bg-[#C00000]/20 shadow-[0_0_10px_rgba(192,0,0,0.2)]"
+                    : "bg-zinc-200/40 dark:bg-zinc-800/40"
+                }`}
+                animate={{
+                  scale: [0.98, 1.12, 0.98],
+                  opacity: [0.4, 0.9, 0.4],
+                }}
+                transition={{
+                  duration: 2.4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+
+              {/* Solid White Center Icon Circle */}
+              <div
+                className={`relative z-10 w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-transform duration-300 ${
+                  isRedVariant
+                    ? "bg-white dark:bg-zinc-900 border border-red-500/30 dark:border-red-500/40 shadow-sm text-[#C00000]"
+                    : "bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm text-foreground"
+                }`}
+              >
+                {Icon && (
+                  <Icon className={`w-5 h-5 sm:w-6 sm:h-6 stroke-[2.2] ${
+                    isRedVariant ? "text-[#C00000]" : "text-foreground"
+                  }`} />
+                )}
+              </div>
             </div>
+
+            {/* Card Title */}
+            <h3 className={`text-lg sm:text-xl font-bold tracking-tight text-foreground dark:text-white transition-colors duration-300 ${titleClassName || ""}`}>
+              {title}
+            </h3>
           </div>
 
-          {/* Card Title */}
-          <h3 className={`text-lg sm:text-xl font-bold tracking-tight text-foreground dark:text-white transition-colors duration-300 ${titleClassName || ""}`}>
-            {title}
-          </h3>
-        </div>
+          {/* MIDDLE / CONTENT SECTION: Description */}
+          <div className="relative z-20 flex-1 flex flex-col justify-start">
+            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed font-normal">
+              {description}
+            </p>
+          </div>
 
-        {/* MIDDLE / CONTENT SECTION: Description */}
-        <div className="relative z-20 flex-1 flex flex-col justify-start">
-          <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed font-normal">
-            {description}
-          </p>
+          {/* Top Subtle Border Highlight */}
+          <div className="absolute top-0 inset-x-6 h-[1px] bg-gradient-to-r from-transparent via-white/80 dark:via-white/15 to-transparent pointer-events-none" />
         </div>
-
-        {/* Top Subtle Border Highlight */}
-        <div className="absolute top-0 inset-x-6 h-[1px] bg-gradient-to-r from-transparent via-white/80 dark:via-white/15 to-transparent pointer-events-none" />
       </motion.div>
     );
   }
