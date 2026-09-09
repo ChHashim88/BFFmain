@@ -20,7 +20,7 @@ export function PrinciplesSection() {
           <br />
           <span className="text-destructive">Three Core Principles</span>
         </h2>
-        <p className="text-subtitle text-muted-foreground max-w-2xl">
+        <p className="text-subtitle text-muted-foreground max-w-md mx-auto lg:max-w-2xl lg:mx-auto">
           A simpler, more transparent, more aligned way to invest in film
         </p>
       </div>

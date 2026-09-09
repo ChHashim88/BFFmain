@@ -107,8 +107,8 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
       <div className="mx-auto w-full max-w-[1350px] flex flex-col space-y-10 lg:space-y-16">
         {/* Top Grid: Left Side Text & Right Side Creative Visual Card */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          {/* Left Side - Text Content (Left Aligned) */}
-          <div className="flex flex-col gap-5 text-left items-start">
+          {/* Left Side - Text Content (Centered on Mobile, Left Aligned on Desktop) */}
+          <div className="flex flex-col gap-5 text-center lg:text-left items-center lg:items-start">
             <TypewriterText
               text={subtitle}
               className="text-h3 text-destructive uppercase tracking-tight font-bold mb-1"
@@ -116,10 +116,10 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
             <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm">
               Market <span className="text-destructive">Execution</span>
             </h2>
-            <div className="space-y-4 text-subtitle text-muted-foreground transition-colors duration-300">
+            <div className="space-y-4 text-subtitle text-muted-foreground transition-colors duration-300 max-w-md mx-auto lg:max-w-none lg:mx-0">
               <p>{description}</p>
             </div>
-            <p className="text-lg font-medium text-destructive mt-2">
+            <p className="text-lg font-medium text-destructive mt-2 text-center lg:text-left">
               {buttonText}
             </p>
           </div>

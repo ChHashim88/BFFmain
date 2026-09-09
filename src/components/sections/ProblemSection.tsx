@@ -15,7 +15,7 @@ function ProblemPointItem({ number, shortText, fullText }: ProblemPointProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className="flex flex-col space-y-2 group bg-muted/40 dark:bg-muted/10 border border-border/50 p-5 sm:p-6 rounded-2xl lg:bg-transparent lg:border-transparent lg:p-0 lg:rounded-none transition-colors hover:bg-muted/60 dark:hover:bg-muted/20">
+    <div className="flex flex-col space-y-2 group text-left bg-muted/40 dark:bg-muted/10 border border-border/50 p-5 sm:p-6 rounded-2xl lg:bg-transparent lg:border-transparent lg:p-0 lg:rounded-none transition-colors hover:bg-muted/60 dark:hover:bg-muted/20">
       <span className="text-destructive text-label transition-transform duration-300 lg:group-hover:-translate-x-2">
         {number}
       </span>
@@ -71,7 +71,7 @@ export function ProblemSection() {
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center mt-8 lg:mt-12">
             {/* Left Side - Points */}
-            <div className="flex flex-col gap-4 sm:gap-6 lg:pr-8 xl:pr-16 order-2 lg:order-1 mt-8 lg:mt-0">
+            <div className="flex flex-col gap-4 sm:gap-6 lg:pr-8 xl:pr-16 order-1 lg:order-1 mt-8 lg:mt-0">
               <ProblemPointItem
                 number="01"
                 shortText="For most people, investing in Hollywood films has been out of reach. For those who participate..."
@@ -95,7 +95,7 @@ export function ProblemSection() {
             </div>
 
             {/* Right Side - Stacked Video Player */}
-            <div className="relative w-full aspect-video lg:aspect-[4/3] xl:aspect-[16/10] lg:ml-4 sm:ml-8 order-1 lg:order-2">
+            <div className="relative w-full aspect-video lg:aspect-[4/3] xl:aspect-[16/10] lg:ml-4 sm:ml-8 order-2 lg:order-2">
               <div className="absolute inset-y-6 -left-6 w-full bg-zinc-200 dark:bg-zinc-900 border border-border/40 shadow-2xl z-0 hidden sm:block" />
               <div className="absolute inset-y-3 -left-3 w-full bg-zinc-300 dark:bg-zinc-900 border border-border/50 shadow-2xl z-10 hidden sm:block" />
 

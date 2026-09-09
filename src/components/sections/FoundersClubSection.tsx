@@ -14,7 +14,7 @@ export function FoundersClubSection() {
         <div className="w-full text-center lg:text-left">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             {/* Left Side - Content */}
-            <div className="flex flex-col items-center lg:items-start gap-4 sm:gap-6 lg:pr-8 xl:pr-16 order-2 lg:order-1 mt-8 lg:mt-0 text-center lg:text-left">
+            <div className="flex flex-col items-center lg:items-start gap-4 sm:gap-6 lg:pr-8 xl:pr-16 order-1 lg:order-1 mt-8 lg:mt-0 text-center lg:text-left">
               <TypewriterText
                 text="FOUNDERS CLUB"
                 className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3"
@@ -23,7 +23,7 @@ export function FoundersClubSection() {
                 More Than an Investment. <br />
                 <span className="text-destructive">Join the Story.</span>
               </h2>
-              <div className="space-y-4 text-body-text text-muted-foreground mt-4">
+              <div className="space-y-4 text-body-text text-muted-foreground mt-4 max-w-md mx-auto lg:max-w-none lg:mx-0">
                 <p>
                   Film offers something few investments can: the opportunity to
                   see what your capital helps bring to life.
@@ -37,14 +37,14 @@ export function FoundersClubSection() {
               </div>
               <button
                 onClick={() => openWaitlistModal("founders")}
-                className="mt-6 px-8 py-4 bg-[#C00000] text-white font-bold tracking-wide uppercase rounded-full hover:bg-[#990000] transition-all duration-300 hover:scale-105 shadow-lg active:scale-95 cursor-pointer"
+                className="mt-6 px-8 py-4 bg-[#C00000] text-white font-bold tracking-wide uppercase rounded-full hover:bg-[#990000] transition-all duration-300 hover:scale-105 shadow-lg active:scale-95 cursor-pointer mx-auto lg:mx-0"
               >
                 Join Founders Club
               </button>
             </div>
 
             {/* Right Side - Stacked Video Player with Image 7.png Thumbnail */}
-            <div className="relative w-full aspect-video lg:aspect-[4/3] xl:aspect-[16/10] lg:ml-4 sm:ml-8 order-1 lg:order-2">
+            <div className="relative w-full aspect-video lg:aspect-[4/3] xl:aspect-[16/10] lg:ml-4 sm:ml-8 order-2 lg:order-2">
               <div className="absolute inset-y-6 -left-6 w-full bg-zinc-200 dark:bg-zinc-900 border border-border/40 shadow-2xl z-0 hidden sm:block rounded-2xl" />
               <div className="absolute inset-y-3 -left-3 w-full bg-zinc-300 dark:bg-zinc-900 border border-border/50 shadow-2xl z-10 hidden sm:block rounded-2xl" />
 

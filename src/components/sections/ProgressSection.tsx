@@ -84,7 +84,7 @@ export function ProgressSection() {
             <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm">
               From Foundation to <span className="text-destructive">Launch</span>
             </h2>
-            <div className="space-y-4 text-body-text text-muted-foreground mt-4">
+            <div className="space-y-4 text-body-text text-muted-foreground mt-4 max-w-md mx-auto lg:max-w-none lg:mx-0 text-left">
               <p>
                 Big Film Fund has spent its development phase building more
                 than a concept.

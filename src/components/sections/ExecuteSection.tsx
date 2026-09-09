@@ -13,7 +13,7 @@ export function ExecuteSection() {
       <div className="mx-auto w-full max-w-[1350px] flex flex-col space-y-10 lg:space-y-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left Side - Text */}
-          <div className="flex flex-col gap-6 order-2 lg:order-1 mt-8 lg:mt-0 lg:pr-8 xl:pr-16 text-center lg:text-left">
+          <div className="flex flex-col gap-6 order-1 lg:order-1 mt-8 lg:mt-0 lg:pr-8 xl:pr-16 text-center lg:text-left">
             <TypewriterText
               text="BUILT TO EXECUTE"
               className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3"
@@ -21,7 +21,7 @@ export function ExecuteSection() {
             <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm">
               The Capabilities <span className="text-destructive">Behind the Model</span>
             </h2>
-            <div className="space-y-4 text-body-text text-muted-foreground transition-colors duration-300">
+            <div className="space-y-4 text-body-text text-muted-foreground transition-colors duration-300 max-w-md mx-auto lg:max-w-none lg:mx-0 text-left">
               <p>
                 A better film investment model only matters if it can be
                 executed in the real world.
@@ -41,7 +41,7 @@ export function ExecuteSection() {
           </div>
 
           {/* Right Side - Stacked Video Player with Image 6.png Thumbnail */}
-          <div className="relative w-full aspect-video lg:aspect-[4/3] xl:aspect-[16/10] lg:ml-4 sm:ml-8 order-1 lg:order-2">
+          <div className="relative w-full aspect-video lg:aspect-[4/3] xl:aspect-[16/10] lg:ml-4 sm:ml-8 order-2 lg:order-2">
             <div className="absolute inset-y-6 -left-6 w-full bg-zinc-200 dark:bg-zinc-900 border border-border/40 shadow-2xl z-0 hidden sm:block rounded-2xl" />
             <div className="absolute inset-y-3 -left-3 w-full bg-zinc-300 dark:bg-zinc-900 border border-border/50 shadow-2xl z-10 hidden sm:block rounded-2xl" />
 

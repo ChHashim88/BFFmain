@@ -106,7 +106,7 @@ export function TimelineSection() {
             </h2>
           </div>
 
-          <div className="space-y-4 text-body-text text-muted-foreground transition-colors duration-300">
+          <div className="space-y-4 text-body-text text-muted-foreground transition-colors duration-300 max-w-md mx-auto lg:max-w-none lg:mx-0 text-left">
             <p>
               Bringing film investing into the modern era requires more than
               putting traditional film deals online. It requires

@@ -68,7 +68,7 @@ export default function OpportunitySection() {
               </h2>
             </div>
 
-            <div className="flex flex-col space-y-6 pt-6">
+            <div className="flex flex-col space-y-6 pt-6 text-left">
               {/* Point 1 */}
               <div className="flex gap-5 items-start pb-5 border-b border-border/50">
                 <div className="w-10 h-10 rounded-full border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 flex items-center justify-center shrink-0 mt-0.5">

@@ -13,7 +13,7 @@ export function RevenueSection() {
         <div className="w-full text-center lg:text-left">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             {/* Left Side - Content */}
-            <div className="flex flex-col gap-4 sm:gap-6 lg:pr-8 xl:pr-16 order-2 lg:order-1 mt-8 lg:mt-0 text-center lg:text-left">
+            <div className="flex flex-col gap-4 sm:gap-6 lg:pr-8 xl:pr-16 order-1 lg:order-1 mt-8 lg:mt-0 text-center lg:text-left">
               <TypewriterText
                 text="HOW WE MAKE MONEY"
                 className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3"
@@ -21,7 +21,7 @@ export function RevenueSection() {
               <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm">
                 Multiple <span className="text-destructive">Revenue Streams.</span>
               </h2>
-              <p className="text-body-text text-muted-foreground mt-4">
+              <p className="text-body-text text-muted-foreground mt-4 max-w-md mx-auto lg:max-w-none lg:mx-0">
                 Big Film Fund is building a platform business, with multiple
                 complementary revenue streams not dependent on the success of
                 any one movie.
@@ -29,7 +29,7 @@ export function RevenueSection() {
             </div>
 
             {/* Right Side - Stacked Video Player with Image 5.png Thumbnail */}
-            <div className="relative w-full aspect-video lg:aspect-[4/3] xl:aspect-[16/10] lg:ml-4 sm:ml-8 order-1 lg:order-2">
+            <div className="relative w-full aspect-video lg:aspect-[4/3] xl:aspect-[16/10] lg:ml-4 sm:ml-8 order-2 lg:order-2">
               <div className="absolute inset-y-6 -left-6 w-full bg-zinc-200 dark:bg-zinc-900 border border-border/40 shadow-2xl z-0 hidden sm:block rounded-2xl" />
               <div className="absolute inset-y-3 -left-3 w-full bg-zinc-300 dark:bg-zinc-900 border border-border/50 shadow-2xl z-10 hidden sm:block rounded-2xl" />
 
@@ -61,7 +61,7 @@ export function RevenueSection() {
 
           {/* Center Line Below */}
           <div className="mt-8 lg:mt-12 w-full flex justify-center text-center">
-            <p className="text-lg md:text-xl font-medium text-destructive max-w-3xl leading-relaxed">
+            <p className="text-lg md:text-xl font-medium text-destructive max-w-md mx-auto lg:max-w-3xl leading-relaxed">
               Rather than depending on one movie or one source of income, BFF’s
               business model combines four complementary revenue streams:
             </p>

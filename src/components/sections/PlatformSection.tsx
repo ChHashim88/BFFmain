@@ -17,7 +17,7 @@ function PlatformPointItem({ shortText, fullText, highlight }: PlatformPointProp
 
   if (!shortText) {
     return (
-      <div className="flex flex-col space-y-2 group bg-muted/40 dark:bg-muted/10 border border-border/50 p-5 sm:p-6 rounded-2xl lg:bg-transparent lg:border-transparent lg:p-0 lg:rounded-none transition-colors hover:bg-muted/60 dark:hover:bg-muted/20">
+      <div className="flex flex-col space-y-2 group text-left bg-muted/40 dark:bg-muted/10 border border-border/50 p-5 sm:p-6 rounded-2xl lg:bg-transparent lg:border-transparent lg:p-0 lg:rounded-none transition-colors hover:bg-muted/60 dark:hover:bg-muted/20">
         <p
           className={`text-body-text transition-colors duration-300 ${highlight
             ? "font-medium text-destructive"
@@ -31,7 +31,7 @@ function PlatformPointItem({ shortText, fullText, highlight }: PlatformPointProp
   }
 
   return (
-    <div className="flex flex-col space-y-2 group bg-muted/40 dark:bg-muted/10 border border-border/50 p-5 sm:p-6 rounded-2xl lg:bg-transparent lg:border-transparent lg:p-0 lg:rounded-none transition-colors hover:bg-muted/60 dark:hover:bg-muted/20">
+    <div className="flex flex-col space-y-2 group text-left bg-muted/40 dark:bg-muted/10 border border-border/50 p-5 sm:p-6 rounded-2xl lg:bg-transparent lg:border-transparent lg:p-0 lg:rounded-none transition-colors hover:bg-muted/60 dark:hover:bg-muted/20">
       <p className="text-body-text text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
         {isExpanded ? fullText : shortText}{" "}
         <button
@@ -109,7 +109,7 @@ export function PlatformSection() {
       <div className="mx-auto w-full max-w-[1350px]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left Side - Text & Content (Strictly Left Aligned) */}
-          <div className="flex flex-col gap-6 order-2 lg:order-1 mt-8 lg:mt-0 lg:pr-8 xl:pr-16 text-center lg:text-left">
+          <div className="flex flex-col gap-6 order-1 lg:order-1 mt-8 lg:mt-0 lg:pr-8 xl:pr-16 text-center lg:text-left">
             <div>
               <TypewriterText
                 text="THE PLATFORM"
@@ -145,7 +145,7 @@ export function PlatformSection() {
           </div>
 
           {/* Right Side - Creative Dual Video Player Showcase */}
-          <div className="relative w-full flex flex-col gap-8 lg:ml-4 sm:ml-8 order-1 lg:order-2">
+          <div className="relative w-full flex flex-col gap-8 lg:ml-4 sm:ml-8 order-2 lg:order-2">
 
             {/* Video Card 1: Watch Platform Overview (Image /2.png) */}
             <PlatformVideoCard

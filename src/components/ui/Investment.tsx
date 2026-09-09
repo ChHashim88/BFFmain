@@ -56,7 +56,7 @@ export default function Investment() {
         ===================================================== */}
         <div className="flex flex-col gap-8">
           {/* Section Heading Header */}
-          <div className="w-full text-left">
+          <div className="w-full text-center lg:text-left">
             <TypewriterText
               text="THE INVESTMENT"
               className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3"

@@ -66,7 +66,7 @@ export function ContactSection() {
             <br />
             <span className="text-destructive">Let&apos;s Connect.</span>
           </h2>
-          <p className="text-subtitle text-muted-foreground leading-relaxed max-w-2xl pt-1">
+          <p className="text-subtitle text-muted-foreground leading-relaxed max-w-md mx-auto lg:max-w-2xl lg:mx-0 pt-1">
             Direct communication channels for investors, filmmakers, packagers, and institutional partners. Our leadership team is ready to assist.
           </p>
         </div>
