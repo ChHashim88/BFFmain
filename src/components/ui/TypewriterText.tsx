@@ -17,9 +17,9 @@ interface TypewriterTextProps {
 export function TypewriterText({
   text,
   className = "",
-  speed = 78,
-  initialDelay = 150,
-  completionHoldDelay = 1000,
+  speed = 130,
+  initialDelay = 220,
+  completionHoldDelay = 1200,
   cursorColor = "bg-destructive",
   hideCursorOnComplete = true,
   as: Component = "h3",
@@ -68,16 +68,16 @@ export function TypewriterText({
                 setTypedCount(charIndex);
                 lastTime = now;
 
-                // Subtle natural human tactile rhythm (78ms ± 4ms) without noticeable speed jumps
-                const jitter = (Math.random() - 0.5) * 8;
-                nextDelay = Math.max(68, Math.min(88, speed + jitter));
+                // Cinematic deliberate rhythm (~130ms per char, range 120ms-140ms)
+                const jitter = (Math.random() - 0.5) * 10;
+                nextDelay = Math.max(120, Math.min(140, speed + jitter));
               }
 
               if (charIndex >= text.length) {
                 // Completed typing all characters: hold state with blinking cursor
                 setCursorState("holding");
 
-                // Hold visible text + cursor for ~1000ms before fading cursor out
+                // Hold visible text + cursor for ~1200ms before fading cursor out
                 timerIdRef.current = setTimeout(() => {
                   if (hideCursorOnComplete) {
                     setCursorState("finished");
