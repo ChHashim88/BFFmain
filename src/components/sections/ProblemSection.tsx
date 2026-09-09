@@ -15,8 +15,8 @@ function ProblemPointItem({ number, shortText, fullText }: ProblemPointProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className="flex flex-col space-y-2 group text-left bg-muted/40 dark:bg-muted/10 border border-border/50 p-5 sm:p-6 rounded-2xl lg:bg-transparent lg:border-transparent lg:p-0 lg:rounded-none transition-colors hover:bg-muted/60 dark:hover:bg-muted/20">
-      <span className="text-destructive text-label transition-transform duration-300 lg:group-hover:-translate-x-2">
+    <div className="flex flex-row items-start gap-3.5 group text-left bg-muted/40 dark:bg-muted/10 border border-border/50 p-4.5 sm:p-6 rounded-2xl lg:flex-col lg:gap-0 lg:space-y-2 lg:bg-transparent lg:border-transparent lg:p-0 lg:rounded-none transition-colors hover:bg-muted/60 dark:hover:bg-muted/20">
+      <span className="text-destructive text-label font-bold shrink-0 pt-0.5 transition-transform duration-300 lg:group-hover:-translate-x-2">
         {number}
       </span>
       <p className="text-body-text text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
