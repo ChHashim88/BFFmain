@@ -9,24 +9,28 @@ export function RevenueCardsSection() {
       <div className="mx-auto w-full max-w-[1350px]">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 items-stretch">
           <GlassCard
+            variant="red"
             icon={Film}
             delay={0.1}
             title="Platform Fees"
             description="Fees associated with bringing film offerings to market and supporting them through the BFF platform."
           />
           <GlassCard
+            variant="red"
             icon={Cpu}
             delay={0.2}
             title="Project Participation"
             description="Revenue and defined economic participation associated with BFF’s role in financing, developing, and producing individual films."
           />
           <GlassCard
+            variant="red"
             icon={TrendingUp}
             delay={0.3}
             title="Performance Upside"
             description="BFF participates in distributable revenue from successful films—aligning the company’s financial upside with performance."
           />
           <GlassCard
+            variant="red"
             icon={Sparkles}
             delay={0.4}
             title="Partnerships"
