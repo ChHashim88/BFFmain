@@ -144,8 +144,8 @@
 
   @media (min-width: 1024px) {
     .text-h2 {
-      font-size: clamp(36px, 2.25rem + 0.75vw, 48px);
-      line-height: 1.05;
+      font-size: 40px;
+      line-height: 1.1;
     }
   }
 
