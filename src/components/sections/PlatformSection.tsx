@@ -107,23 +107,30 @@ export function PlatformSection() {
       className="relative w-full scroll-mt-24 bg-background py-16 md:py-20 lg:py-24 px-6 md:px-12 xl:px-24 flex flex-col justify-center"
     >
       <div className="mx-auto w-full max-w-[1350px]">
+        {/* Section Header */}
+        <div className="w-full text-center lg:text-left mb-10 lg:mb-14">
+          <TypewriterText
+            text="RADICAL TRANSPARENCY"
+            className="text-h3 text-destructive uppercase tracking-widest font-semibold mb-2.5"
+          />
+          <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm mb-3.5">
+            Radical <span className="text-destructive">Transparency.</span>
+          </h2>
+          <p className="text-subtitle text-muted-foreground max-w-md mx-auto lg:max-w-none lg:mx-0">
+            Delivered Through the Platform.
+          </p>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left Side - Text & Content (Strictly Left Aligned) */}
-          <div className="flex flex-col items-center lg:items-start gap-6 order-1 lg:order-1 mt-8 lg:mt-0 lg:pr-8 xl:pr-16 text-center lg:text-left">
+          <div className="flex flex-col items-center lg:items-start gap-6 order-1 lg:order-1 mt-4 lg:mt-0 lg:pr-8 xl:pr-16 text-center lg:text-left">
             <div>
-              <TypewriterText
-                text="THE PLATFORM"
-                className="text-h3 text-destructive uppercase tracking-widest font-semibold mb-2.5"
-              />
-              <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm mb-3.5">
-                Discover.
-                <span className="text-destructive"> Invest.</span>
-                <br />
-                Follow the Story.
-              </h2>
+              <h3 className="text-xl sm:text-2xl font-bold text-foreground dark:text-white tracking-tight mb-1">
+                Discover. <span className="text-destructive">Invest.</span> Follow the Story.
+              </h3>
             </div>
 
-            <div className="flex flex-col gap-4 sm:gap-6 mt-2">
+            <div className="flex flex-col gap-4 sm:gap-6 mt-1">
               <PlatformPointItem fullText="Big Film Fund brings the film investment experience together in one place." />
               <PlatformPointItem
                 shortText="Through the BFF platform, investors can discover a curated selection of films, explore the creative case..."
@@ -146,7 +153,6 @@ export function PlatformSection() {
 
           {/* Right Side - Creative Dual Video Player Showcase */}
           <div className="relative w-full flex flex-col gap-8 lg:ml-4 sm:ml-8 order-2 lg:order-2">
-
             {/* Video Card 1: Watch Platform Overview (Image /2.png) */}
             <PlatformVideoCard
               title="Watch Platform Overview"
@@ -162,7 +168,6 @@ export function PlatformSection() {
               videoSrc="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4"
               modalTitle="Investor Experience Dashboard"
             />
-
           </div>
         </div>
       </div>

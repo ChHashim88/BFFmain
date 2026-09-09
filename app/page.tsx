@@ -70,7 +70,6 @@ export default function HomePage() {
         <ModelSection />
         <PrinciplesSection />
         <PlatformSection />
-        <FUIBentoGridDark />
         <VerticalTabs />
         <GallerySection />
         <OpportunitySection />
