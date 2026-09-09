@@ -71,42 +71,56 @@ export function ExecuteSection() {
           </div>
         </div>
 
-        {/* 5 Execution Creative Red Pulse Cards */}
-        <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 justify-center items-stretch pt-4 pb-2">
+        {/* 5 Execution Bento Grid Cards */}
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch pt-4 pb-2">
+          {/* Card 1: Wide Hero Bento Card (Top Left - Spans 2 Columns) */}
           <GlassCard
             variant="red"
             icon={Search}
             delay={0.1}
             title="Project Access"
             description="A growing pipeline sourced through filmmakers, producers, representatives, and development relationships."
+            className="sm:col-span-2 lg:col-span-2 min-h-[250px] sm:min-h-[270px]"
           />
+
+          {/* Card 2: Top Right Card */}
           <GlassCard
             variant="red"
             icon={CheckCircle2}
             delay={0.2}
             title="Disciplined Greenlight"
             description="A rigorous evaluation methodology testing creative strength, audience thesis, commercial potential, and risk."
+            className="sm:col-span-1 lg:col-span-1 min-h-[250px] sm:min-h-[270px]"
           />
+
+          {/* Card 3: Bottom Left Card */}
           <GlassCard
             variant="red"
             icon={Clapperboard}
             delay={0.3}
             title="Production Execution"
             description="Experienced producers, defined budgets, clear agreements, accountable milestones, and professional oversight."
+            className="sm:col-span-1 lg:col-span-1 min-h-[250px] sm:min-h-[270px]"
           />
+
+          {/* Card 4: Bottom Center Card */}
           <GlassCard
             variant="red"
             icon={Globe}
             delay={0.4}
             title="Distribution"
             description="Global distribution experience and commercial relationships that inform positioning to reach audiences."
+            className="sm:col-span-1 lg:col-span-1 min-h-[250px] sm:min-h-[270px]"
           />
+
+          {/* Card 5: Bottom Right Card */}
           <GlassCard
             variant="red"
             icon={ShieldCheck}
             delay={0.5}
             title="Platform Oversight"
             description="Standalone structures, disciplined capital management, consistent reporting, and ongoing visibility."
+            className="sm:col-span-2 lg:col-span-1 min-h-[250px] sm:min-h-[270px]"
           />
         </div>
       </div>
