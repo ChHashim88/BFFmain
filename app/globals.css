@@ -229,6 +229,7 @@
 
 .animate-border-spin {
   animation: borderSpin 6s linear infinite;
+  will-change: transform;
 }
 
 @keyframes svgDash {

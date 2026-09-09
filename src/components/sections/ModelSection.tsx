@@ -21,30 +21,11 @@ export function ModelSection() {
         {/* Both cards in ONE row on desktop (grid-cols-2) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 w-full max-w-[1350px] mx-auto text-left mt-2">
           {/* Card 01 */}
-          <div className="relative w-full rounded-2xl bg-card/40 dark:bg-zinc-950/40 backdrop-blur-md px-6 py-4 sm:px-7 sm:py-5 border border-border/80 dark:border-zinc-800/80 shadow-md group overflow-hidden transition-all duration-300">
-            {/* Pixel-perfect Animated SVG Moving Red Border Beam */}
-            <svg
-              className="absolute inset-0 w-full h-full pointer-events-none rounded-2xl z-20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect
-                x="1"
-                y="1"
-                rx="15"
-                ry="15"
-                fill="none"
-                stroke="#C00000"
-                strokeWidth="2"
-                strokeDasharray="160 700"
-                className="animate-svg-dash drop-shadow-[0_0_6px_rgba(192,0,0,0.8)]"
-                style={{
-                  width: "calc(100% - 2px)",
-                  height: "calc(100% - 2px)",
-                }}
-              />
-            </svg>
+          <div className="relative p-[1.5px] rounded-2xl overflow-hidden shadow-lg group transition-all duration-300">
+            {/* Ultra-smooth GPU Accelerated Continuous Rotating Red Glowing Border Beam */}
+            <div className="absolute -inset-[200%] bg-[conic-gradient(from_0deg,transparent_0_270deg,rgba(192,0,0,0.6)_310deg,#C00000_360deg)] animate-border-spin pointer-events-none" />
 
-            <div className="relative z-10 flex flex-row items-center gap-4 sm:gap-6 h-full">
+            <div className="relative w-full h-full rounded-[14px] bg-white/95 dark:bg-zinc-950/95 backdrop-blur-md px-6 py-4 sm:px-7 sm:py-5 z-10 flex flex-row items-center gap-4 sm:gap-6 border border-border/40">
               <span className="text-destructive font-black text-2xl sm:text-3xl tracking-wider shrink-0 min-w-[36px]">
                 01
               </span>
@@ -57,30 +38,11 @@ export function ModelSection() {
           </div>
 
           {/* Card 02 */}
-          <div className="relative w-full rounded-2xl bg-card/40 dark:bg-zinc-950/40 backdrop-blur-md px-6 py-4 sm:px-7 sm:py-5 border border-border/80 dark:border-zinc-800/80 shadow-md group overflow-hidden transition-all duration-300">
-            {/* Pixel-perfect Animated SVG Moving Red Border Beam */}
-            <svg
-              className="absolute inset-0 w-full h-full pointer-events-none rounded-2xl z-20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect
-                x="1"
-                y="1"
-                rx="15"
-                ry="15"
-                fill="none"
-                stroke="#C00000"
-                strokeWidth="2"
-                strokeDasharray="160 700"
-                className="animate-svg-dash drop-shadow-[0_0_6px_rgba(192,0,0,0.8)]"
-                style={{
-                  width: "calc(100% - 2px)",
-                  height: "calc(100% - 2px)",
-                }}
-              />
-            </svg>
+          <div className="relative p-[1.5px] rounded-2xl overflow-hidden shadow-lg group transition-all duration-300">
+            {/* Ultra-smooth GPU Accelerated Continuous Rotating Red Glowing Border Beam */}
+            <div className="absolute -inset-[200%] bg-[conic-gradient(from_0deg,transparent_0_270deg,rgba(192,0,0,0.6)_310deg,#C00000_360deg)] animate-border-spin pointer-events-none" />
 
-            <div className="relative z-10 flex flex-row items-center gap-4 sm:gap-6 h-full">
+            <div className="relative w-full h-full rounded-[14px] bg-white/95 dark:bg-zinc-950/95 backdrop-blur-md px-6 py-4 sm:px-7 sm:py-5 z-10 flex flex-row items-center gap-4 sm:gap-6 border border-border/40">
               <span className="text-destructive font-black text-2xl sm:text-3xl tracking-wider shrink-0 min-w-[36px]">
                 02
               </span>
@@ -96,3 +58,4 @@ export function ModelSection() {
     </section>
   );
 }
+
