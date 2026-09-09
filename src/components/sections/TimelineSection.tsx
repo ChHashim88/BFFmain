@@ -94,7 +94,7 @@ export function TimelineSection() {
     <section className="relative w-full bg-background py-16 md:py-20 lg:py-24 px-6 md:px-12 xl:px-24 flex justify-center overflow-hidden">
       <div className="mx-auto w-full max-w-[1350px] grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
         {/* Left side text */}
-        <div className="flex flex-col gap-6 lg:pr-8 xl:pr-16 z-10 text-foreground order-1 lg:order-1 text-center lg:text-left">
+        <div className="flex flex-col items-center lg:items-start gap-6 lg:pr-8 xl:pr-16 z-10 text-foreground order-1 lg:order-1 text-center lg:text-left">
           <div>
             <TypewriterText
               text="FILM IS NEXT"

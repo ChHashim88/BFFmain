@@ -56,7 +56,7 @@ export default function OpportunitySection() {
       <div className="mx-auto w-full max-w-[1350px] flex flex-col gap-12 lg:gap-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Column */}
-          <div className="flex flex-col space-y-8 text-center lg:text-left">
+          <div className="flex flex-col items-center lg:items-start space-y-8 text-center lg:text-left">
             <div className="space-y-4">
               <TypewriterText
                 text="THE OPPORTUNITY"

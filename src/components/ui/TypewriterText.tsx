@@ -96,7 +96,7 @@ export function TypewriterText({
       </Component>
 
       {/* Visible typewriter text */}
-      <Component className={cn("absolute inset-0 left-0 top-0 whitespace-nowrap flex items-center", className)}>
+      <Component className={cn("absolute inset-0 left-0 top-0 whitespace-nowrap flex items-center justify-center lg:justify-start", className)}>
         <span>{displayedText}</span>
         {isTypingActive && (
           <span
