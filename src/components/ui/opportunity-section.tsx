@@ -37,9 +37,8 @@ function ExpandablePoint({
         >
           <ChevronDown
             size={14}
-            className={`transition-transform duration-300 ${
-              isExpanded ? "rotate-180" : ""
-            }`}
+            className={`transition-transform duration-300 ${isExpanded ? "rotate-180" : ""
+              }`}
           />
         </button>
       </p>
@@ -63,8 +62,8 @@ export default function OpportunitySection() {
                 className="text-h3 text-destructive uppercase tracking-widest font-semibold mb-2.5"
               />
               <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm mb-3.5">
-                Film is Ready for <br className="hidden sm:inline" />
-                <span className="text-destructive">Modern Investment Infrastructure.</span>
+                Film is Ready for Modern <br className="hidden sm:inline" />
+                <span className="text-destructive">Investment Infrastructure.</span>
               </h2>
             </div>
 
