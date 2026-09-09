@@ -38,9 +38,9 @@ const GlassCard = React.forwardRef<HTMLDivElement, GlassCardProps>(
         className={`group relative w-full h-full min-h-0 sm:min-h-[290px] p-[1.5px] rounded-3xl overflow-hidden shadow-md cursor-pointer ${className || ""}`}
         {...props}
       >
-        {/* Continuous Rotating Red Glowing Border Beam */}
+        {/* Continuous Rotating Red Glowing Border Beam (Sharp & Crisp Light Line, Zero Red Shade) */}
         {isRedVariant && (
-          <div className="absolute -inset-[200%] bg-[conic-gradient(from_0deg,transparent_0_270deg,rgba(192,0,0,0.6)_310deg,#C00000_360deg)] animate-border-spin pointer-events-none" />
+          <div className="absolute -inset-[200%] bg-[conic-gradient(from_0deg,transparent_0_330deg,#C00000_360deg)] animate-border-spin pointer-events-none" />
         )}
 
         {/* Inner Card Container */}
@@ -68,11 +68,11 @@ const GlassCard = React.forwardRef<HTMLDivElement, GlassCardProps>(
           <div className="relative w-full flex flex-row sm:flex-col items-center sm:items-start gap-4 mb-3 sm:mb-6 z-20">
             {/* Circular Icon Badge with Silky-Smooth Continuous Beat Animation */}
             <div className="relative flex items-center justify-center shrink-0 w-14 h-14 sm:w-16 sm:h-16">
-              {/* Outer Soft Pulse Glow Ring */}
+              {/* Outer Clean Pulse Ring (No Red Box Shadow) */}
               <motion.div
                 className={`absolute inset-0 rounded-full pointer-events-none transform-gpu ${
                   isRedVariant
-                    ? "bg-[#C00000]/25 dark:bg-[#C00000]/30 border border-[#C00000]/40 shadow-[0_0_18px_rgba(192,0,0,0.3)]"
+                    ? "bg-[#C00000]/10 dark:bg-[#C00000]/15 border border-[#C00000]/30"
                     : "bg-zinc-400/20 dark:bg-zinc-600/20 border border-zinc-300/30"
                 }`}
                 animate={{
@@ -90,7 +90,7 @@ const GlassCard = React.forwardRef<HTMLDivElement, GlassCardProps>(
               <motion.div
                 className={`absolute inset-1 rounded-full pointer-events-none transform-gpu ${
                   isRedVariant
-                    ? "bg-[#C00000]/15 dark:bg-[#C00000]/20 shadow-[0_0_10px_rgba(192,0,0,0.2)]"
+                    ? "border border-[#C00000]/20"
                     : "bg-zinc-200/40 dark:bg-zinc-800/40"
                 }`}
                 animate={{
