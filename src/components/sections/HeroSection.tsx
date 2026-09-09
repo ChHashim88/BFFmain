@@ -125,9 +125,9 @@ export function HeroSection() {
         <div className="z-10 flex flex-col items-center justify-center space-y-5 sm:space-y-6 text-center max-w-2xl mx-auto lg:mx-0 lg:items-start lg:text-left opacity-100">
 
           {/* Main Heading with Zero Layout Shift Ghost Reservation & Typewriter Animation */}
-          <div className="relative max-w-full">
+          <div className="relative max-w-[340px] sm:max-w-[420px] lg:max-w-none mx-auto lg:mx-0">
             {/* Invisible Ghost Heading - Reserves exact container height/width from frame 0 */}
-            <h1 className="text-h1 text-foreground invisible select-none pointer-events-none" aria-hidden="true">
+            <h1 className="text-[clamp(2.35rem,10.5vw,3rem)] lg:text-h1 text-foreground leading-[1.0] lg:leading-[1.05] font-semibold text-center lg:text-left invisible select-none pointer-events-none" aria-hidden="true">
               Film Investing.
               <br />
               <span className="text-destructive">Reimagined</span>
@@ -136,7 +136,7 @@ export function HeroSection() {
             </h1>
 
             {/* Visible Typewriter Heading */}
-            <h1 className="text-h1 text-foreground absolute inset-0">
+            <h1 className="text-[clamp(2.35rem,10.5vw,3rem)] lg:text-h1 text-foreground leading-[1.0] lg:leading-[1.05] font-semibold text-center lg:text-left absolute inset-0">
               <span className="inline-flex items-center">
                 <span>{line1Typed}</span>
                 {showCursor && typedCount <= 15 && <CursorIndicator />}
@@ -160,7 +160,7 @@ export function HeroSection() {
 
           <div className="flex flex-col items-center lg:items-start space-y-4">
             {/* Subtitle text */}
-            <p className="text-subtitle text-foreground/90 max-w-[310px] sm:max-w-md lg:max-w-none text-center lg:text-left leading-relaxed">
+            <p className="text-[clamp(1rem,4.2vw,1.125rem)] lg:text-subtitle text-foreground/90 leading-[1.5] lg:leading-[1.25] font-normal max-w-[340px] sm:max-w-md lg:max-w-none text-center lg:text-left">
               Big Film Fund is creating a new way to finance movies – powered by
               a technology platform that connects investors, filmmakers, and
               audiences.
