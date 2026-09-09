@@ -196,13 +196,14 @@
   }
 
   .text-subtitle {
-    font-size: 19px;
+    font-size: 16px;
     font-weight: 400;
-    line-height: 1.25;
+    line-height: 1.5;
   }
   @media (min-width: 1024px) {
     .text-subtitle {
-      font-size: 21px;
+      font-size: 17px;
+      line-height: 1.45;
     }
   }
 

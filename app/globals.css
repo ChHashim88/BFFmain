@@ -173,8 +173,8 @@
 
   @media (min-width: 1024px) {
     .text-subtitle {
-      font-size: clamp(19px, 1.1875rem + 0.125vw, 21px);
-      line-height: 1.25;
+      font-size: 17px;
+      line-height: 1.45;
     }
   }
 
