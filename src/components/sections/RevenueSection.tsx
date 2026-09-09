@@ -21,11 +21,17 @@ export function RevenueSection() {
               <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm mb-3.5">
                 Multiple <span className="text-destructive">Revenue Streams.</span>
               </h2>
-              <p className="text-subtitle text-muted-foreground max-w-md mx-auto lg:max-w-none lg:mx-0">
-                Big Film Fund is building a platform business, with multiple
-                complementary revenue streams not dependent on the success of
-                any one movie.
-              </p>
+              <div className="space-y-3 text-subtitle text-muted-foreground max-w-md mx-auto lg:max-w-none lg:mx-0 text-center lg:text-left">
+                <p>
+                  Big Film Fund is building a platform business, with multiple
+                  complementary revenue streams not dependent on the success of
+                  any one movie.
+                </p>
+                <p>
+                  Rather than depending on one movie or one source of income, BFF’s
+                  business model combines four complementary revenue streams:
+                </p>
+              </div>
             </div>
 
             {/* Right Side - Stacked Video Player with Image 5.png Thumbnail */}
