@@ -56,19 +56,19 @@ export default function OpportunitySection() {
       <div className="mx-auto w-full max-w-[1350px] flex flex-col gap-12 lg:gap-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Column */}
-          <div className="flex flex-col items-center lg:items-start space-y-8 text-center lg:text-left">
-            <div className="space-y-4">
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
+            <div>
               <TypewriterText
                 text="THE OPPORTUNITY"
-                className="text-h3 text-destructive uppercase tracking-widest font-semibold mb-3"
+                className="text-h3 text-destructive uppercase tracking-widest font-semibold mb-2.5"
               />
-              <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm mb-4">
+              <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm mb-3.5">
                 Film is Ready for <br className="hidden sm:inline" />
                 <span className="text-destructive">Modern Investment Infrastructure.</span>
               </h2>
             </div>
 
-            <div className="flex flex-col space-y-6 pt-6 text-left">
+            <div className="flex flex-col space-y-6 pt-4 text-left">
               {/* Point 1 */}
               <div className="flex gap-5 items-start pb-5 border-b border-border/50">
                 <div className="w-10 h-10 rounded-full border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 flex items-center justify-center shrink-0 mt-0.5">

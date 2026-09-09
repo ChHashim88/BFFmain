@@ -6,20 +6,20 @@ export function ModelSection() {
       id="new-model"
       className="relative w-full scroll-mt-24 bg-background py-14 md:py-18 lg:py-20 px-6 md:px-12 xl:px-24 flex flex-col justify-center"
     >
-      <div className="mx-auto w-full max-w-[1400px] text-center lg:text-left flex flex-col items-center lg:items-start gap-8">
-        <div>
+      <div className="mx-auto w-full max-w-[1400px]">
+        <div className="text-center lg:text-left flex flex-col items-center lg:items-start">
           <TypewriterText
             text="THE BFF MODEL"
-            className="text-h3 text-destructive uppercase tracking-widest font-semibold mb-3"
+            className="text-h3 text-destructive uppercase tracking-widest font-semibold mb-2.5"
           />
-          <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm mb-4">
+          <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm mb-3.5">
             A New Model For{" "}
             <span className="text-destructive">Film Investing</span>
           </h2>
         </div>
 
         {/* Both cards in ONE row on desktop (grid-cols-2) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 w-full max-w-[1350px] mx-auto text-left mt-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 w-full max-w-[1350px] text-left mt-8 lg:mt-10">
           {/* Card 01 */}
           <div className="relative p-[1.5px] rounded-2xl overflow-hidden shadow-lg group transition-all duration-300">
             {/* Ultra-smooth GPU Accelerated Continuous Rotating Red Glowing Border Beam */}

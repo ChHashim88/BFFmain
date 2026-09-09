@@ -76,15 +76,15 @@ export function ProgressSection() {
       <div className="mx-auto w-full max-w-[1350px]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left Side - Content */}
-          <div className="flex flex-col items-center lg:items-start gap-4 sm:gap-6 lg:pr-8 xl:pr-16 order-1 lg:order-1 text-center lg:text-left">
+          <div className="flex flex-col items-center lg:items-start lg:pr-8 xl:pr-16 order-1 lg:order-1 text-center lg:text-left">
             <TypewriterText
               text="PROGRESS TO DATE"
-              className="text-h3 text-destructive uppercase tracking-widest font-semibold mb-3"
+              className="text-h3 text-destructive uppercase tracking-widest font-semibold mb-2.5"
             />
-            <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm mb-4">
+            <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm mb-3.5">
               From Foundation to <span className="text-destructive">Launch</span>
             </h2>
-            <div className="space-y-4 text-subtitle text-muted-foreground mt-2 max-w-md mx-auto lg:max-w-none lg:mx-0 text-left">
+            <div className="space-y-4 text-subtitle text-muted-foreground max-w-md mx-auto lg:max-w-none lg:mx-0 text-left">
               <p>
                 Big Film Fund has spent its development phase building more
                 than a concept.

@@ -13,12 +13,12 @@ export function ExecuteSection() {
       <div className="mx-auto w-full max-w-[1350px] flex flex-col space-y-10 lg:space-y-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left Side - Text */}
-          <div className="flex flex-col items-center lg:items-start gap-6 order-1 lg:order-1 mt-8 lg:mt-0 lg:pr-8 xl:pr-16 text-center lg:text-left">
+          <div className="flex flex-col items-center lg:items-start order-1 lg:order-1 mt-8 lg:mt-0 lg:pr-8 xl:pr-16 text-center lg:text-left">
             <TypewriterText
               text="BUILT TO EXECUTE"
-              className="text-h3 text-destructive uppercase tracking-widest font-semibold mb-3"
+              className="text-h3 text-destructive uppercase tracking-widest font-semibold mb-2.5"
             />
-            <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm mb-4">
+            <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm mb-3.5">
               The Capabilities <span className="text-destructive">Behind the Model</span>
             </h2>
             <div className="space-y-4 text-subtitle text-muted-foreground transition-colors duration-300 max-w-md mx-auto lg:max-w-none lg:mx-0 text-left">

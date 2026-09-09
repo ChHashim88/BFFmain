@@ -58,17 +58,17 @@ export function ContactSection() {
 
       <div className="mx-auto w-full max-w-[1350px] space-y-14">
         {/* Header Section */}
-        <div className="flex flex-col text-center lg:text-left space-y-2 items-center lg:items-start">
+        <div className="flex flex-col text-center lg:text-left items-center lg:items-start">
           <TypewriterText
             text="CONTACT US"
-            className="text-h3 text-destructive uppercase tracking-widest font-semibold mb-3"
+            className="text-h3 text-destructive uppercase tracking-widest font-semibold mb-2.5"
           />
-          <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm mb-4">
+          <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm mb-3.5">
             Have Questions?{" "}
             <br className="hidden sm:inline" />
             <span className="text-destructive">Let&apos;s Connect.</span>
           </h2>
-          <p className="text-subtitle text-muted-foreground leading-relaxed max-w-md mx-auto lg:max-w-2xl lg:mx-0 pt-1">
+          <p className="text-subtitle text-muted-foreground leading-relaxed max-w-md mx-auto lg:max-w-2xl lg:mx-0">
             Direct communication channels for investors, filmmakers, packagers, and institutional partners. Our leadership team is ready to assist.
           </p>
         </div>
