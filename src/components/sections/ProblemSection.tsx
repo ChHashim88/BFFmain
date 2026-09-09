@@ -105,7 +105,7 @@ export function ProblemSection() {
                   src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
                   poster="/ts.png"
                   controls={isPlaying}
-                  preload="metadata"
+                  preload="none"
                   onPlay={() => setIsPlaying(true)}
                   onPause={() => setIsPlaying(false)}
                   onEnded={() => setIsPlaying(false)}

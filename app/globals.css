@@ -275,3 +275,9 @@
     line-height: 1.5 !important;
   }
 }
+
+/* Below-the-fold Rendering Optimization: Skip off-screen DOM layout and paint work until scrolled into view */
+main section:not(#hero) {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 600px;
+}

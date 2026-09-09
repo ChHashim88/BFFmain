@@ -44,7 +44,7 @@ const GlassCard = React.forwardRef<HTMLDivElement, GlassCardProps>(
         )}
 
         {/* Inner Card Container */}
-        <div className="relative w-full h-full rounded-[22.5px] bg-card/95 dark:bg-zinc-950/95 border border-zinc-200/90 dark:border-zinc-800/90 p-5 sm:p-8 flex flex-col justify-between text-left transition-colors duration-300 shadow-sm backdrop-blur-xl overflow-hidden z-10">
+        <div className="relative w-full h-full rounded-[22.5px] bg-card dark:bg-zinc-950 border border-zinc-200/90 dark:border-zinc-800/90 p-5 sm:p-8 flex flex-col justify-between text-left transition-colors duration-300 shadow-sm overflow-hidden z-10">
           {/* Continuous Automatic Glass Shine Beam (45-degree angle sweep) */}
           <motion.div
             className="absolute inset-0 z-10 pointer-events-none opacity-20 group-hover:opacity-40 transition-opacity duration-500"

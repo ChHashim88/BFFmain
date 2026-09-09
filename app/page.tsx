@@ -3,13 +3,13 @@
 import dynamic from "next/dynamic";
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/sections/HeroSection";
-import { ProblemSection } from "@/components/sections/ProblemSection";
-import { ModelSection } from "@/components/sections/ModelSection";
-import { PrinciplesSection } from "@/components/sections/PrinciplesSection";
-import { PlatformSection } from "@/components/sections/PlatformSection";
 import { Zap, Compass, Layers, Key, Users, Building2 } from "lucide-react";
 
-// Below-the-fold dynamic imports for optimized code-splitting and faster initial page load
+// Below-the-fold dynamic imports for optimized code-splitting and 60fps initial page load speed
+const ProblemSection = dynamic(() => import("@/components/sections/ProblemSection").then((m) => m.ProblemSection));
+const ModelSection = dynamic(() => import("@/components/sections/ModelSection").then((m) => m.ModelSection));
+const PrinciplesSection = dynamic(() => import("@/components/sections/PrinciplesSection").then((m) => m.PrinciplesSection));
+const PlatformSection = dynamic(() => import("@/components/sections/PlatformSection").then((m) => m.PlatformSection));
 const FUIBentoGridDark = dynamic(() => import("@/components/ui/bento-grid"));
 const VerticalTabs = dynamic(() => import("@/components/ui/vertical-tabs"));
 const GallerySection = dynamic(() => import("@/components/sections/GallerySection").then((m) => m.GallerySection));
