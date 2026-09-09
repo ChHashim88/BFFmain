@@ -65,13 +65,7 @@ export function RevenueSection() {
             </div>
           </div>
 
-          {/* Center Line Below */}
-          <div className="mt-8 lg:mt-12 w-full flex justify-center text-center">
-            <p className="text-lg md:text-xl font-medium text-destructive max-w-md mx-auto lg:max-w-3xl leading-relaxed">
-              Rather than depending on one movie or one source of income, BFF’s
-              business model combines four complementary revenue streams:
-            </p>
-          </div>
+
         </div>
       </div>
     </section>
