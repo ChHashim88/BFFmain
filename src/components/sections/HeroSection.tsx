@@ -78,14 +78,14 @@ export function HeroSection() {
   );
 
   return (
-    <section className="relative w-full pt-32 pb-20 lg:pt-40 lg:pb-24 px-6 md:px-12 xl:px-24 flex items-center justify-center overflow-hidden bg-white dark:bg-background">
+    <section className="relative w-full min-h-[clamp(560px,75svh,760px)] lg:min-h-0 pt-28 pb-16 lg:pt-40 lg:pb-24 px-6 md:px-12 xl:px-24 flex items-center justify-center overflow-hidden bg-white dark:bg-background">
       {/* Hero Background Image - Mobile Light Mode (< lg) */}
       <img
         src="/mobhero.jpeg"
         alt="Hero Background Mobile Light"
         loading="eager"
         decoding="sync"
-        className="block dark:hidden lg:hidden absolute inset-0 w-full h-full object-cover object-center opacity-30 pointer-events-none z-0 [mask-image:linear-gradient(to_bottom,black_82%,transparent_100%)]"
+        className="block dark:hidden lg:hidden absolute inset-0 w-full h-full object-cover object-center opacity-45 pointer-events-none z-0 [mask-image:linear-gradient(to_bottom,black_85%,transparent_100%)]"
       />
 
       {/* Hero Background Image - Mobile Dark Mode (< lg) */}
@@ -94,8 +94,11 @@ export function HeroSection() {
         alt="Hero Background Mobile Dark"
         loading="eager"
         decoding="sync"
-        className="hidden dark:block dark:lg:hidden absolute inset-0 w-full h-full object-cover object-center opacity-40 pointer-events-none z-0 [mask-image:linear-gradient(to_bottom,black_82%,transparent_100%)]"
+        className="hidden dark:block dark:lg:hidden absolute inset-0 w-full h-full object-cover object-center opacity-50 pointer-events-none z-0 [mask-image:linear-gradient(to_bottom,black_85%,transparent_100%)]"
       />
+
+      {/* Mobile Subtle Contrast Overlay for Crisp Text Readability */}
+      <div className="block lg:hidden absolute inset-0 bg-gradient-to-b from-white/70 via-white/40 to-white dark:from-background/80 dark:via-background/50 dark:to-background pointer-events-none z-[1]" />
 
       {/* Hero Background Image - Desktop Light Mode (>= lg) */}
       <img
@@ -116,10 +119,10 @@ export function HeroSection() {
       />
 
       {/* Subtle Bottom Gradient Fade */}
-      <div className="absolute inset-x-0 bottom-0 h-10 lg:h-28 bg-gradient-to-t from-white via-white/60 to-transparent dark:from-background dark:via-background/60 pointer-events-none z-[1]" />
+      <div className="absolute inset-x-0 bottom-0 h-16 lg:h-28 bg-gradient-to-t from-white via-white/80 to-transparent dark:from-background dark:via-background/80 pointer-events-none z-[2]" />
 
-      <div className="relative z-10 mx-auto grid w-full max-w-[1350px] items-center gap-12 lg:grid-cols-2">
-        <div className="z-10 flex flex-col items-center justify-center space-y-6 text-center max-w-2xl mx-auto lg:mx-0 lg:items-start lg:text-left opacity-100">
+      <div className="relative z-10 mx-auto grid w-full max-w-[1350px] items-center gap-8 lg:gap-12 lg:grid-cols-2">
+        <div className="z-10 flex flex-col items-center justify-center space-y-5 sm:space-y-6 text-center max-w-2xl mx-auto lg:mx-0 lg:items-start lg:text-left opacity-100">
 
           {/* Main Heading with Zero Layout Shift Ghost Reservation & Typewriter Animation */}
           <div className="relative max-w-full">
@@ -157,7 +160,7 @@ export function HeroSection() {
 
           <div className="flex flex-col items-center lg:items-start space-y-4">
             {/* Subtitle text */}
-            <p className="text-subtitle text-foreground/90 max-w-[280px] sm:max-w-md lg:max-w-none">
+            <p className="text-subtitle text-foreground/90 max-w-[310px] sm:max-w-md lg:max-w-none text-center lg:text-left leading-relaxed">
               Big Film Fund is creating a new way to finance movies – powered by
               a technology platform that connects investors, filmmakers, and
               audiences.
@@ -229,7 +232,7 @@ export function HeroSection() {
           </div>
 
           {/* Actions */}
-          <div className="flex flex-wrap justify-center lg:justify-start items-center gap-4 pt-1 w-full">
+          <div className="flex flex-wrap justify-center lg:justify-start items-center gap-4 pt-2 lg:pt-1 w-full">
             <button
               onClick={() => openWaitlistModal("waitlist")}
               className="relative group overflow-hidden cursor-pointer rounded-full bg-[#C00000] px-8 py-4 text-base font-bold text-white shadow-xl border border-red-400/30 backdrop-blur-md transition-all duration-300 hover:scale-105 hover:bg-[#990000] hover:shadow-2xl active:scale-95 flex items-center justify-center gap-2.5"
