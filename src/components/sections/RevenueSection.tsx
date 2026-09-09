@@ -36,8 +36,8 @@ export function RevenueSection() {
 
             {/* Right Side - Stacked Video Player with Image 5.png Thumbnail */}
             <div className="relative w-full aspect-video lg:aspect-[4/3] xl:aspect-[16/10] lg:ml-4 sm:ml-8 order-2 lg:order-2">
-              <div className="absolute inset-y-6 -left-6 w-full bg-zinc-200 dark:bg-zinc-900 border border-border/40 shadow-2xl z-0 hidden sm:block rounded-2xl" />
-              <div className="absolute inset-y-3 -left-3 w-full bg-zinc-300 dark:bg-zinc-900 border border-border/50 shadow-2xl z-10 hidden sm:block rounded-2xl" />
+              <div className="absolute inset-y-6 -left-6 w-full bg-white dark:bg-zinc-900 border border-border/40 shadow-2xl z-0 hidden sm:block rounded-2xl" />
+              <div className="absolute inset-y-3 -left-3 w-full bg-white/90 dark:bg-zinc-900/90 border border-border/50 shadow-2xl z-10 hidden sm:block rounded-2xl" />
 
               <div className="absolute inset-0 w-full h-full rounded-2xl bg-zinc-100 dark:bg-zinc-950 border border-border shadow-2xl overflow-hidden z-20 flex items-center justify-center group cursor-pointer transition-transform duration-500 hover:-translate-y-2 hover:translate-x-2">
                 {/* Thumbnail Image 5.png */}

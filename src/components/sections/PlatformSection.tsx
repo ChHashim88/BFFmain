@@ -17,7 +17,7 @@ function PlatformPointItem({ shortText, fullText, highlight }: PlatformPointProp
 
   if (!shortText) {
     return (
-      <div className="flex flex-col space-y-2 group text-left bg-muted/40 dark:bg-muted/10 border border-border/50 p-5 sm:p-6 rounded-2xl lg:bg-transparent lg:border-transparent lg:p-0 lg:rounded-none transition-colors hover:bg-muted/60 dark:hover:bg-muted/20">
+      <div className="flex flex-col space-y-2 group text-left bg-white dark:bg-zinc-900/90 border border-border/60 p-5 sm:p-6 rounded-2xl lg:bg-transparent lg:border-transparent lg:p-0 lg:rounded-none transition-colors hover:bg-white dark:hover:bg-zinc-900 shadow-sm">
         <p
           className={`text-body-text transition-colors duration-300 ${highlight
             ? "font-medium text-destructive"
@@ -31,7 +31,7 @@ function PlatformPointItem({ shortText, fullText, highlight }: PlatformPointProp
   }
 
   return (
-    <div className="flex flex-col space-y-2 group text-left bg-muted/40 dark:bg-muted/10 border border-border/50 p-5 sm:p-6 rounded-2xl lg:bg-transparent lg:border-transparent lg:p-0 lg:rounded-none transition-colors hover:bg-muted/60 dark:hover:bg-muted/20">
+    <div className="flex flex-col space-y-2 group text-left bg-white dark:bg-zinc-900/90 border border-border/60 p-5 sm:p-6 rounded-2xl lg:bg-transparent lg:border-transparent lg:p-0 lg:rounded-none transition-colors hover:bg-white dark:hover:bg-zinc-900 shadow-sm">
       <p className="text-body-text text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
         {isExpanded ? fullText : shortText}{" "}
         <button
@@ -66,8 +66,8 @@ function PlatformVideoCard({
   return (
     <div className="relative w-full aspect-video">
       {/* Back layers for stacked 3D card depth effect (Matching all other sections) */}
-      <div className="absolute inset-y-6 -left-6 w-full bg-zinc-200 dark:bg-zinc-900 border border-border/40 shadow-2xl z-0 hidden sm:block rounded-2xl" />
-      <div className="absolute inset-y-3 -left-3 w-full bg-zinc-300 dark:bg-zinc-900 border border-border/50 shadow-2xl z-10 hidden sm:block rounded-2xl" />
+      <div className="absolute inset-y-6 -left-6 w-full bg-white dark:bg-zinc-900 border border-border/40 shadow-2xl z-0 hidden sm:block rounded-2xl" />
+      <div className="absolute inset-y-3 -left-3 w-full bg-white/90 dark:bg-zinc-900/90 border border-border/50 shadow-2xl z-10 hidden sm:block rounded-2xl" />
 
       {/* Main Video Card Frame */}
       <div

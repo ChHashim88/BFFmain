@@ -188,11 +188,11 @@ export default function Investment() {
                     <span>Connected Core Modules</span>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                    <div className="flex items-center justify-between p-3 rounded-xl bg-muted/40 dark:bg-zinc-900 border border-border/50 text-xs font-bold text-foreground">
+                    <div className="flex items-center justify-between p-3 rounded-xl bg-white dark:bg-zinc-900 border border-border/60 text-xs font-bold text-foreground shadow-sm">
                       <span>Pipeline Development</span>
                       <ArrowRight size={14} className="text-destructive" />
                     </div>
-                    <div className="flex items-center justify-between p-3 rounded-xl bg-muted/40 dark:bg-zinc-900 border border-border/50 text-xs font-bold text-foreground">
+                    <div className="flex items-center justify-between p-3 rounded-xl bg-white dark:bg-zinc-900 border border-border/60 text-xs font-bold text-foreground shadow-sm">
                       <span>Platform Design</span>
                       <ArrowRight size={14} className="text-destructive" />
                     </div>
@@ -201,25 +201,25 @@ export default function Investment() {
 
                 {/* 4 Framework Pillars */}
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
-                  <div className="flex flex-col items-center text-center p-3 rounded-xl bg-muted/30 border border-border/40 gap-2">
+                  <div className="flex flex-col items-center text-center p-3 rounded-xl bg-white dark:bg-zinc-900 border border-border/60 gap-2 shadow-sm">
                     <Target size={18} className="text-destructive" />
                     <span className="text-xs font-semibold text-foreground leading-tight">
                       Pipeline<br />Dev
                     </span>
                   </div>
-                  <div className="flex flex-col items-center text-center p-3 rounded-xl bg-muted/30 border border-border/40 gap-2">
+                  <div className="flex flex-col items-center text-center p-3 rounded-xl bg-white dark:bg-zinc-900 border border-border/60 gap-2 shadow-sm">
                     <Clapperboard size={18} className="text-destructive" />
                     <span className="text-xs font-semibold text-foreground leading-tight">
                       Platform<br />Design
                     </span>
                   </div>
-                  <div className="flex flex-col items-center text-center p-3 rounded-xl bg-muted/30 border border-border/40 gap-2">
+                  <div className="flex flex-col items-center text-center p-3 rounded-xl bg-white dark:bg-zinc-900 border border-border/60 gap-2 shadow-sm">
                     <Users size={18} className="text-destructive" />
                     <span className="text-xs font-semibold text-foreground leading-tight">
                       Industry<br />Network
                     </span>
                   </div>
-                  <div className="flex flex-col items-center text-center p-3 rounded-xl bg-muted/30 border border-border/40 gap-2">
+                  <div className="flex flex-col items-center text-center p-3 rounded-xl bg-white dark:bg-zinc-900 border border-border/60 gap-2 shadow-sm">
                     <DollarSign size={18} className="text-destructive" />
                     <span className="text-xs font-semibold text-foreground leading-tight">
                       Financial<br />Model
@@ -325,7 +325,7 @@ export default function Investment() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
-            <div className="flex items-start gap-4 p-5 sm:p-6 rounded-2xl bg-muted/30 dark:bg-zinc-900 border border-border/60">
+            <div className="flex items-start gap-4 p-5 sm:p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-border/60 shadow-sm">
               <Building2 size={22} className="text-destructive shrink-0 mt-0.5" />
               <p className="text-body-text text-foreground/90 leading-relaxed font-medium">
                 Investors in this offering are purchasing shares in Big Film Fund, Inc. They do not
@@ -333,7 +333,7 @@ export default function Investment() {
               </p>
             </div>
 
-            <div className="flex items-start gap-4 p-5 sm:p-6 rounded-2xl bg-muted/30 dark:bg-zinc-900 border border-border/60">
+            <div className="flex items-start gap-4 p-5 sm:p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-border/60 shadow-sm">
               <Clapperboard size={22} className="text-destructive shrink-0 mt-0.5" />
               <p className="text-body-text text-foreground/90 leading-relaxed font-medium">
                 Future film offerings are expected to provide separate opportunities to invest
