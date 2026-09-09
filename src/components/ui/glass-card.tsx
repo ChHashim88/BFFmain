@@ -103,13 +103,13 @@ const GlassCard = React.forwardRef<HTMLDivElement, GlassCardProps>(
             <div
               className={`relative z-10 w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-transform duration-300 ${
                 isRedVariant
-                  ? "bg-[#C00000] text-white shadow-md shadow-red-950/20 border border-red-400/30"
-                  : "bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm"
+                  ? "bg-white dark:bg-zinc-900 border border-red-500/30 dark:border-red-500/40 shadow-sm text-[#C00000]"
+                  : "bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm text-foreground"
               }`}
             >
               {Icon && (
                 <Icon className={`w-5 h-5 sm:w-6 sm:h-6 stroke-[2.2] ${
-                  isRedVariant ? "text-white fill-white/10" : "text-foreground"
+                  isRedVariant ? "text-[#C00000]" : "text-foreground"
                 }`} />
               )}
             </div>
