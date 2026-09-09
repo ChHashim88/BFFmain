@@ -6,7 +6,7 @@ export function ModelSection() {
       id="new-model"
       className="relative w-full scroll-mt-24 bg-background py-14 md:py-18 lg:py-20 px-6 md:px-12 xl:px-24 flex flex-col justify-center"
     >
-      <div className="mx-auto w-full max-w-[1400px] text-center flex flex-col items-center gap-8">
+      <div className="mx-auto w-full max-w-[1400px] text-center lg:text-left flex flex-col items-center lg:items-start gap-8">
         <div>
           <TypewriterText
             text="THE BFF MODEL"

@@ -10,7 +10,7 @@ export function PrinciplesSection() {
       id="model"
       className="relative w-full scroll-mt-24 bg-background py-16 md:py-20 lg:py-24 px-6 md:px-12 xl:px-24 flex flex-col justify-center"
     >
-      <div className="mx-auto w-full max-w-[1350px] flex flex-col items-center text-center space-y-6">
+      <div className="mx-auto w-full max-w-[1350px] flex flex-col items-center lg:items-start text-center lg:text-left space-y-6">
         <TypewriterText
           text="THREE CORE PRINCIPLES"
           className="text-h3 text-destructive uppercase tracking-widest font-semibold mb-3"
@@ -20,7 +20,7 @@ export function PrinciplesSection() {
           <br className="hidden sm:inline" />
           <span className="text-destructive">Three Core Principles</span>
         </h2>
-        <p className="text-subtitle text-muted-foreground max-w-md mx-auto lg:max-w-2xl lg:mx-auto leading-relaxed">
+        <p className="text-subtitle text-muted-foreground max-w-md mx-auto lg:max-w-2xl lg:mx-0 leading-relaxed">
           A simpler, more transparent, more aligned way to invest in film
         </p>
       </div>
