@@ -59,47 +59,45 @@ const GlassCard = React.forwardRef<HTMLDivElement, GlassCardProps>(
 
         {/* TOP SECTION: Icon Badge & Title */}
         <div className="relative w-full flex flex-row sm:flex-col items-center sm:items-start gap-4 mb-3 sm:mb-6 z-20">
-          {/* Circular Icon Badge with Smooth Beat Animation */}
+          {/* Circular Icon Badge with Silky-Smooth Continuous Beat Animation */}
           <div className="relative flex items-center justify-center shrink-0 w-14 h-14 sm:w-16 sm:h-16">
-            {/* Outer Expanding Beat Wave (Silky 60fps Ripple) */}
+            {/* Outer Soft Pulse Glow Ring */}
             <motion.div
               className={`absolute inset-0 rounded-full pointer-events-none transform-gpu ${
                 isRedVariant
-                  ? "bg-[#C00000]/30 dark:bg-[#C00000]/40 shadow-[0_0_15px_rgba(192,0,0,0.35)]"
-                  : "bg-zinc-400/20 dark:bg-zinc-600/20"
+                  ? "bg-[#C00000]/25 dark:bg-[#C00000]/30 border border-[#C00000]/40 shadow-[0_0_18px_rgba(192,0,0,0.3)]"
+                  : "bg-zinc-400/20 dark:bg-zinc-600/20 border border-zinc-300/30"
               }`}
               animate={{
-                scale: [1, 1.4],
-                opacity: [0.6, 0],
+                scale: [1, 1.24, 1],
+                opacity: [0.35, 0.85, 0.35],
               }}
               transition={{
-                duration: 2.2,
-                repeat: Infinity,
-                ease: [0.25, 0.1, 0.25, 1],
-                delay: delay * 0.2,
-              }}
-            />
-
-            {/* Inner Breathing Glow Ring */}
-            <motion.div
-              className={`absolute inset-0 rounded-full pointer-events-none transform-gpu ${
-                isRedVariant
-                  ? "bg-[#C00000]/20 dark:bg-[#C00000]/25 border border-[#C00000]/30 shadow-[0_0_12px_rgba(192,0,0,0.25)]"
-                  : "bg-zinc-200/50 dark:bg-zinc-800/50 border border-zinc-300/40 dark:border-zinc-700/40"
-              }`}
-              animate={{
-                scale: [0.96, 1.1, 0.96],
-                opacity: [0.5, 0.85, 0.5],
-              }}
-              transition={{
-                duration: 2.2,
+                duration: 2.4,
                 repeat: Infinity,
                 ease: "easeInOut",
-                delay: delay * 0.2,
               }}
             />
 
-            {/* Solid Center Icon Circle */}
+            {/* Inner Snug Breathing Ring */}
+            <motion.div
+              className={`absolute inset-1 rounded-full pointer-events-none transform-gpu ${
+                isRedVariant
+                  ? "bg-[#C00000]/15 dark:bg-[#C00000]/20 shadow-[0_0_10px_rgba(192,0,0,0.2)]"
+                  : "bg-zinc-200/40 dark:bg-zinc-800/40"
+              }`}
+              animate={{
+                scale: [0.98, 1.12, 0.98],
+                opacity: [0.4, 0.9, 0.4],
+              }}
+              transition={{
+                duration: 2.4,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+
+            {/* Solid White Center Icon Circle */}
             <div
               className={`relative z-10 w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-transform duration-300 ${
                 isRedVariant
