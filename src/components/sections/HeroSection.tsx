@@ -50,6 +50,7 @@ export function HeroSection() {
         const nextCount = currentCount + 1;
         setTypedCount(nextCount);
         if (nextCount >= 39) {
+          // Immediately hide cursor when the last character finishes
           setShowCursor(false);
         }
         scheduleNextChar(nextCount);
@@ -151,7 +152,7 @@ export function HeroSection() {
               {/* Line 3 */}
               <span className="block whitespace-pre-wrap" aria-hidden="true">
                 <span>{LINE_3.slice(0, line3Count)}</span>
-                {showCursor && typedCount > 25 && typedCount < 39 && <CursorIndicator />}
+                {showCursor && typedCount > 25 && <CursorIndicator />}
                 <span className="opacity-0 select-none pointer-events-none" aria-hidden="true">
                   {LINE_3.slice(line3Count)}
                 </span>
