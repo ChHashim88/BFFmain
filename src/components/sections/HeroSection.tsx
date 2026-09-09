@@ -27,31 +27,31 @@ export function HeroSection() {
     }
 
     let timeoutId: NodeJS.Timeout;
+    let fadeTimeoutId: NodeJS.Timeout;
+
+    const initialDelay = 120;
 
     const scheduleNextChar = (currentCount: number) => {
       if (currentCount >= 39) {
-        setShowCursor(false);
+        fadeTimeoutId = setTimeout(() => {
+          setShowCursor(false);
+        }, 1200);
         return;
       }
 
-      // Exact 65ms per character typing speed
-      let delay = 65;
+      let delay = 60;
 
-      // Immediate start for character 1 (0ms initial delay)
       if (currentCount === 0) {
-        delay = 0;
-      }
-      // Natural pause after "Film Investing." (at count 15): 350ms
-      else if (currentCount === 15) {
-        delay = 350;
+        delay = initialDelay;
+      } else if (currentCount === 15) {
+        delay = 380;
+      } else if (currentCount === 25) {
+        delay = 280;
       }
 
       timeoutId = setTimeout(() => {
         const nextCount = currentCount + 1;
         setTypedCount(nextCount);
-        if (nextCount >= 39) {
-          setShowCursor(false);
-        }
         scheduleNextChar(nextCount);
       }, delay);
     };
@@ -60,17 +60,18 @@ export function HeroSection() {
 
     return () => {
       clearTimeout(timeoutId);
+      clearTimeout(fadeTimeoutId);
     };
   }, []);
 
-  const line1Typed = LINE_1.slice(0, Math.min(typedCount, 15));
-  const line2Typed = typedCount >= 15 ? LINE_2.slice(0, Math.min(typedCount - 15, 10)) : "";
-  const line3Typed = typedCount >= 25 ? LINE_3.slice(0, Math.min(typedCount - 25, 14)) : "";
+  const line1Count = Math.min(typedCount, 15);
+  const line2Count = Math.max(0, Math.min(typedCount - 15, 10));
+  const line3Count = Math.max(0, Math.min(typedCount - 25, 14));
 
   const CursorIndicator = () => (
     <span
       className={cn(
-        "inline-block w-[3px] sm:w-[4px] md:w-[5px] h-[0.82em] bg-destructive ml-0.5 sm:ml-1 align-baseline rounded-full transition-opacity duration-300 animate-typewriter-cursor shrink-0",
+        "inline-block w-[3px] sm:w-[4px] md:w-[5px] h-[0.82em] bg-destructive ml-0.5 sm:ml-1 align-middle -translate-y-[0.04em] rounded-full transition-opacity duration-300 animate-typewriter-cursor shrink-0",
         showCursor ? "opacity-100" : "opacity-0 pointer-events-none"
       )}
       aria-hidden="true"
@@ -124,37 +125,38 @@ export function HeroSection() {
       <div className="relative z-10 mx-auto grid w-full max-w-[1350px] items-center gap-8 lg:gap-12 lg:grid-cols-2">
         <div className="z-10 flex flex-col items-center justify-center space-y-5 sm:space-y-6 text-center max-w-2xl mx-auto lg:mx-0 lg:items-start lg:text-left opacity-100">
 
-          {/* Main Heading with Zero Layout Shift Ghost Reservation & Typewriter Animation */}
+          {/* Main Heading with Zero Layout Shift & Smooth Self-Reserving Typewriter Animation */}
           <div className="relative max-w-[340px] sm:max-w-[420px] lg:max-w-none mx-auto lg:mx-0">
-            {/* Invisible Ghost Heading - Reserves exact container height/width from frame 0 */}
-            <h1 className="text-[clamp(2.35rem,10.5vw,3rem)] lg:text-h1 text-foreground leading-[1.0] lg:leading-[1.05] font-semibold text-center lg:text-left invisible select-none pointer-events-none" aria-hidden="true">
-              Film Investing.
-              <br />
-              <span className="text-destructive">Reimagined</span>
-              <br />
-              for Investors.
-            </h1>
-
-            {/* Visible Typewriter Heading */}
-            <h1 className="text-[clamp(2.35rem,10.5vw,3rem)] lg:text-h1 text-foreground leading-[1.0] lg:leading-[1.05] font-semibold text-center lg:text-left absolute inset-0">
-              <span className="inline-flex items-center">
-                <span>{line1Typed}</span>
-                {showCursor && typedCount <= 15 && <CursorIndicator />}
+            <h1
+              className="text-[clamp(2.35rem,10.5vw,3rem)] lg:text-h1 text-foreground leading-[1.0] lg:leading-[1.05] font-semibold text-center lg:text-left"
+              aria-label="Film Investing. Reimagined for Investors."
+            >
+              {/* Line 1 */}
+              <span className="block whitespace-pre-wrap" aria-hidden="true">
+                <span>{LINE_1.slice(0, line1Count)}</span>
+                {typedCount <= 15 && <CursorIndicator />}
+                <span className="opacity-0 select-none pointer-events-none" aria-hidden="true">
+                  {LINE_1.slice(line1Count)}
+                </span>
               </span>
-              {typedCount > 15 && <br />}
-              {typedCount > 15 && (
-                <span className="text-destructive inline-flex items-center">
-                  <span>{line2Typed}</span>
-                  {showCursor && typedCount > 15 && typedCount <= 25 && <CursorIndicator />}
+
+              {/* Line 2 */}
+              <span className="block text-destructive whitespace-pre-wrap" aria-hidden="true">
+                <span>{LINE_2.slice(0, line2Count)}</span>
+                {typedCount > 15 && typedCount <= 25 && <CursorIndicator />}
+                <span className="opacity-0 select-none pointer-events-none" aria-hidden="true">
+                  {LINE_2.slice(line2Count)}
                 </span>
-              )}
-              {typedCount > 25 && <br />}
-              {typedCount > 25 && (
-                <span className="inline-flex items-center">
-                  <span>{line3Typed}</span>
-                  {showCursor && typedCount > 25 && typedCount < 39 && <CursorIndicator />}
+              </span>
+
+              {/* Line 3 */}
+              <span className="block whitespace-pre-wrap" aria-hidden="true">
+                <span>{LINE_3.slice(0, line3Count)}</span>
+                {typedCount > 25 && <CursorIndicator />}
+                <span className="opacity-0 select-none pointer-events-none" aria-hidden="true">
+                  {LINE_3.slice(line3Count)}
                 </span>
-              )}
+              </span>
             </h1>
           </div>
 
