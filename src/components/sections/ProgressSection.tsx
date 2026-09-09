@@ -76,7 +76,7 @@ export function ProgressSection() {
       <div className="mx-auto w-full max-w-[1350px]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left Side - Content */}
-          <div className="flex flex-col items-center lg:items-start gap-4 sm:gap-6 lg:pr-8 xl:pr-16 order-2 lg:order-1 mt-8 lg:mt-0 text-center lg:text-left">
+          <div className="flex flex-col items-center lg:items-start gap-4 sm:gap-6 lg:pr-8 xl:pr-16 order-1 lg:order-1 text-center lg:text-left">
             <TypewriterText
               text="PROGRESS TO DATE"
               className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3"
@@ -98,7 +98,7 @@ export function ProgressSection() {
           </div>
 
           {/* Right side circular system */}
-          <div className="relative w-full flex items-center justify-center order-1 lg:order-2">
+          <div className="relative w-full flex items-center justify-center order-2 lg:order-2 mt-8 lg:mt-0">
             <MobileRadialCarousel timelineData={progressTimelineData} />
           </div>
         </div>
