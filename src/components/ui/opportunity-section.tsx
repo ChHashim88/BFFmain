@@ -60,9 +60,9 @@ export default function OpportunitySection() {
             <div className="space-y-4">
               <TypewriterText
                 text="THE OPPORTUNITY"
-                className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3"
+                className="text-h3 text-destructive uppercase tracking-widest font-semibold mb-3"
               />
-              <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm">
+              <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm mb-4">
                 Film is Ready for <br className="hidden sm:inline" />
                 <span className="text-destructive">Modern Investment Infrastructure.</span>
               </h2>

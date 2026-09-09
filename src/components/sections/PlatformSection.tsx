@@ -113,9 +113,9 @@ export function PlatformSection() {
             <div>
               <TypewriterText
                 text="THE PLATFORM"
-                className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3"
+                className="text-h3 text-destructive uppercase tracking-widest font-semibold mb-3"
               />
-              <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm">
+              <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm mb-4">
                 Discover.
                 <span className="text-destructive"> Invest.</span>
                 <br />

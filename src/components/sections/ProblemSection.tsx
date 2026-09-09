@@ -64,9 +64,9 @@ export function ProblemSection() {
         <div className="w-full text-center lg:text-left">
           <TypewriterText
             text="THE SOLUTION"
-            className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3"
+            className="text-h3 text-destructive uppercase tracking-widest font-semibold mb-3"
           />
-          <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm">
+          <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm mb-4">
             Film investing has never been <span className="text-destructive"><br className="hidden sm:inline" /> built for investors.</span>
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center mt-8 lg:mt-12">

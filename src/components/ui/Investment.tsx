@@ -59,9 +59,9 @@ export default function Investment() {
           <div className="w-full text-center lg:text-left">
             <TypewriterText
               text="THE INVESTMENT"
-              className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3"
+              className="text-h3 text-destructive uppercase tracking-widest font-semibold mb-3"
             />
-            <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm">
+            <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm mb-4">
               Own Part of the Company{" "}
               <br className="hidden sm:inline" />
               Building <span className="text-destructive">What Comes Next.</span>

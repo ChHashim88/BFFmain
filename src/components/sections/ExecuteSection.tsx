@@ -16,12 +16,12 @@ export function ExecuteSection() {
           <div className="flex flex-col items-center lg:items-start gap-6 order-1 lg:order-1 mt-8 lg:mt-0 lg:pr-8 xl:pr-16 text-center lg:text-left">
             <TypewriterText
               text="BUILT TO EXECUTE"
-              className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3"
+              className="text-h3 text-destructive uppercase tracking-widest font-semibold mb-3"
             />
-            <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm">
+            <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm mb-4">
               The Capabilities <span className="text-destructive">Behind the Model</span>
             </h2>
-            <div className="space-y-4 text-body-text text-muted-foreground transition-colors duration-300 max-w-md mx-auto lg:max-w-none lg:mx-0 text-left">
+            <div className="space-y-4 text-subtitle text-muted-foreground transition-colors duration-300 max-w-md mx-auto lg:max-w-none lg:mx-0 text-left">
               <p>
                 A better film investment model only matters if it can be
                 executed in the real world.

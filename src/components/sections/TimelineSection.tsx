@@ -98,15 +98,15 @@ export function TimelineSection() {
           <div>
             <TypewriterText
               text="FILM IS NEXT"
-              className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3"
+              className="text-h3 text-destructive uppercase tracking-widest font-semibold mb-3"
             />
-            <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm">
+            <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm mb-4">
               Building the System for <br className="hidden sm:inline" />
               <span className="text-destructive">Modern Film Investing</span>
             </h2>
           </div>
 
-          <div className="space-y-4 text-body-text text-muted-foreground transition-colors duration-300 max-w-md mx-auto lg:max-w-none lg:mx-0 text-left">
+          <div className="space-y-4 text-subtitle text-muted-foreground transition-colors duration-300 max-w-md mx-auto lg:max-w-none lg:mx-0 text-left">
             <p>
               Bringing film investing into the modern era requires more than
               putting traditional film deals online. It requires

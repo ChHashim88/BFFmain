@@ -16,6 +16,7 @@ import {
   HelpCircle,
 } from "lucide-react";
 import { openWaitlistModal } from "@/components/ui/WaitlistModal";
+import { TypewriterText } from "@/components/ui/TypewriterText";
 
 const inquiryTypes = [
   { id: "Investor Relations", label: "Investor Desk", icon: Building2, desc: "For shareholding & allocation queries" },
@@ -58,10 +59,11 @@ export function ContactSection() {
       <div className="mx-auto w-full max-w-[1350px] space-y-14">
         {/* Header Section */}
         <div className="flex flex-col text-center lg:text-left space-y-2 items-center lg:items-start">
-          <h3 className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3">
-            CONTACT US
-          </h3>
-          <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm">
+          <TypewriterText
+            text="CONTACT US"
+            className="text-h3 text-destructive uppercase tracking-widest font-semibold mb-3"
+          />
+          <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm mb-4">
             Have Questions?{" "}
             <br className="hidden sm:inline" />
             <span className="text-destructive">Let&apos;s Connect.</span>

@@ -10,9 +10,9 @@ export function ModelSection() {
         <div>
           <TypewriterText
             text="THE BFF MODEL"
-            className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3"
+            className="text-h3 text-destructive uppercase tracking-widest font-semibold mb-3"
           />
-          <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm">
+          <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm mb-4">
             A New Model For{" "}
             <span className="text-destructive">Film Investing</span>
           </h2>

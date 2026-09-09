@@ -111,9 +111,9 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
           <div className="flex flex-col gap-5 text-center lg:text-left items-center lg:items-start">
             <TypewriterText
               text={subtitle}
-              className="text-h3 text-destructive uppercase tracking-tight font-bold mb-1"
+              className="text-h3 text-destructive uppercase tracking-widest font-semibold mb-3"
             />
-            <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm">
+            <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm mb-4">
               Market <span className="text-destructive">Execution</span>
             </h2>
             <div className="space-y-4 text-subtitle text-muted-foreground transition-colors duration-300 max-w-md mx-auto lg:max-w-none lg:mx-0">

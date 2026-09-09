@@ -13,14 +13,14 @@ export function PrinciplesSection() {
       <div className="mx-auto w-full max-w-[1350px] flex flex-col items-center text-center space-y-6">
         <TypewriterText
           text="THREE CORE PRINCIPLES"
-          className="text-h3 text-destructive uppercase tracking-tight font-bold mb-3"
+          className="text-h3 text-destructive uppercase tracking-widest font-semibold mb-3"
         />
-        <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm">
+        <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm mb-4">
           The BFF Model Is Built On{" "}
           <br className="hidden sm:inline" />
           <span className="text-destructive">Three Core Principles</span>
         </h2>
-        <p className="text-subtitle text-muted-foreground max-w-md mx-auto lg:max-w-2xl lg:mx-auto">
+        <p className="text-subtitle text-muted-foreground max-w-md mx-auto lg:max-w-2xl lg:mx-auto leading-relaxed">
           A simpler, more transparent, more aligned way to invest in film
         </p>
       </div>
