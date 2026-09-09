@@ -233,3 +233,17 @@
     letter-spacing: 0.02em;
   }
 }
+
+/* Mobile View Only: Enforce 14px on all descriptions, subtitles, card text, and body text under Hero Section */
+@media (max-width: 767px) {
+  main section:not(#hero) p:not(.text-h1):not(.text-h2):not(.text-h3):not(.text-label),
+  main section:not(#hero) .text-subtitle,
+  main section:not(#hero) .text-body-text,
+  main section:not(#hero) .text-body,
+  main section:not(#hero) .btn-text,
+  main section:not(#hero) .text-btn,
+  main section:not(#hero) [class*="description"] {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+  }
+}
