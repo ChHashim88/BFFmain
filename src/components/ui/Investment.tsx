@@ -69,15 +69,15 @@ export default function Investment() {
           </div>
 
           {/* 2-Column Grid: Cards 1-5 (Left) and Selection Framework (Right) */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-7 items-stretch">
             {/* Left Column: Info Cards List */}
-            <div className="lg:col-span-7 flex flex-col gap-4">
+            <div className="lg:col-span-7 flex flex-col gap-3 sm:gap-3.5">
               {/* Card 1 - Primary Starting Statement */}
-              <div className="relative group flex items-start gap-4 p-5 sm:p-6 rounded-2xl bg-card dark:bg-zinc-950 border border-destructive/60 shadow-sm transition-all duration-300 hover:border-destructive hover:shadow-md">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-destructive/40 bg-destructive/10 text-destructive mt-0.5">
-                  <Building2 size={22} strokeWidth={2} />
+              <div className="relative group flex items-start gap-4 p-4 sm:p-5 rounded-2xl bg-card dark:bg-zinc-950 border border-destructive/60 shadow-sm transition-all duration-300 hover:border-destructive hover:shadow-md">
+                <div className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl border border-destructive bg-destructive text-white mt-0.5 shadow-sm">
+                  <Building2 size={20} strokeWidth={2} />
                 </div>
-                <p className="text-body-text font-semibold text-foreground leading-relaxed pt-1">
+                <p className="text-body-text font-semibold text-destructive leading-relaxed pt-0.5">
                   This offering is an opportunity to purchase shares in Big
                   Film Fund, Inc. – the company building the model, platform,
                   and operating system described on this page.
@@ -85,21 +85,21 @@ export default function Investment() {
               </div>
 
               {/* Card 2 - Bold Highlight */}
-              <div className="relative group flex items-start gap-4 p-5 sm:p-6 rounded-2xl bg-card dark:bg-zinc-950 border-2 border-destructive/80 shadow-sm transition-all duration-300">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-destructive text-white mt-0.5">
-                  <Clapperboard size={22} strokeWidth={2} />
+              <div className="relative group flex items-start gap-4 p-4 sm:p-5 rounded-2xl bg-card dark:bg-zinc-950 border-2 border-destructive/80 shadow-sm transition-all duration-300">
+                <div className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl bg-destructive text-white mt-0.5 shadow-sm">
+                  <Clapperboard size={20} strokeWidth={2} />
                 </div>
-                <p className="text-body-text font-bold text-destructive leading-relaxed pt-1">
+                <p className="text-body-text font-bold text-destructive leading-relaxed pt-0.5">
                   You are not investing in a single movie.
                 </p>
               </div>
 
               {/* Card 3 */}
-              <div className="relative group flex items-start gap-4 p-5 sm:p-6 rounded-2xl bg-card/90 dark:bg-zinc-950/90 border border-border/80 shadow-sm transition-all duration-300 hover:border-destructive/40 hover:shadow-md">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 text-destructive mt-0.5">
-                  <Users size={22} strokeWidth={2} />
+              <div className="relative group flex items-start gap-4 p-4 sm:p-5 rounded-2xl bg-card/90 dark:bg-zinc-950/90 border border-border/80 shadow-sm transition-all duration-300 hover:border-destructive/40 hover:shadow-md">
+                <div className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl border border-destructive bg-destructive text-white mt-0.5 shadow-sm">
+                  <Users size={20} strokeWidth={2} />
                 </div>
-                <p className="text-body-text text-foreground/90 font-normal leading-relaxed pt-1">
+                <p className="text-body-text font-semibold text-destructive leading-relaxed pt-0.5">
                   You are investing in the company designed to source,
                   evaluate, structure, finance, support, and participate in a
                   growing pipeline of standalone films.
@@ -107,11 +107,11 @@ export default function Investment() {
               </div>
 
               {/* Card 4 */}
-              <div className="relative group flex items-start gap-4 p-5 sm:p-6 rounded-2xl bg-card/90 dark:bg-zinc-950/90 border border-border/80 shadow-sm transition-all duration-300 hover:border-destructive/40 hover:shadow-md">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 text-destructive mt-0.5">
-                  <TrendingUp size={22} strokeWidth={2} />
+              <div className="relative group flex items-start gap-4 p-4 sm:p-5 rounded-2xl bg-card/90 dark:bg-zinc-950/90 border border-border/80 shadow-sm transition-all duration-300 hover:border-destructive/40 hover:shadow-md">
+                <div className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl border border-destructive bg-destructive text-white mt-0.5 shadow-sm">
+                  <TrendingUp size={20} strokeWidth={2} />
                 </div>
-                <p className="text-body-text text-muted-foreground leading-relaxed pt-1">
+                <p className="text-body-text font-semibold text-destructive leading-relaxed pt-0.5">
                   Future film investment opportunities are expected to be
                   offered separately through individual film entities. Each
                   will have its own investors, capitalization, economics,
@@ -120,11 +120,11 @@ export default function Investment() {
               </div>
 
               {/* Card 5 - Ending Statement */}
-              <div className="relative group flex items-start gap-4 p-5 sm:p-6 rounded-2xl bg-card/90 dark:bg-zinc-950/90 border border-border/80 shadow-sm transition-all duration-300 hover:border-destructive/40 hover:shadow-md">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 text-destructive mt-0.5">
-                  <Star size={22} strokeWidth={2} />
+              <div className="relative group flex items-start gap-4 p-4 sm:p-5 rounded-2xl bg-card/90 dark:bg-zinc-950/90 border border-border/80 shadow-sm transition-all duration-300 hover:border-destructive/40 hover:shadow-md">
+                <div className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl border border-destructive bg-destructive text-white mt-0.5 shadow-sm">
+                  <Star size={20} strokeWidth={2} />
                 </div>
-                <p className="text-body-text font-semibold text-foreground leading-relaxed pt-1">
+                <p className="text-body-text font-semibold text-destructive leading-relaxed pt-0.5">
                   Big Film Fund, Inc. is the company bringing those
                   opportunities together through one platform.
                 </p>
@@ -133,14 +133,14 @@ export default function Investment() {
 
             {/* Right Column: Selection Framework (Starts at Card 1, Ends at Card 5) */}
             <div className="lg:col-span-5 flex flex-col h-full">
-              <div className="relative w-full h-full rounded-3xl bg-card dark:bg-zinc-950 border border-border/80 p-6 sm:p-8 lg:p-8 shadow-md flex flex-col justify-between gap-6 text-left">
+              <div className="relative w-full h-full rounded-3xl bg-card dark:bg-zinc-950 border border-border/80 p-5 sm:p-6 lg:p-6 shadow-md flex flex-col justify-between gap-4 text-left">
                 {/* Card Header */}
                 <div className="flex items-center justify-between gap-4">
-                  <div className="flex items-center gap-3.5">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 text-destructive">
-                      <Target size={22} strokeWidth={2} />
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl border border-destructive bg-destructive text-white shadow-sm">
+                      <Target size={20} strokeWidth={2} />
                     </div>
-                    <h3 className="text-xl font-bold text-foreground">
+                    <h3 className="text-xl font-bold text-destructive">
                       Selection Framework
                     </h3>
                   </div>
@@ -153,7 +153,7 @@ export default function Investment() {
                   <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
                     Phase 2 Implementation
                   </span>
-                  <p className="text-body-text text-muted-foreground leading-relaxed mt-2">
+                  <p className="text-body-text text-muted-foreground leading-relaxed mt-1.5">
                     BFF has developed a structured methodology for evaluating
                     projects across creative, audience, commercial, financial,
                     production, and distribution criteria.
@@ -163,7 +163,7 @@ export default function Investment() {
                 <div className="w-full h-px bg-border/60" />
 
                 {/* Progress Bar */}
-                <div className="flex flex-col gap-2.5" ref={progressRef}>
+                <div className="flex flex-col gap-2" ref={progressRef}>
                   <div className="flex items-center justify-between text-sm">
                     <div className="flex items-center gap-2 font-bold text-foreground">
                       <Zap size={16} className="text-destructive fill-destructive" />
@@ -182,17 +182,17 @@ export default function Investment() {
                 <div className="w-full h-px bg-border/60" />
 
                 {/* Connected Nodes */}
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-2.5">
                   <div className="flex items-center gap-2 text-xs font-bold text-muted-foreground uppercase tracking-wider">
                     <Network size={14} className="text-destructive" />
                     <span>Connected Core Modules</span>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                    <div className="flex items-center justify-between p-3 rounded-xl bg-muted/40 dark:bg-zinc-900 border border-border/50 text-xs font-bold text-foreground">
+                    <div className="flex items-center justify-between p-2.5 sm:p-3 rounded-xl bg-muted/40 dark:bg-zinc-900 border border-border/50 text-xs font-bold text-foreground">
                       <span>Pipeline Development</span>
                       <ArrowRight size={14} className="text-destructive" />
                     </div>
-                    <div className="flex items-center justify-between p-3 rounded-xl bg-muted/40 dark:bg-zinc-900 border border-border/50 text-xs font-bold text-foreground">
+                    <div className="flex items-center justify-between p-2.5 sm:p-3 rounded-xl bg-muted/40 dark:bg-zinc-900 border border-border/50 text-xs font-bold text-foreground">
                       <span>Platform Design</span>
                       <ArrowRight size={14} className="text-destructive" />
                     </div>
@@ -200,26 +200,26 @@ export default function Investment() {
                 </div>
 
                 {/* 4 Framework Pillars */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
-                  <div className="flex flex-col items-center text-center p-3 rounded-xl bg-muted/30 border border-border/40 gap-2">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1">
+                  <div className="flex flex-col items-center text-center p-2.5 rounded-xl bg-muted/30 border border-border/40 gap-1.5">
                     <Target size={18} className="text-destructive" />
                     <span className="text-xs font-semibold text-foreground leading-tight">
                       Pipeline<br />Dev
                     </span>
                   </div>
-                  <div className="flex flex-col items-center text-center p-3 rounded-xl bg-muted/30 border border-border/40 gap-2">
+                  <div className="flex flex-col items-center text-center p-2.5 rounded-xl bg-muted/30 border border-border/40 gap-1.5">
                     <Clapperboard size={18} className="text-destructive" />
                     <span className="text-xs font-semibold text-foreground leading-tight">
                       Platform<br />Design
                     </span>
                   </div>
-                  <div className="flex flex-col items-center text-center p-3 rounded-xl bg-muted/30 border border-border/40 gap-2">
+                  <div className="flex flex-col items-center text-center p-2.5 rounded-xl bg-muted/30 border border-border/40 gap-1.5">
                     <Users size={18} className="text-destructive" />
                     <span className="text-xs font-semibold text-foreground leading-tight">
                       Industry<br />Network
                     </span>
                   </div>
-                  <div className="flex flex-col items-center text-center p-3 rounded-xl bg-muted/30 border border-border/40 gap-2">
+                  <div className="flex flex-col items-center text-center p-2.5 rounded-xl bg-muted/30 border border-border/40 gap-1.5">
                     <DollarSign size={18} className="text-destructive" />
                     <span className="text-xs font-semibold text-foreground leading-tight">
                       Financial<br />Model
@@ -234,13 +234,13 @@ export default function Investment() {
         {/* =====================================================
             WHAT THIS ROUND ENABLES & WHY NOW GRID
         ===================================================== */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
           {/* Enables Card */}
-          <div className="relative rounded-3xl bg-[#C00000] text-white p-6 sm:p-8 lg:p-10 shadow-xl border border-red-400/30 flex flex-col justify-between space-y-6">
-            <div className="space-y-4">
-              <div className="flex items-center gap-3.5">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/15 border border-white/30 text-white">
-                  <BarChart3 size={24} />
+          <div className="relative rounded-3xl bg-[#C00000] text-white p-5 sm:p-6 lg:p-8 shadow-xl border border-red-400/30 flex flex-col justify-between space-y-5">
+            <div className="space-y-3">
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-white/15 border border-white/30 text-white">
+                  <BarChart3 size={22} />
                 </div>
                 <h3 className="text-2xl font-bold text-white tracking-tight">
                   What This Round Enables
@@ -252,28 +252,28 @@ export default function Investment() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
-              <div className="flex items-start gap-3 p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-sm font-semibold text-white">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+              <div className="flex items-start gap-3 p-3 sm:p-3.5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-sm font-semibold text-white">
                 <Rocket size={18} className="shrink-0 mt-0.5 text-white/90" />
                 <span>Advancing the platform and initial investor experience toward launch</span>
               </div>
-              <div className="flex items-start gap-3 p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-sm font-semibold text-white">
+              <div className="flex items-start gap-3 p-3 sm:p-3.5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-sm font-semibold text-white">
                 <ClipboardList size={18} className="shrink-0 mt-0.5 text-white/90" />
                 <span>Structuring and preparing the first film investment opportunities</span>
               </div>
-              <div className="flex items-start gap-3 p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-sm font-semibold text-white">
+              <div className="flex items-start gap-3 p-3 sm:p-3.5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-sm font-semibold text-white">
                 <Clapperboard size={18} className="shrink-0 mt-0.5 text-white/90" />
                 <span>Expanding and progressing the initial project pipeline</span>
               </div>
-              <div className="flex items-start gap-3 p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-sm font-semibold text-white">
+              <div className="flex items-start gap-3 p-3 sm:p-3.5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-sm font-semibold text-white">
                 <Users size={18} className="shrink-0 mt-0.5 text-white/90" />
                 <span>Building operational capacity to evaluate and support films</span>
               </div>
-              <div className="flex items-start gap-3 p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-sm font-semibold text-white">
+              <div className="flex items-start gap-3 p-3 sm:p-3.5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-sm font-semibold text-white">
                 <Users size={18} className="shrink-0 mt-0.5 text-white/90" />
                 <span>Growing the founding investor community</span>
               </div>
-              <div className="flex items-start gap-3 p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-sm font-semibold text-white">
+              <div className="flex items-start gap-3 p-3 sm:p-3.5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-sm font-semibold text-white">
                 <ShieldCheck size={18} className="shrink-0 mt-0.5 text-white/90" />
                 <span>Establishing foundation for recurring platform activity and revenue</span>
               </div>
@@ -281,11 +281,11 @@ export default function Investment() {
           </div>
 
           {/* Why Now Card */}
-          <div className="relative rounded-3xl bg-card dark:bg-zinc-950 border border-border/80 p-6 sm:p-8 lg:p-10 shadow-md flex flex-col justify-between space-y-6 text-left">
-            <div className="space-y-4">
-              <div className="flex items-center gap-3.5">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 text-destructive">
-                  <Clock3 size={24} />
+          <div className="relative rounded-3xl bg-card dark:bg-zinc-950 border border-border/80 p-5 sm:p-6 lg:p-8 shadow-md flex flex-col justify-between space-y-5 text-left">
+            <div className="space-y-3">
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 text-destructive">
+                  <Clock3 size={22} />
                 </div>
                 <h3 className="text-2xl font-bold text-foreground tracking-tight">
                   Why Now?
@@ -299,7 +299,7 @@ export default function Investment() {
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-card dark:bg-zinc-900 border-2 border-destructive/60 space-y-2">
+            <div className="p-4 sm:p-5 rounded-2xl bg-card dark:bg-zinc-900 border-2 border-destructive/60 space-y-1.5">
               <p className="text-xl font-bold text-destructive">
                 The next step is execution.
               </p>
@@ -314,27 +314,27 @@ export default function Investment() {
         {/* =====================================================
             BFF VS FILM DIFFERENCE CARD
         ===================================================== */}
-        <div className="relative rounded-3xl bg-card dark:bg-zinc-950 border border-border/80 p-6 sm:p-8 lg:p-10 shadow-md flex flex-col gap-6 text-left">
-          <div className="flex items-center gap-3.5">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 text-destructive">
-              <Info size={24} />
+        <div className="relative rounded-3xl bg-card dark:bg-zinc-950 border border-border/80 p-5 sm:p-6 lg:p-8 shadow-md flex flex-col gap-5 text-left">
+          <div className="flex items-center gap-3">
+            <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 text-destructive">
+              <Info size={22} />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold text-foreground">
               What is the difference between investing in BFF and investing in a film?
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
-            <div className="flex items-start gap-4 p-5 sm:p-6 rounded-2xl bg-muted/30 dark:bg-zinc-900 border border-border/60">
-              <Building2 size={22} className="text-destructive shrink-0 mt-0.5" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
+            <div className="flex items-start gap-3.5 p-4 sm:p-5 rounded-2xl bg-muted/30 dark:bg-zinc-900 border border-border/60">
+              <Building2 size={20} className="text-destructive shrink-0 mt-0.5" />
               <p className="text-body-text text-foreground/90 leading-relaxed font-medium">
                 Investors in this offering are purchasing shares in Big Film Fund, Inc. They do not
                 automatically receive a direct ownership interest in any individual film.
               </p>
             </div>
 
-            <div className="flex items-start gap-4 p-5 sm:p-6 rounded-2xl bg-muted/30 dark:bg-zinc-900 border border-border/60">
-              <Clapperboard size={22} className="text-destructive shrink-0 mt-0.5" />
+            <div className="flex items-start gap-4 p-4 sm:p-5 rounded-2xl bg-muted/30 dark:bg-zinc-900 border border-border/60">
+              <Clapperboard size={20} className="text-destructive shrink-0 mt-0.5" />
               <p className="text-body-text text-foreground/90 leading-relaxed font-medium">
                 Future film offerings are expected to provide separate opportunities to invest
                 in specific film entities through the BFF platform.
@@ -346,7 +346,7 @@ export default function Investment() {
         {/* =====================================================
             FINAL SECTION CTA (Black & Red Structure)
         ===================================================== */}
-        <div className="relative w-full rounded-2xl bg-gradient-to-r from-[#090909] via-[#121212] to-[#171717] border border-zinc-800/80 p-6 sm:p-8 md:p-10 shadow-2xl flex flex-col md:flex-row items-center gap-6 sm:gap-10 overflow-hidden text-left">
+        <div className="relative w-full rounded-2xl bg-gradient-to-r from-[#090909] via-[#121212] to-[#171717] border border-zinc-800/80 p-5 sm:p-6 md:p-8 shadow-2xl flex flex-col md:flex-row items-center gap-5 sm:gap-8 overflow-hidden text-left">
           {/* Ambient Red Radial Glow */}
           <div className="absolute left-0 top-1/2 -translate-y-1/2 w-80 h-80 bg-[#C00000]/20 rounded-full blur-3xl pointer-events-none" />
 

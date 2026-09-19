@@ -1,73 +1,48 @@
 "use client";
 
 import { DestinationCard } from "@/components/ui/card-21";
-import { ExpandableText } from "@/components/ui/ExpandableText";
-import { TypewriterText } from "@/components/ui/TypewriterText";
 
 export function PrinciplesSection() {
   return (
     <section
       id="model"
-      className="relative w-full scroll-mt-24 bg-background py-16 md:py-20 lg:py-24 px-6 md:px-12 xl:px-24 flex flex-col justify-center"
+      className="relative w-full scroll-mt-24 bg-background pb-16 md:pb-20 lg:pb-24 pt-4 px-6 md:px-12 xl:px-24 flex flex-col justify-center"
     >
-      <div className="mx-auto w-full max-w-[1350px] flex flex-col items-center lg:items-start text-center lg:text-left">
-        <TypewriterText
-          text="THREE CORE PRINCIPLES"
-          className="text-h3 text-destructive uppercase tracking-widest font-semibold mb-2.5"
-        />
-        <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm mb-3.5">
-          The BFF Model Is Built On{" "}
-          <br className="hidden sm:inline" />
-          <span className="text-destructive">Three Core Principles</span>
-        </h2>
-        <p className="text-subtitle text-muted-foreground max-w-md mx-auto lg:max-w-2xl lg:mx-0 leading-relaxed">
-          A simpler, more transparent, more aligned way to invest in film
-        </p>
-      </div>
-
-      <div className="mx-auto w-full max-w-[1350px] grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch mt-8 lg:mt-12">
+      <div className="mx-auto w-full max-w-[1350px] grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
         <div id="clean-picture" className="w-full min-h-[580px] lg:min-h-[640px] h-full scroll-mt-28">
           <DestinationCard
             imageUrl="/images/1.jpeg"
-            location="Each Film. One Clean Economic Picture."
+            location="01 — Each Film. One Clean Economic Picture."
             href="#"
+            buttonText="See How"
             themeColor="0 84% 30%"
             description={
-              <ExpandableText
-                shortText="In traditional film finance, a movie can generate revenue while its investors are left."
-                fullText={
-                  <>
-                    <p>
-                      In traditional film finance, a movie can generate revenue
-                      while its investors are left wondering where the money
-                      went. One film’s earnings may become entangled with other
-                      projects, shared company expenses, and layers of
-                      participants who are paid before the investor.
-                    </p>
-                    <p>
-                      BFF is designed to preserve a clean line between a film’s
-                      performance and its investors’ participation.
-                    </p>
-                    <p>
-                      Each film stands on its own - with its own company,
-                      investors, capitalization, budget, accounting, revenue,
-                      and distributions.
-                    </p>
-                    <p>
-                      The performance of one film is not mixed with the economics
-                      of another. Investors can evaluate a standalone
-                      opportunity, understand exactly what they own, and follow
-                      how the film’s performance translates into their
-                      participation.
-                    </p>
-                  </>
-                }
-              />
+              <>
+                <p>
+                  In traditional film finance, a movie can generate revenue
+                  while its investors are left wondering where the money
+                  went. One film’s earnings may become entangled with other
+                  projects, shared company expenses, and layers of
+                  participants who are paid before the investor.
+                </p>
+              </>
             }
             readMoreContent={{
               title: "How does BFF keep each film financially separate?",
               description: (
                 <>
+                  <p>
+                    Each film stands on its own - with its own company,
+                    investors, capitalization, budget, accounting, revenue,
+                    and distributions.
+                  </p>
+                  <p>
+                    The performance of one film is not mixed with the economics
+                    of another. Investors can evaluate a standalone
+                    opportunity, understand exactly what they own, and follow
+                    how the film’s performance translates into their
+                    participation.
+                  </p>
                   <p>
                     Each BFF film is maintained as a separate legal and economic
                     entity. No other BFF film’s costs or losses are charged
@@ -86,37 +61,33 @@ export function PrinciplesSection() {
         <div id="no-back" className="w-full min-h-[580px] lg:min-h-[640px] h-full scroll-mt-28">
           <DestinationCard
             imageUrl="/images/2.jpeg"
-            location="No Back of the Line."
+            location="02 — No Back of the Line."
             flag=""
             stats=""
             href="#"
+            buttonText="See How"
             themeColor="250 50% 30%"
             description={
-              <ExpandableText
-                shortText="In traditional film finance, not everyone shares in a movie’s revenue at the same time."
-                fullText={
-                  <>
-                    <p>
-                      In traditional film finance, not everyone shares in a
-                      movie’s revenue at the same time. The money is distributed
-                      in a predefined order, and investors often have to wait
-                      while others are paid first.
-                    </p>
-                    <p>BFF is designed differently.</p>
-                    <p>
-                      When distributable revenue is received, investors,
-                      filmmakers, and BFF participate according to clearly
-                      defined percentages — without a complex, sequential
-                      Hollywood recoupment waterfall.
-                    </p>
-                  </>
-                }
-              />
+              <>
+                <p>
+                  In traditional film finance, not everyone shares in a
+                  movie’s revenue at the same time. The money is distributed
+                  in a predefined order, and investors often have to wait
+                  while others are paid first.
+                </p>
+                <p>BFF is designed differently.</p>
+              </>
             }
             readMoreContent={{
               title: "What is a recoupment waterfall?",
               description: (
                 <>
+                  <p>
+                    When distributable revenue is received, investors,
+                    filmmakers, and BFF participate according to clearly
+                    defined percentages — without a complex, sequential
+                    Hollywood recoupment waterfall.
+                  </p>
                   <p>
                     A recoupment waterfall establishes the order in which a film’s
                     revenue is allocated among distributors, sales agents,
@@ -147,48 +118,44 @@ export function PrinciplesSection() {
         <div id="discipline" className="w-full min-h-[580px] lg:min-h-[640px] h-full scroll-mt-28">
           <DestinationCard
             imageUrl="/images/3.jpeg"
-            location="Commercial Discipline, Built In"
+            location="03 — Commercial Discipline, Built In"
             flag=""
             stats=""
             href="#"
+            buttonText="See How"
             themeColor="150 50% 25%"
             description={
-              <ExpandableText
-                shortText="At BFF, commercial discipline isn’t a checkpoint. It’s a design principle.From the first review"
-                fullText={
-                  <>
-                    <p>
-                      At BFF, commercial discipline isn’t a checkpoint. It’s a
-                      design principle.
-                    </p>
-                    <p>
-                      From the first review, the film’s creative ambition,
-                      audience, path to market, capitalization, and investor
-                      economics are evaluated as one integrated plan.
-                    </p>
-                    <p>
-                      That discipline extends to how each film is funded. Before
-                      production begins, every BFF project must be fully
-                      capitalized for its anticipated journey to market — not
-                      simply for the cost of getting the film made.
-                    </p>
-                    <p>
-                      A project moves forward only when BFF believes it can be
-                      responsibly financed, professionally executed, and brought
-                      to market within a credible commercial framework.
-                    </p>
-                    <p>
-                      We don’t finance a production and hope a business emerges.
-                      We finance a plan designed to reach an audience.
-                    </p>
-                  </>
-                }
-              />
+              <>
+                <p>
+                  At BFF, commercial discipline isn’t a checkpoint. It’s a
+                  design principle.
+                </p>
+                <p>
+                  We don’t finance a production and hope a business emerges.
+                  We finance a plan designed to reach an audience.
+                </p>
+              </>
             }
             readMoreContent={{
-              title: "What does “fully capitalized” mean?",
+              title: "What does fully capitalized mean?",
               description: (
                 <>
+                  <p>
+                    From the first review, the film’s creative ambition,
+                    audience, path to market, capitalization, and investor
+                    economics are evaluated as one integrated plan.
+                  </p>
+                  <p>
+                    That discipline extends to how each film is funded. Before
+                    production begins, every BFF project must be fully
+                    capitalized for its anticipated journey to market — not
+                    simply for the cost of getting the film made.
+                  </p>
+                  <p>
+                    A project moves forward only when BFF believes it can be
+                    responsibly financed, professionally executed, and brought
+                    to market within a credible commercial framework.
+                  </p>
                   <p>
                     Traditional film financing often centers on the cost of
                     getting a movie made, leaving marketing, delivery,

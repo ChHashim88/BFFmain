@@ -1,71 +1,6 @@
-"use client";
-
 import MobileRadialCarousel from "@/components/ui/mobile-radial-carousel";
-import { PlayCircle, Target, MonitorSmartphone, DollarSign, Network } from "lucide-react";
+import { opportunityTimelineData } from "@/components/sections/TimelineSection";
 import { TypewriterText } from "@/components/ui/TypewriterText";
-
-const progressTimelineData = [
-  {
-    id: 1,
-    title: "Pipeline Development",
-    date: "Phase 1",
-    content: "Initial film projects identified and moving through evaluation.",
-    description: "Initial film projects have been identified and are progressing through BFF's evaluation and development process.",
-    category: "Phase 1 • Pipeline",
-    icon: PlayCircle,
-    relatedIds: [2],
-    status: "completed" as const,
-    energy: 100,
-  },
-  {
-    id: 2,
-    title: "Selection Framework",
-    date: "Phase 2",
-    content: "Structured methodology for project valuation across all criteria.",
-    description: "BFF has developed a structured methodology for evaluating projects across creative, audience, commercial, financial, production, and distribution criteria.",
-    category: "Phase 2 • Evaluation",
-    icon: Target,
-    relatedIds: [1, 3],
-    status: "completed" as const,
-    energy: 90,
-  },
-  {
-    id: 3,
-    title: "Platform Design",
-    date: "Phase 3",
-    content: "Core platform architecture and investor prototypes.",
-    description: "The core platform architecture and investor experience have been defined, with prototypes in development and potential build partners under evaluation.",
-    category: "Phase 3 • Platform",
-    icon: MonitorSmartphone,
-    relatedIds: [2, 4],
-    status: "completed" as const,
-    energy: 75,
-  },
-  {
-    id: 4,
-    title: "Financial Model",
-    date: "Phase 4",
-    content: "Connecting film economics with company revenue & waterfall streams.",
-    description: "BFF has developed a financial model connecting individual film economics, company revenue streams, platform activity, and participation across a growing pipeline.",
-    category: "Phase 4 • Financials",
-    icon: DollarSign,
-    relatedIds: [3, 5],
-    status: "completed" as const,
-    energy: 60,
-  },
-  {
-    id: 5,
-    title: "Industry Network",
-    date: "Phase 5",
-    content: "Active relationships across production, finance, & global sales.",
-    description: "The company has established active relationships and leadership experience across development, production, finance, marketing, and global distribution.",
-    category: "Phase 5 • Ecosystem",
-    icon: Network,
-    relatedIds: [4],
-    status: "completed" as const,
-    energy: 40,
-  },
-];
 
 export function ProgressSection() {
   return (
@@ -99,7 +34,7 @@ export function ProgressSection() {
 
           {/* Right side circular system */}
           <div className="relative w-full flex items-center justify-center order-2 lg:order-2 mt-8 lg:mt-0">
-            <MobileRadialCarousel timelineData={progressTimelineData} />
+            <MobileRadialCarousel timelineData={opportunityTimelineData} />
           </div>
         </div>
       </div>

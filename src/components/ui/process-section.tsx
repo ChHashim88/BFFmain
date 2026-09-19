@@ -25,7 +25,7 @@ const ProcessCard: React.FC<ProcessCardProps> = ({ icon: Icon, title, descriptio
     transition={{ duration: 0.7, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
     whileHover={{ y: -6, transition: { duration: 0.3, ease: [0.16, 1, 0.3, 1] } }}
     className={cn(
-      "group relative w-full overflow-hidden rounded-2xl border border-zinc-200/90 dark:border-zinc-800/90 bg-card dark:bg-black p-6 transition-all cursor-pointer duration-500 hover:border-[#C00000] hover:shadow-[0_15px_35px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_15px_35px_rgba(0,0,0,0.4)] backdrop-blur-sm",
+      "group relative w-full overflow-hidden rounded-2xl border border-zinc-200/90 dark:border-zinc-800/90 bg-card dark:bg-black p-4 sm:p-5 transition-all cursor-pointer duration-500 hover:border-[#C00000] hover:shadow-[0_15px_35px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_15px_35px_rgba(0,0,0,0.4)] backdrop-blur-sm",
       className
     )}
   >
@@ -63,14 +63,14 @@ const ProcessCard: React.FC<ProcessCardProps> = ({ icon: Icon, title, descriptio
     {/* Interactive Hover Light Sheen */}
     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 dark:via-white/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out pointer-events-none z-10" />
 
-    {/* Header Row: Icon + Title (Inline on Mobile < sm, Stacked on Desktop >= sm) */}
-    <div className="relative z-20 flex flex-row sm:flex-col items-center sm:items-start gap-4 mb-3 sm:mb-4">
+    {/* Header Row: Icon + Title */}
+    <div className="relative z-20 flex flex-row sm:flex-col items-center sm:items-start gap-3 sm:gap-3.5 mb-2 sm:mb-2.5">
       {/* Icon Container */}
-      <div className="relative z-20 shrink-0 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 text-destructive transition-all duration-300 group-hover:bg-destructive group-hover:border-destructive shadow-md group-hover:shadow-lg">
-        <Icon className="h-6 w-6 sm:h-7 sm:w-7 text-destructive group-hover:text-white transition-colors duration-300" />
+      <div className="relative z-20 shrink-0 flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl border border-destructive bg-destructive text-white shadow-md transition-all duration-300">
+        <Icon className="h-5 w-5 sm:h-6 sm:w-6 text-white transition-colors duration-300" />
       </div>
 
-      <h3 className="text-base sm:text-lg font-bold text-foreground group-hover:text-destructive transition-colors duration-300">{title}</h3>
+      <h3 className="text-base sm:text-lg font-bold text-destructive transition-colors duration-300">{title}</h3>
     </div>
 
     {/* Content */}
@@ -102,24 +102,24 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
   return (
     <section
       id={id}
-      className="relative w-full scroll-mt-24 py-16 md:py-20 lg:py-24 px-6 md:px-12 xl:px-24 overflow-hidden flex flex-col justify-center bg-background"
+      className="relative w-full scroll-mt-24 py-12 md:py-16 lg:py-16 px-6 md:px-12 xl:px-24 overflow-hidden flex flex-col justify-center bg-[#C00000] text-white"
     >
-      <div className="mx-auto w-full max-w-[1350px] flex flex-col space-y-10 lg:space-y-16">
+      <div className="mx-auto w-full max-w-[1350px] flex flex-col space-y-8 lg:space-y-10">
         {/* Top Grid: Left Side Text & Right Side Creative Visual Card */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Side - Text Content (Centered on Mobile, Left Aligned on Desktop) */}
           <div className="flex flex-col text-center lg:text-left items-center lg:items-start">
             <TypewriterText
               text={subtitle}
-              className="text-h3 text-destructive uppercase tracking-widest font-semibold mb-2.5"
+              className="text-h3 text-white/90 uppercase tracking-widest font-semibold mb-2.5"
             />
-            <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm mb-3.5">
-              Market <span className="text-destructive">Execution</span>
+            <h2 className="text-h2 text-white drop-shadow-sm mb-3.5">
+              Market <span className="text-white/80">Execution</span>
             </h2>
-            <div className="space-y-4 text-subtitle text-muted-foreground transition-colors duration-300 max-w-md mx-auto lg:max-w-none lg:mx-0">
+            <div className="space-y-4 text-subtitle text-white/90 transition-colors duration-300 max-w-md mx-auto lg:max-w-none lg:mx-0">
               <p>{description}</p>
             </div>
-            <p className="text-lg font-medium text-destructive mt-3 text-center lg:text-left">
+            <p className="text-lg font-medium text-white font-bold mt-3 text-center lg:text-left">
               {buttonText}
             </p>
           </div>
@@ -131,7 +131,7 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
             <div className="absolute inset-y-2.5 -left-2.5 w-full rounded-3xl bg-zinc-300/50 dark:bg-zinc-900/70 border border-zinc-300/50 dark:border-zinc-800/60 shadow-xl z-10 hidden sm:block" />
 
             {/* Main Glass Showcase Card */}
-            <div className="absolute inset-0 w-full h-full rounded-3xl bg-card/90 dark:bg-zinc-950/95 backdrop-blur-xl border border-zinc-200 dark:border-zinc-800 shadow-2xl overflow-hidden z-20 flex flex-col justify-between p-6 sm:p-8 group transition-all duration-500 hover:border-zinc-600 dark:hover:border-zinc-700">
+            <div className="absolute inset-0 w-full h-full rounded-3xl bg-card/90 dark:bg-zinc-950/95 backdrop-blur-xl border border-zinc-200 dark:border-zinc-800 shadow-2xl overflow-hidden z-20 flex flex-col justify-between p-5 sm:p-6 group transition-all duration-500 hover:border-zinc-600 dark:hover:border-zinc-700">
               {/* Subtle Monochrome Sparkle Overlay */}
               <div className="absolute inset-0 z-0 hidden dark:block opacity-25 pointer-events-none">
                 <SparklesCore
@@ -145,7 +145,7 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
               </div>
 
               {/* Top Bar Header */}
-              <div className="relative z-10 flex items-center justify-between border-b border-zinc-200/80 dark:border-zinc-800/80 pb-4">
+              <div className="relative z-10 flex items-center justify-between border-b border-zinc-200/80 dark:border-zinc-800/80 pb-3">
                 <div className="flex items-center gap-2.5">
                   <span className="relative flex h-3 w-3">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-destructive opacity-75"></span>
@@ -155,13 +155,13 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
                     Execution Pipeline
                   </span>
                 </div>
-                <span className="text-[11px] font-mono font-bold text-destructive bg-zinc-100 dark:bg-zinc-900 px-3 py-1 rounded-full border border-zinc-200 dark:border-zinc-800">
+                <span className="text-[11px] font-mono font-bold text-destructive bg-zinc-100 dark:bg-zinc-900 px-3 py-1 ">
                   STATUS: ON TRACK
                 </span>
               </div>
 
               {/* Center Timeline Visual */}
-              <div className="relative z-10 my-auto py-2 space-y-4">
+              <div className="relative z-10 my-auto py-1 space-y-3">
                 {/* Timeline Step 1 */}
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 rounded-full bg-destructive/10 border border-destructive/30 flex items-center justify-center text-destructive shrink-0 font-bold text-xs">
@@ -214,8 +214,8 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
               </div>
 
               {/* Bottom Metrics Bar */}
-              <div className="relative z-10 grid grid-cols-2 gap-3 pt-4 border-t border-zinc-200/80 dark:border-zinc-800/80">
-                <div className="bg-zinc-100 dark:bg-zinc-900/80 p-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 flex items-center gap-2">
+              <div className="relative z-10 grid grid-cols-2 gap-3 pt-3 border-t border-zinc-200/80 dark:border-zinc-800/80">
+                <div className="bg-zinc-100 dark:bg-zinc-900/80 p-2 sm:p-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-destructive shrink-0" />
                   <div>
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider block">
@@ -226,7 +226,7 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
                     </span>
                   </div>
                 </div>
-                <div className="bg-zinc-100 dark:bg-zinc-900/80 p-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 flex items-center gap-2">
+                <div className="bg-zinc-100 dark:bg-zinc-900/80 p-2 sm:p-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 flex items-center gap-2">
                   <Activity className="w-4 h-4 text-destructive shrink-0" />
                   <div>
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider block">
@@ -243,7 +243,7 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
         </div>
 
         {/* 6 Process Cards Grid */}
-        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-center items-stretch pt-2 pb-2 text-left">
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 justify-center items-stretch pt-1 pb-1 text-left">
           {items.map((item, index) => (
             <ProcessCard key={index} index={index} {...item} />
           ))}

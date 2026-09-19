@@ -35,7 +35,7 @@ const GlassCard = React.forwardRef<HTMLDivElement, GlassCardProps>(
           scale: 1.015,
           transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] },
         }}
-        className={`group relative w-full h-full min-h-0 sm:min-h-[290px] p-[1.5px] rounded-3xl overflow-hidden shadow-md cursor-pointer ${className || ""}`}
+        className={`group relative w-full h-full min-h-0 sm:min-h-[290px] lg:min-h-[220px] p-[1.5px] rounded-3xl overflow-hidden shadow-md cursor-pointer ${className || ""}`}
         {...props}
       >
         {/* Continuous Rotating Red Glowing Border Beam (Sharp & Crisp Light Line, Zero Red Shade) */}
@@ -44,7 +44,7 @@ const GlassCard = React.forwardRef<HTMLDivElement, GlassCardProps>(
         )}
 
         {/* Inner Card Container */}
-        <div className="relative w-full h-full rounded-[22.5px] bg-card dark:bg-zinc-950 border border-zinc-200/90 dark:border-zinc-800/90 p-5 sm:p-8 flex flex-col justify-between text-left transition-colors duration-300 shadow-sm overflow-hidden z-10">
+        <div className="relative w-full h-full rounded-[22.5px] bg-card dark:bg-zinc-950 border border-zinc-200/90 dark:border-zinc-800/90 p-5 sm:p-8 lg:p-6 flex flex-col justify-between text-left transition-colors duration-300 shadow-sm overflow-hidden z-10">
           {/* Continuous Automatic Glass Shine Beam (45-degree angle sweep) */}
           <motion.div
             className="absolute inset-0 z-10 pointer-events-none opacity-20 group-hover:opacity-40 transition-opacity duration-500"
@@ -65,7 +65,7 @@ const GlassCard = React.forwardRef<HTMLDivElement, GlassCardProps>(
           />
 
           {/* TOP SECTION: Icon Badge & Title */}
-          <div className="relative w-full flex flex-row sm:flex-col items-center sm:items-start gap-4 mb-3 sm:mb-6 z-20">
+          <div className="relative w-full flex flex-row sm:flex-col items-center sm:items-start gap-4 mb-3 sm:mb-6 lg:mb-3 z-20">
             {/* Circular Icon Badge with Silky-Smooth Continuous Beat Animation */}
             <div className="relative flex items-center justify-center shrink-0 w-14 h-14 sm:w-16 sm:h-16">
               {/* Outer Clean Pulse Ring (No Red Box Shadow) */}
@@ -104,24 +104,24 @@ const GlassCard = React.forwardRef<HTMLDivElement, GlassCardProps>(
                 }}
               />
 
-              {/* Solid White Center Icon Circle */}
+              {/* Center Icon Circle */}
               <div
                 className={`relative z-10 w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-transform duration-300 ${
                   isRedVariant
-                    ? "bg-white dark:bg-zinc-900 border border-red-500/30 dark:border-red-500/40 shadow-sm text-[#C00000]"
+                    ? "bg-destructive border border-destructive text-white shadow-md"
                     : "bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm text-foreground"
                 }`}
               >
                 {Icon && (
                   <Icon className={`w-5 h-5 sm:w-6 sm:h-6 stroke-[2.2] ${
-                    isRedVariant ? "text-[#C00000]" : "text-foreground"
+                    isRedVariant ? "text-white" : "text-foreground"
                   }`} />
                 )}
               </div>
             </div>
 
             {/* Card Title */}
-            <h3 className={`text-lg sm:text-xl font-bold tracking-tight text-foreground dark:text-white transition-colors duration-300 ${titleClassName || ""}`}>
+            <h3 className={`text-lg sm:text-xl font-bold tracking-tight transition-colors duration-300 ${isRedVariant ? "text-destructive" : "text-foreground dark:text-white"} ${titleClassName || ""}`}>
               {title}
             </h3>
           </div>

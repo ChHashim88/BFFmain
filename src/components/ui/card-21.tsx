@@ -15,6 +15,7 @@ interface DestinationCardProps extends React.HTMLAttributes<HTMLDivElement> {
     title: React.ReactNode;
     description: React.ReactNode;
   };
+  buttonText?: string;
   href?: string;
   themeColor: string;
 }
@@ -29,6 +30,7 @@ const DestinationCard = React.forwardRef<HTMLDivElement, DestinationCardProps>(
       stats,
       description,
       readMoreContent,
+      buttonText,
       href,
       themeColor,
       ...props
@@ -57,37 +59,39 @@ const DestinationCard = React.forwardRef<HTMLDivElement, DestinationCardProps>(
         />
 
         {/* Content */}
-        <div className="relative grid h-full w-full p-4 sm:p-6 text-white items-end">
-          {/* Glass Container Wrapper */}
-          <div
-            onClick={(e) => e.stopPropagation()}
-            className="relative flex flex-col max-h-full col-start-1 row-start-1 w-full rounded-3xl overflow-y-auto overflow-x-hidden shadow-2xl border border-white/20 transition-all duration-300 transform-gpu bg-zinc-950/40 backdrop-blur-md group-hover:border-white/30 p-6 sm:p-8 custom-scrollbar"
-          >
+        <div className="relative grid h-full w-full p-4 sm:p-5 text-white items-end">
+            {/* Glass Container Wrapper - Sleek compact height matching Card 3 */}
+            <div
+              onClick={(e) => e.stopPropagation()}
+              className="relative flex flex-col h-[380px] sm:h-[400px] justify-between col-start-1 row-start-1 w-full rounded-3xl overflow-hidden shadow-2xl border border-white/20 transition-all duration-300 transform-gpu bg-zinc-950/60 backdrop-blur-md group-hover:border-white/30 p-5 sm:p-6"
+            >
             <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
 
             {/* Front Content */}
             <div
               className={cn(
-                "relative flex flex-col justify-end transition-all duration-500",
+                "relative flex flex-col h-full justify-between transition-all duration-500",
                 isExpanded
-                  ? "opacity-0 pointer-events-none absolute inset-x-6 inset-y-6 scale-[0.95] overflow-hidden"
+                  ? "opacity-0 pointer-events-none absolute inset-x-5 inset-y-5 scale-[0.95] overflow-hidden"
                   : "opacity-100 scale-100",
               )}
             >
-              <h3 className="text-subtitle min-h-[56px] mb-2 drop-shadow-md">
-                {location} {flag && <span className="ml-1">{flag}</span>}
-              </h3>
-              {stats && (
-                <p className="text-sm text-white/90 mt-1 font-medium drop-shadow-sm">{stats}</p>
-              )}
+              <div className="flex flex-col flex-1 min-h-0 justify-start overflow-y-auto custom-scrollbar pr-1 space-y-2">
+                <h3 className="text-subtitle font-bold text-white drop-shadow-md shrink-0">
+                  {location} {flag && <span className="ml-1">{flag}</span>}
+                </h3>
+                {stats && (
+                  <p className="text-sm text-white/90 font-medium drop-shadow-sm shrink-0">{stats}</p>
+                )}
 
-              {description && (
-                <div className="text-body-text text-white/95 mt-3 space-y-4">{description}</div>
-              )}
+                {description && (
+                  <div className="text-body-text text-white/95 mt-1 space-y-2.5 leading-relaxed">{description}</div>
+                )}
+              </div>
 
-              <div className="mt-8 flex justify-end">
+              <div className="pt-3 shrink-0 flex justify-end">
                 <button
-                  className="flex items-center gap-2 px-6 py-2.5 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-btn text-white transition-all shadow-[0_4px_30px_rgba(0,0,0,0.1)] hover:shadow-[0_4px_30px_rgba(0,0,0,0.2)] hover:scale-105"
+                  className="flex items-center gap-2 px-6 py-2 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-btn text-white transition-all shadow-[0_4px_30px_rgba(0,0,0,0.1)] hover:shadow-[0_4px_30px_rgba(0,0,0,0.2)] hover:scale-105 cursor-pointer"
                   onClick={(e) => {
                     if (readMoreContent) {
                       e.preventDefault();
@@ -96,39 +100,40 @@ const DestinationCard = React.forwardRef<HTMLDivElement, DestinationCardProps>(
                     }
                   }}
                 >
-                  {readMoreContent ? "Read More" : "Explore"} <ArrowRight size={16} />
+                  {readMoreContent ? (buttonText || "Read More") : "Explore"} <ArrowRight size={16} />
                 </button>
               </div>
             </div>
 
-            {/* Back Content */}
+            {/* Back Content - Scrollable Text inside fixed card height */}
             {readMoreContent && (
               <div
                 className={cn(
-                  "relative flex flex-col justify-center transition-all duration-500",
+                  "relative flex flex-col h-full justify-between transition-all duration-500 overflow-hidden",
                   !isExpanded
-                    ? "opacity-0 pointer-events-none absolute inset-x-6 inset-y-6 scale-[1.05] overflow-hidden"
+                    ? "opacity-0 pointer-events-none absolute inset-x-5 inset-y-5 scale-[1.05]"
                     : "opacity-100 scale-100",
                 )}
               >
-                <h3 className="text-subtitle min-h-[56px] mb-4 drop-shadow-md">
-                  {readMoreContent.title}
-                </h3>
-                <div className="text-[12px] text-white/95 mt-3 space-y-3 leading-relaxed">
-                  {readMoreContent.description}
-                </div>
-
-                <div className="mt-8 flex justify-start">
-                  <button
-                    className="flex items-center gap-2 px-6 py-2.5 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-btn text-white transition-all shadow-[0_4px_30px_rgba(0,0,0,0.1)] hover:shadow-[0_4px_30px_rgba(0,0,0,0.2)] hover:scale-105"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      setIsExpanded(false);
-                    }}
-                  >
-                    <ArrowLeft size={16} /> Back
-                  </button>
+                <div className="flex flex-col h-full min-h-0 justify-between">
+                  <h3 className="text-subtitle font-bold text-white shrink-0 pb-2 drop-shadow-md border-b border-white/15">
+                    {readMoreContent.title}
+                  </h3>
+                  <div className="text-sm text-white/95 my-2.5 space-y-2.5 leading-relaxed flex-1 overflow-y-auto custom-scrollbar pr-1.5">
+                    {readMoreContent.description}
+                  </div>
+                  <div className="pt-2 shrink-0 flex justify-start">
+                    <button
+                      className="flex items-center gap-2 px-6 py-2 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-btn text-white transition-all shadow-[0_4px_30px_rgba(0,0,0,0.1)] hover:shadow-[0_4px_30px_rgba(0,0,0,0.2)] hover:scale-105 cursor-pointer"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setIsExpanded(false);
+                      }}
+                    >
+                      <ArrowLeft size={16} /> Back
+                    </button>
+                  </div>
                 </div>
               </div>
             )}

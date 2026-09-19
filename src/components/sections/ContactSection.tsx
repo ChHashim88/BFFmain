@@ -51,24 +51,24 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative w-full scroll-mt-24 bg-background py-16 md:py-24 px-6 md:px-12 xl:px-24 flex flex-col justify-center border-t border-border/40 overflow-hidden"
+      className="relative w-full scroll-mt-24 bg-[#C00000] text-white py-16 md:py-24 px-6 md:px-12 xl:px-24 flex flex-col justify-center overflow-hidden"
     >
       {/* Background Ambient Radial Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[#C00000]/5 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-white/5 rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="mx-auto w-full max-w-[1350px] space-y-14">
         {/* Header Section */}
         <div className="flex flex-col text-center lg:text-left items-center lg:items-start">
           <TypewriterText
             text="CONTACT US"
-            className="text-h3 text-destructive uppercase tracking-widest font-semibold mb-2.5"
+            className="text-h3 text-white/90 uppercase tracking-widest font-semibold mb-2.5"
           />
-          <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm mb-3.5">
+          <h2 className="text-h2 text-white drop-shadow-sm mb-3.5">
             Have Questions?{" "}
             <br className="hidden sm:inline" />
-            <span className="text-destructive">Let&apos;s Connect.</span>
+            <span className="text-white/80">Let&apos;s Connect.</span>
           </h2>
-          <p className="text-subtitle text-muted-foreground leading-relaxed max-w-md mx-auto lg:max-w-2xl lg:mx-0">
+          <p className="text-subtitle text-white/90 leading-relaxed max-w-md mx-auto lg:max-w-2xl lg:mx-0">
             Direct communication channels for investors, filmmakers, packagers, and institutional partners. Our leadership team is ready to assist.
           </p>
         </div>
@@ -78,10 +78,10 @@ export function ContactSection() {
           {/* Left Column: Direct Channels & Information - Hidden on Mobile View */}
           <div className="hidden lg:flex lg:col-span-5 flex-col gap-6 text-left">
             <div className="space-y-2">
-              <h3 className="text-xl font-bold text-foreground tracking-tight">
+              <h3 className="text-xl font-bold text-white tracking-tight">
                 Direct Communication Desks
               </h3>
-              <p className="text-body-text text-muted-foreground leading-relaxed text-sm">
+              <p className="text-body-text text-white/90 leading-relaxed text-sm">
                 Connect directly with the appropriate division at Big Film Fund.
               </p>
             </div>
@@ -92,16 +92,16 @@ export function ContactSection() {
               <div
                 onClick={() => setActiveTab("Investor Relations")}
                 className={`relative group p-5 sm:p-6 rounded-2xl bg-card dark:bg-zinc-950 border transition-all duration-300 cursor-pointer ${activeTab === "Investor Relations"
-                    ? "border-destructive shadow-md ring-1 ring-destructive/40"
-                    : "border-border/80 hover:border-destructive/40"
+                  ? "border-destructive shadow-md ring-1 ring-destructive/40"
+                  : "border-border/80 hover:border-destructive/40"
                   }`}
               >
                 <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 text-destructive">
-                    <Building2 size={22} strokeWidth={2} />
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-destructive bg-destructive text-white shadow-md">
+                    <Building2 size={22} strokeWidth={2} className="text-white" />
                   </div>
                   <div className="space-y-1">
-                    <h4 className="font-bold text-foreground text-base">Investor Relations Desk</h4>
+                    <h4 className="font-bold text-destructive text-base">Investor Relations Desk</h4>
                     <p className="text-xs text-muted-foreground">For shareholding, Founders Club & allocation</p>
                     <span className="inline-block pt-1 text-xs font-semibold text-destructive group-hover:underline">
                       investors@bigfilmfund.com
@@ -114,16 +114,16 @@ export function ContactSection() {
               <div
                 onClick={() => setActiveTab("Film Submissions")}
                 className={`relative group p-5 sm:p-6 rounded-2xl bg-card dark:bg-zinc-950 border transition-all duration-300 cursor-pointer ${activeTab === "Film Submissions"
-                    ? "border-destructive shadow-md ring-1 ring-destructive/40"
-                    : "border-border/80 hover:border-destructive/40"
+                  ? "border-destructive shadow-md ring-1 ring-destructive/40"
+                  : "border-border/80 hover:border-destructive/40"
                   }`}
               >
                 <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 text-destructive">
-                    <Clapperboard size={22} strokeWidth={2} />
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-destructive bg-destructive text-white shadow-md">
+                    <Clapperboard size={22} strokeWidth={2} className="text-white" />
                   </div>
                   <div className="space-y-1">
-                    <h4 className="font-bold text-foreground text-base">Film Project Submissions</h4>
+                    <h4 className="font-bold text-destructive text-base">Film Project Submissions</h4>
                     <p className="text-xs text-muted-foreground">For filmmakers, producers & packagers</p>
                     <span className="inline-block pt-1 text-xs font-semibold text-destructive group-hover:underline">
                       submissions@bigfilmfund.com
@@ -136,16 +136,16 @@ export function ContactSection() {
               <div
                 onClick={() => setActiveTab("Press & Media")}
                 className={`relative group p-5 sm:p-6 rounded-2xl bg-card dark:bg-zinc-950 border transition-all duration-300 cursor-pointer ${activeTab === "Press & Media"
-                    ? "border-destructive shadow-md ring-1 ring-destructive/40"
-                    : "border-border/80 hover:border-destructive/40"
+                  ? "border-destructive shadow-md ring-1 ring-destructive/40"
+                  : "border-border/80 hover:border-destructive/40"
                   }`}
               >
                 <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 text-destructive">
-                    <MessageSquare size={22} strokeWidth={2} />
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-destructive bg-destructive text-white shadow-md">
+                    <MessageSquare size={22} strokeWidth={2} className="text-white" />
                   </div>
                   <div className="space-y-1">
-                    <h4 className="font-bold text-foreground text-base">Media & Executive Press</h4>
+                    <h4 className="font-bold text-destructive text-base">Media & Executive Press</h4>
                     <p className="text-xs text-muted-foreground">For media coverage, interviews & speaking</p>
                     <span className="inline-block pt-1 text-xs font-semibold text-destructive group-hover:underline">
                       press@bigfilmfund.com
@@ -157,17 +157,17 @@ export function ContactSection() {
 
             {/* Info Badges */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
-              <div className="p-4 rounded-xl bg-zinc-100 dark:bg-zinc-900/90 border border-border/60 flex items-center gap-3">
-                <Clock size={18} className="text-destructive shrink-0" />
-                <div className="text-xs text-muted-foreground">
-                  <span className="font-bold text-foreground block">Response SLA</span>
+              <div className="p-4 rounded-xl bg-white/10 border border-white/20 flex items-center gap-3">
+                <Clock size={18} className="text-white shrink-0" />
+                <div className="text-xs text-white/80">
+                  <span className="font-bold text-white block">Response SLA</span>
                   Within 24 Hours
                 </div>
               </div>
-              <div className="p-4 rounded-xl bg-zinc-100 dark:bg-zinc-900/90 border border-border/60 flex items-center gap-3">
-                <MapPin size={18} className="text-destructive shrink-0" />
-                <div className="text-xs text-muted-foreground">
-                  <span className="font-bold text-foreground block">Headquarters</span>
+              <div className="p-4 rounded-xl bg-white/10 border border-white/20 flex items-center gap-3">
+                <MapPin size={18} className="text-white shrink-0" />
+                <div className="text-xs text-white/80">
+                  <span className="font-bold text-white block">Headquarters</span>
                   Los Angeles & NY
                 </div>
               </div>

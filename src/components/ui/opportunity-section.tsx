@@ -1,124 +1,108 @@
 "use client";
 
-import React, { useState } from "react";
-import { Globe, Share2, Target, Clapperboard, Star, TrendingUp, ChevronDown } from "lucide-react";
-import { cn } from "@/lib/utils";
-import MobileRadialCarousel from "@/components/ui/mobile-radial-carousel";
-import { opportunityTimelineData } from "@/components/sections/TimelineSection";
-
+import React from "react";
+import { TrendingUp, Play } from "lucide-react";
 import { TypewriterText } from "@/components/ui/TypewriterText";
-
-function ExpandablePoint({
-  icon: Icon,
-  shortText,
-  fullText,
-  isBordered = true,
-}: {
-  icon: React.ElementType;
-  shortText: string;
-  fullText: string;
-  isBordered?: boolean;
-}) {
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  return (
-    <div className={cn("flex gap-5 items-start pb-5", isBordered && "border-b border-border/50")}>
-      <div className="w-10 h-10 rounded-full border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 flex items-center justify-center shrink-0 mt-0.5">
-        <Icon className="w-[18px] h-[18px] text-destructive" strokeWidth={2.5} />
-      </div>
-      <p className="text-sm md:text-base text-muted-foreground leading-relaxed pt-1">
-        {isExpanded ? fullText : shortText}{" "}
-        <button
-          type="button"
-          onClick={() => setIsExpanded(!isExpanded)}
-          title={isExpanded ? "Show Less" : "Show More"}
-          aria-label={isExpanded ? "Show Less" : "Show More"}
-          className="inline-flex items-center justify-center h-6 w-6 rounded-full text-destructive hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all cursor-pointer ml-1 align-middle border border-border"
-        >
-          <ChevronDown
-            size={14}
-            className={`transition-transform duration-300 ${isExpanded ? "rotate-180" : ""
-              }`}
-          />
-        </button>
-      </p>
-    </div>
-  );
-}
+import { openVideoModal } from "@/components/ui/VideoModal";
 
 export default function OpportunitySection() {
   return (
     <section
       id="opportunity"
-      className="relative scroll-mt-24 w-full bg-background py-16 md:py-20 lg:py-24 px-6 md:px-12 xl:px-24 flex justify-center"
+      className="relative scroll-mt-24 w-full bg-[#C00000] text-white py-16 md:py-20 lg:py-24 px-6 md:px-12 xl:px-24 flex justify-center"
     >
       <div className="mx-auto w-full max-w-[1350px] flex flex-col gap-12 lg:gap-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left Column */}
+          {/* Left Column - All Copy Shown in Full (Icons Removed) */}
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
             <div>
               <TypewriterText
                 text="THE OPPORTUNITY"
-                className="text-h3 text-destructive uppercase tracking-widest font-semibold mb-2.5"
+                className="text-h3 text-white/90 uppercase tracking-widest font-semibold mb-2.5"
               />
-              <h2 className="text-h2 text-foreground dark:text-white drop-shadow-sm mb-3.5">
+              <h2 className="text-h2 text-white drop-shadow-sm mb-3.5">
                 Film is Ready for Modern <br className="hidden sm:inline" />
-                <span className="text-destructive">Investment Infrastructure.</span>
+                <span className="text-white/80">Investment Infrastructure.</span>
               </h2>
             </div>
 
             <div className="flex flex-col space-y-6 pt-4 text-left">
               {/* Point 1 */}
-              <div className="flex gap-5 items-start pb-5 border-b border-border/50">
-                <div className="w-10 h-10 rounded-full border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 flex items-center justify-center shrink-0 mt-0.5">
-                  <Globe className="w-[18px] h-[18px] text-destructive" strokeWidth={2.5} />
-                </div>
-                <p className="text-sm md:text-base text-muted-foreground leading-relaxed pt-1">
+              <div className="pb-5 border-b border-white/20">
+                <p className="text-sm md:text-base text-white/90 leading-relaxed">
                   Film is a global business—financed, produced, distributed, and consumed in markets
                   around the world.
                 </p>
               </div>
 
               {/* Point 2 */}
-              <ExpandablePoint
-                icon={Share2}
-                shortText="Yet film investing remains largely fragmented: built around private networks, one-off deals..."
-                fullText="Yet film investing remains largely fragmented: built around private networks, one-off deals, inconsistent structures, and investor experiences that begin and end with each individual project."
-              />
+              <div className="pb-5 border-b border-white/20">
+                <p className="text-sm md:text-base text-white/90 leading-relaxed">
+                  Yet film investing remains largely fragmented: built around private networks, one-off deals, inconsistent structures, and investor experiences that begin and end with each individual project.
+                </p>
+              </div>
 
               {/* Point 3 */}
-              <ExpandablePoint
-                icon={Target}
-                shortText="The opportunity is not simply to give more people access to film investments. It is to transform how..."
-                fullText="The opportunity is not simply to give more people access to film investments. It is to transform how those opportunities are sourced, evaluated, structured, financed, brought to market, and experienced by investors."
-              />
+              <div className="pb-5 border-b border-white/20">
+                <p className="text-sm md:text-base text-white/90 leading-relaxed">
+                  The opportunity is not simply to give more people access to film investments. It is to transform how those opportunities are sourced, evaluated, structured, financed, brought to market, and experienced by investors.
+                </p>
+              </div>
 
               {/* Point 4 */}
-              <div className="flex gap-5 items-start pb-5 border-b border-border/50">
-                <div className="w-10 h-10 rounded-full border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 flex items-center justify-center shrink-0 mt-0.5">
-                  <Clapperboard className="w-[18px] h-[18px] text-destructive" strokeWidth={2.5} />
-                </div>
-                <p className="text-sm md:text-base text-muted-foreground leading-relaxed pt-1">
-                  <span className="font-bold text-destructive">Big Film Fund</span> is building the
+              <div className="pb-5 border-b border-white/20">
+                <p className="text-sm md:text-base text-white/90 leading-relaxed">
+                  <span className="font-bold text-white">Big Film Fund</span> is building the
                   model and platform to make that transformation possible.
                 </p>
               </div>
 
               {/* Point 5 */}
-              <div className="flex gap-5 items-start">
-                <div className="w-10 h-10 rounded-full border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 flex items-center justify-center shrink-0 mt-0.5">
-                  <Star className="w-[18px] h-[18px] text-destructive" strokeWidth={2.5} />
-                </div>
-                <p className="text-sm md:text-base text-destructive font-bold leading-relaxed pt-1">
+              <div>
+                <p className="text-sm md:text-base text-white font-bold leading-relaxed">
                   Film is ready for that transformation.
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Right Column: 6-Step Radial Carousel */}
+          {/* Right Column: 2A Video Card - "Investing has changed" */}
           <div className="flex flex-col w-full h-full my-auto justify-center items-center">
-            <MobileRadialCarousel timelineData={opportunityTimelineData} />
+            <div className="relative w-full aspect-video lg:aspect-[4/3] xl:aspect-[16/10]">
+              {/* Stacked depth layers */}
+              <div className="absolute inset-y-6 -left-6 w-full bg-white/10 dark:bg-black/20 border border-white/20 shadow-2xl z-0 hidden sm:block rounded-2xl backdrop-blur-sm" />
+              <div className="absolute inset-y-3 -left-3 w-full bg-white/15 dark:bg-black/30 border border-white/20 shadow-2xl z-10 hidden sm:block rounded-2xl backdrop-blur-sm" />
+
+              {/* Video Card Container */}
+              <div
+                onClick={() =>
+                  openVideoModal(
+                    "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+                    "Investing Has Changed"
+                  )
+                }
+                className="absolute inset-0 w-full h-full rounded-2xl bg-zinc-100 dark:bg-zinc-950 border border-border shadow-2xl overflow-hidden z-20 flex items-center justify-center group cursor-pointer transition-transform duration-500 hover:-translate-y-2 hover:translate-x-2"
+              >
+                <img
+                  src="/3.png"
+                  alt="Investing has changed"
+                  loading="lazy"
+                  decoding="async"
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 pointer-events-none"
+                />
+
+                <div className="absolute inset-0 bg-black/40 dark:bg-black/55 group-hover:bg-black/30 transition-colors duration-500 z-10" />
+
+                <div className="relative z-20 flex flex-col items-center gap-3 text-center">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#C00000] text-white flex items-center justify-center shadow-[0_0_30px_rgba(192,0,0,0.6)] backdrop-blur-md group-hover:scale-110 transition-all duration-300 border border-white/20">
+                    <Play className="w-8 h-8 sm:w-10 sm:h-10 fill-white text-white translate-x-0.5" />
+                  </div>
+                  <span className="text-xs sm:text-sm font-bold tracking-widest text-white uppercase drop-shadow-md">
+                    Investing has changed
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 

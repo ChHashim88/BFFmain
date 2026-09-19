@@ -84,11 +84,10 @@ export function Navbar() {
 
   return (
     <header className="fixed left-1/2 top-4 sm:top-6 z-50 w-[96%] lg:w-[98%] xl:w-[95%] max-w-[1450px] -translate-x-1/2 rounded-full">
-      {/* Liquid Glass Background Layers */}
-      <div className="absolute inset-0 z-0 h-full w-full rounded-full shadow-[0_0_6px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3px_rgba(0,0,0,0.9),inset_-3px_-3px_0.5px_-3px_rgba(0,0,0,0.85),inset_1px_1px_1px_-0.5px_rgba(0,0,0,0.6),inset_-1px_-1px_1px_-0.5px_rgba(0,0,0,0.6),inset_0_0_6px_6px_rgba(0,0,0,0.12),inset_0_0_2px_2px_rgba(0,0,0,0.06),0_0_12px_rgba(255,255,255,0.15)] transition-all dark:shadow-[0_0_8px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3.5px_rgba(255,255,255,0.09),inset_-3px_-3px_0.5px_-3.5px_rgba(255,255,255,0.85),inset_1px_1px_1px_-0.5px_rgba(255,255,255,0.6),inset_-1px_-1px_1px_-0.5px_rgba(255,255,255,0.6),inset_0_0_6px_6px_rgba(255,255,255,0.12),inset_0_0_2px_2px_rgba(255,255,255,0.06),0_0_12px_rgba(0,0,0,0.15)]" />
+      {/* Background Layer (White in light theme, Black in dark theme) */}
+      <div className="absolute inset-0 z-0 h-full w-full rounded-full bg-white dark:bg-zinc-950 border border-zinc-200/90 dark:border-zinc-800/90 shadow-lg transition-colors duration-300" />
       <div
-        className="absolute inset-0 isolate -z-10 h-full w-full overflow-hidden rounded-full bg-white/10 dark:bg-black/20"
-        style={{ backdropFilter: 'url("#navbar-glass")' }}
+        className="absolute inset-0 isolate -z-10 h-full w-full overflow-hidden rounded-full bg-white dark:bg-zinc-950 transition-colors duration-300"
       />
 
       <div className="relative z-10 mx-auto flex h-14 items-center justify-between pl-2 pr-3 lg:pl-2 lg:pr-4">
@@ -105,7 +104,7 @@ export function Navbar() {
 
         {/* Desktop Links */}
         <nav className="hidden lg:flex flex-1 items-center justify-center overflow-visible mx-2">
-          <ul className="flex items-center justify-center gap-3 lg:gap-3.5 xl:gap-5 2xl:gap-6 whitespace-nowrap px-1 text-[12px] font-normal leading-[1.20] text-foreground/85 transition-all duration-300">
+          <ul className="flex items-center justify-center gap-3 lg:gap-3.5 xl:gap-5 2xl:gap-6 whitespace-nowrap px-1 text-[12px] font-normal leading-[1.20] text-zinc-800 dark:text-zinc-200 transition-all duration-300">
             {navLinks.map((link) => {
               const active = isParentActive(link);
               return (
@@ -131,7 +130,7 @@ export function Navbar() {
                       )}
 
                       {/* Dropdown Menu */}
-                      <div className="absolute left-0 top-full hidden min-w-[260px] flex-col rounded-xl border border-border bg-background/95 backdrop-blur-xl p-1.5 shadow-xl group-hover:flex">
+                      <div className="absolute left-0 top-full hidden min-w-[260px] flex-col rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white/95 dark:bg-zinc-950/95 backdrop-blur-xl p-1.5 shadow-xl group-hover:flex">
                         {link.dropdown.map((sublink) => {
                           const subActive = activeSection === sublink.id;
                           return (
@@ -141,7 +140,7 @@ export function Navbar() {
                               onClick={() => handleLinkClick(sublink.id)}
                               className={`px-3 py-2.5 text-xs transition-colors duration-150 rounded-lg ${subActive
                                 ? "bg-destructive/15 text-destructive font-semibold"
-                                : "text-muted-foreground hover:bg-muted hover:text-destructive"
+                                : "text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-destructive"
                                 }`}
                             >
                               {sublink.label}

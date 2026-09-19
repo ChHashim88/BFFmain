@@ -10,8 +10,6 @@ const ProblemSection = dynamic(() => import("@/components/sections/ProblemSectio
 const ModelSection = dynamic(() => import("@/components/sections/ModelSection").then((m) => m.ModelSection));
 const PrinciplesSection = dynamic(() => import("@/components/sections/PrinciplesSection").then((m) => m.PrinciplesSection));
 const PlatformSection = dynamic(() => import("@/components/sections/PlatformSection").then((m) => m.PlatformSection));
-const FUIBentoGridDark = dynamic(() => import("@/components/ui/bento-grid"));
-const VerticalTabs = dynamic(() => import("@/components/ui/vertical-tabs"));
 const GallerySection = dynamic(() => import("@/components/sections/GallerySection").then((m) => m.GallerySection));
 const OpportunitySection = dynamic(() => import("@/components/ui/opportunity-section"));
 const TimelineSection = dynamic(() => import("@/components/sections/TimelineSection").then((m) => m.TimelineSection));
@@ -70,8 +68,6 @@ export default function HomePage() {
         <ModelSection />
         <PrinciplesSection />
         <PlatformSection />
-        <FUIBentoGridDark />
-        <VerticalTabs />
         <GallerySection />
         <OpportunitySection />
         <TimelineSection />
