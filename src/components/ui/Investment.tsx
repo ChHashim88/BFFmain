@@ -284,10 +284,10 @@ export default function Investment() {
           <div className="relative rounded-3xl bg-card dark:bg-zinc-950 border border-border/80 p-5 sm:p-6 lg:p-8 shadow-md flex flex-col justify-between space-y-5 text-left">
             <div className="space-y-3">
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 text-destructive">
-                  <Clock3 size={22} />
+                <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl border border-destructive bg-destructive text-white shadow-sm">
+                  <Clock3 size={22} className="text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-foreground tracking-tight">
+                <h3 className="text-2xl font-bold text-destructive tracking-tight">
                   Why Now?
                 </h3>
               </div>
@@ -316,10 +316,10 @@ export default function Investment() {
         ===================================================== */}
         <div className="relative rounded-3xl bg-card dark:bg-zinc-950 border border-border/80 p-5 sm:p-6 lg:p-8 shadow-md flex flex-col gap-5 text-left">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 text-destructive">
-              <Info size={22} />
+            <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl border border-destructive bg-destructive text-white shadow-sm">
+              <Info size={22} className="text-white" />
             </div>
-            <h3 className="text-xl sm:text-2xl font-bold text-foreground">
+            <h3 className="text-xl sm:text-2xl font-bold text-destructive">
               What is the difference between investing in BFF and investing in a film?
             </h3>
           </div>
