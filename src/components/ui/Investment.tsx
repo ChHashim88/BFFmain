@@ -73,7 +73,7 @@ export default function Investment() {
             {/* Left Column: Info Cards List */}
             <div className="lg:col-span-7 flex flex-col gap-3 sm:gap-3.5">
               {/* Card 1 - Primary Starting Statement */}
-              <div className="relative group flex items-start gap-4 p-4 sm:p-5 rounded-2xl bg-card dark:bg-zinc-950 border border-destructive/60 shadow-sm transition-all duration-300 hover:border-destructive hover:shadow-md">
+              <div className="relative group flex items-start gap-4 p-4 sm:p-5 rounded-2xl bg-card/90 dark:bg-zinc-950/90 border border-border/80 shadow-sm transition-all duration-300 hover:border-destructive/40 hover:shadow-md">
                 <div className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl border border-destructive bg-destructive text-white mt-0.5 shadow-sm">
                   <Building2 size={20} strokeWidth={2} />
                 </div>
