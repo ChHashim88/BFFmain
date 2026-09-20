@@ -4,6 +4,7 @@ import { useState, useRef } from "react";
 import { ChevronDown, Play, Pause } from "lucide-react";
 
 import { TypewriterText } from "@/components/ui/TypewriterText";
+import { openVideoModal } from "@/components/ui/VideoModal";
 
 
 
@@ -74,30 +75,36 @@ export function ProblemSection() {
               <div className="absolute inset-y-6 -left-6 w-full bg-white/10 dark:bg-black/20 border border-white/20 shadow-2xl z-0 hidden sm:block rounded-2xl backdrop-blur-sm" />
               <div className="absolute inset-y-3 -left-3 w-full bg-white/15 dark:bg-black/30 border border-white/20 shadow-2xl z-10 hidden sm:block rounded-2xl backdrop-blur-sm" />
 
-              <div className="absolute inset-0 w-full h-full bg-zinc-100 dark:bg-zinc-950 border border-border shadow-2xl overflow-hidden z-20 group transition-transform duration-500 hover:-translate-y-2 hover:translate-x-2">
-                <video
-                  ref={videoRef}
-                  src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
-                  poster="/ts.png"
-                  controls={isPlaying}
-                  preload="none"
-                  onPlay={() => setIsPlaying(true)}
-                  onPause={() => setIsPlaying(false)}
-                  onEnded={() => setIsPlaying(false)}
-                  className="w-full h-full object-cover"
+              <div
+                onClick={() =>
+                  openVideoModal(
+                    "https://vimeo.com/1227838533/efbb39337c?fl=ip&fe=ec&share=copy",
+                    "Film investing has never been built for investors"
+                  )
+                }
+                className="absolute inset-0 w-full h-full rounded-2xl bg-zinc-100 dark:bg-zinc-950 border border-border shadow-2xl overflow-hidden z-20 flex items-center justify-center group cursor-pointer transition-transform duration-500 hover:-translate-y-2 hover:translate-x-2"
+              >
+                {/* Thumbnail Image ts.png */}
+                <img
+                  src="/ts.png"
+                  alt="Film investing has never been built for investors"
+                  loading="lazy"
+                  decoding="async"
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 pointer-events-none"
                 />
 
-                {!isPlaying && (
-                  <div
-                    onClick={togglePlay}
-                    className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center cursor-pointer z-30"
-                  >
-                    {/* Circle Play Button */}
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-[#C00000] hover:bg-[#990000] active:scale-95 transition-all duration-300 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 border-2 border-white/20">
-                      <Play className="w-8 h-8 sm:w-10 sm:h-10 text-white fill-white translate-x-0.5" />
-                    </div>
+                {/* Dark Overlay */}
+                <div className="absolute inset-0 bg-black/40 dark:bg-black/55 group-hover:bg-black/30 transition-colors duration-500 z-10" />
+
+                {/* Centered Play Button & Label */}
+                <div className="relative z-20 flex flex-col items-center gap-3 text-center">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-destructive text-white flex items-center justify-center shadow-[0_0_30px_rgba(192,0,0,0.6)] backdrop-blur-md group-hover:scale-110 transition-all duration-300 border border-white/20">
+                    <Play className="w-8 h-8 sm:w-10 sm:h-10 fill-white text-white translate-x-0.5" />
                   </div>
-                )}
+                  <span className="text-xs sm:text-sm font-bold tracking-widest text-white uppercase drop-shadow-md">
+                    Watch Overview
+                  </span>
+                </div>
               </div>
             </div>
           </div>

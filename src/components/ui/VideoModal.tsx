@@ -21,6 +21,25 @@ export function openVideoModal(url?: string, title?: string) {
   }
 }
 
+function getFormattedEmbedUrl(url: string): string {
+  if (!url || url.trim().length === 0 || url.includes("dropbox.com")) {
+    return DEFAULT_VIDEO_URL;
+  }
+  if (url.includes("vimeo.com")) {
+    if (url.includes("player.vimeo.com/video/")) {
+      return url.includes("autoplay") ? url : `${url}${url.includes("?") ? "&" : "?"}autoplay=1`;
+    }
+    const matches = url.match(/vimeo\.com\/(?:video\/)?(\d+)(?:\/([a-zA-Z0-9]+))?/);
+    if (matches && matches[1]) {
+      const videoId = matches[1];
+      const hash = matches[2];
+      const hashParam = hash ? `?h=${hash}&` : "?";
+      return `https://player.vimeo.com/video/${videoId}${hashParam}autoplay=1&title=0&byline=0&portrait=0`;
+    }
+  }
+  return url;
+}
+
 export function VideoModal() {
   const [modalState, setModalState] = useState<VideoModalState>({
     isOpen: false,
@@ -36,10 +55,7 @@ export function VideoModal() {
 
   useEffect(() => {
     openModalHandler = (url?: string, title?: string) => {
-      const targetUrl =
-        url && url.trim().length > 0 && !url.includes("dropbox.com")
-          ? url
-          : DEFAULT_VIDEO_URL;
+      const targetUrl = getFormattedEmbedUrl(url || "");
 
       setCurrentUrl(targetUrl);
       setVideoError(false);
