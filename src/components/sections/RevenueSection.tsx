@@ -1,10 +1,31 @@
 "use client";
 
+import { useState } from "react";
 import { Play } from "lucide-react";
 import { TypewriterText } from "@/components/ui/TypewriterText";
-import { openVideoModal } from "@/components/ui/VideoModal";
+
+function getEmbedUrl(url: string): string {
+  if (url.includes("vimeo.com")) {
+    if (url.includes("player.vimeo.com/video/")) {
+      return url.includes("autoplay") ? url : `${url}${url.includes("?") ? "&" : "?"}autoplay=1&autopause=0`;
+    }
+    const matches = url.match(/vimeo\.com\/(?:video\/)?(\d+)(?:\/([a-zA-Z0-9]+))?/);
+    if (matches && matches[1]) {
+      const videoId = matches[1];
+      const hash = matches[2];
+      const hashParam = hash ? `?h=${hash}&` : "?";
+      return `https://player.vimeo.com/video/${videoId}${hashParam}autoplay=1&autopause=0&title=0&byline=0&portrait=0`;
+    }
+  }
+  return url;
+}
 
 export function RevenueSection() {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoSrc = "https://vimeo.com/1227821634/7609591f16?fl=ip&fe=ec&share=copy";
+  const embedUrl = getEmbedUrl(videoSrc);
+  const isEmbed = videoSrc.includes("vimeo.com") || videoSrc.includes("youtube.com") || videoSrc.includes("youtu.be");
+
   return (
     <section
       id="revenue"
@@ -36,40 +57,57 @@ export function RevenueSection() {
             </div>
 
             {/* Right Side - Stacked Video Player: Cynthia's Video "Your chance to own the platform" */}
-            <div className="relative w-full aspect-video lg:aspect-[4/3] xl:aspect-[16/10] lg:ml-4 sm:ml-8 order-2 lg:order-2">
+            <div className="relative w-full aspect-video lg:ml-4 sm:ml-8 order-2 lg:order-2">
               <div className="absolute inset-y-6 -left-6 w-full bg-white/10 dark:bg-black/20 border border-white/20 shadow-2xl z-0 hidden sm:block rounded-2xl backdrop-blur-sm" />
               <div className="absolute inset-y-3 -left-3 w-full bg-white/15 dark:bg-black/30 border border-white/20 shadow-2xl z-10 hidden sm:block rounded-2xl backdrop-blur-sm" />
 
-              <div
-                onClick={() =>
-                  openVideoModal(
-                    "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-                    "Your Chance to Own the Platform"
+              <div className="absolute inset-0 w-full h-full rounded-2xl bg-zinc-100 dark:bg-zinc-950 border border-border shadow-2xl overflow-hidden z-20 flex items-center justify-center group">
+                {isPlaying ? (
+                  isEmbed ? (
+                    <iframe
+                      src={embedUrl}
+                      title="Your chance to own the platform"
+                      className="w-full h-full border-0 rounded-2xl"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                      referrerPolicy="strict-origin-when-cross-origin"
+                    />
+                  ) : (
+                    <video
+                      src={videoSrc}
+                      controls
+                      autoPlay
+                      className="w-full h-full object-cover rounded-2xl"
+                    />
                   )
-                }
-                className="absolute inset-0 w-full h-full rounded-2xl bg-zinc-100 dark:bg-zinc-950 border border-border shadow-2xl overflow-hidden z-20 flex items-center justify-center group cursor-pointer transition-transform duration-500 hover:-translate-y-2 hover:translate-x-2"
-              >
-                {/* Thumbnail Image 5.png */}
-                <img
-                  src="/5.png"
-                  alt="Your chance to own the platform"
-                  loading="lazy"
-                  decoding="async"
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 pointer-events-none"
-                />
+                ) : (
+                  <div
+                    onClick={() => setIsPlaying(true)}
+                    className="relative w-full h-full flex items-center justify-center cursor-pointer"
+                  >
+                    {/* Thumbnail Image 5.png */}
+                    <img
+                      src="/5.png"
+                      alt="Your chance to own the platform"
+                      loading="lazy"
+                      decoding="async"
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 pointer-events-none"
+                    />
 
-                {/* Dark Overlay */}
-                <div className="absolute inset-0 bg-black/40 dark:bg-black/55 group-hover:bg-black/30 transition-colors duration-500 z-10" />
+                    {/* Dark Overlay */}
+                    <div className="absolute inset-0 bg-black/40 dark:bg-black/55 group-hover:bg-black/30 transition-colors duration-500 z-10" />
 
-                {/* Centered Play Button & Label */}
-                <div className="relative z-20 flex flex-col items-center gap-3 text-center">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#C00000] text-white flex items-center justify-center shadow-[0_0_30px_rgba(192,0,0,0.6)] backdrop-blur-md group-hover:scale-110 transition-all duration-300 border border-white/20">
-                    <Play className="w-8 h-8 sm:w-10 sm:h-10 fill-white text-white translate-x-0.5" />
+                    {/* Centered Play Button & Label */}
+                    <div className="relative z-20 flex flex-col items-center gap-3 text-center">
+                      <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#C00000]/30 border border-white/40 text-white flex items-center justify-center shadow-[0_0_25px_rgba(192,0,0,0.4)] group-hover:scale-110 group-hover:bg-[#C00000]/50 transition-all duration-300">
+                        <Play className="w-8 h-8 sm:w-10 sm:h-10 fill-white text-white translate-x-0.5" />
+                      </div>
+                      <span className="text-xs sm:text-sm font-bold tracking-widest text-white uppercase drop-shadow-md">
+                        Your chance to own the platform
+                      </span>
+                    </div>
                   </div>
-                  <span className="text-xs sm:text-sm font-bold tracking-widest text-white uppercase drop-shadow-md">
-                    Your chance to own the platform
-                  </span>
-                </div>
+                )}
               </div>
             </div>
           </div>

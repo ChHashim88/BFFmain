@@ -23,6 +23,7 @@ const Investment = dynamic(() => import("@/components/ui/Investment"));
 const ContactSection = dynamic(() => import("@/components/sections/ContactSection").then((m) => m.ContactSection));
 const Footer = dynamic(() => import("@/components/ui/footer"));
 const WaitlistModal = dynamic(() => import("@/components/ui/WaitlistModal").then((m) => m.WaitlistModal));
+const VideoModal = dynamic(() => import("@/components/ui/VideoModal").then((m) => m.VideoModal));
 const StickyFooterCTA = dynamic(() => import("@/components/ui/StickyFooterCTA").then((m) => m.StickyFooterCTA));
 
 const processItems = [
@@ -89,6 +90,7 @@ export default function HomePage() {
         <Footer />
       </main>
       <WaitlistModal />
+      <VideoModal />
       <StickyFooterCTA />
     </>
   );

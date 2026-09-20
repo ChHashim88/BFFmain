@@ -74,7 +74,7 @@ export function HeroSection() {
   );
 
   return (
-    <section className="relative w-full min-h-[100svh] h-[100svh] lg:h-auto lg:min-h-0 pt-24 pb-12 lg:pt-40 lg:pb-24 px-6 md:px-12 xl:px-24 flex flex-col justify-center items-center overflow-hidden bg-white dark:bg-background">
+    <section className="relative w-full min-h-screen lg:min-h-[100vh] pt-24 pb-12 lg:pt-28 lg:pb-16 px-6 md:px-12 xl:px-24 flex flex-col justify-center items-center overflow-hidden bg-white dark:bg-background">
       {/* Hero Background Image - Mobile Light Mode (< lg) */}
       <img
         src="/mobhero.jpeg"

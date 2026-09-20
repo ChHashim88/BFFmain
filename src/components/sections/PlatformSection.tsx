@@ -20,8 +20,8 @@ function PlatformPointItem({ fullText, highlight }: PlatformPointProps) {
     <div className="flex flex-col space-y-2 group text-left">
       <p
         className={`text-body-text transition-colors duration-300 ${highlight
-            ? "font-bold text-white"
-            : "text-white/90 group-hover:text-white"
+          ? "font-bold text-white"
+          : "text-white/90 group-hover:text-white"
           }`}
       >
         {fullText}
@@ -30,17 +30,35 @@ function PlatformPointItem({ fullText, highlight }: PlatformPointProps) {
   );
 }
 
+function getEmbedUrl(url: string): string {
+  if (url.includes("vimeo.com")) {
+    if (url.includes("player.vimeo.com/video/")) {
+      return url.includes("autoplay") ? url : `${url}${url.includes("?") ? "&" : "?"}autoplay=1&autopause=0`;
+    }
+    const matches = url.match(/vimeo\.com\/(?:video\/)?(\d+)(?:\/([a-zA-Z0-9]+))?/);
+    if (matches && matches[1]) {
+      const videoId = matches[1];
+      const hash = matches[2];
+      const hashParam = hash ? `?h=${hash}&` : "?";
+      return `https://player.vimeo.com/video/${videoId}${hashParam}autoplay=1&autopause=0&title=0&byline=0&portrait=0`;
+    }
+  }
+  return url;
+}
+
 function PlatformVideoCard({
   title,
   imageSrc,
   videoSrc,
-  modalTitle,
 }: {
   title: string;
   imageSrc: string;
   videoSrc: string;
-  modalTitle: string;
 }) {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const embedUrl = getEmbedUrl(videoSrc);
+  const isEmbed = videoSrc.includes("vimeo.com") || videoSrc.includes("youtube.com") || videoSrc.includes("youtu.be");
+
   return (
     <div className="relative w-full aspect-video">
       {/* Back layers for stacked 3D card depth effect */}
@@ -48,28 +66,50 @@ function PlatformVideoCard({
       <div className="absolute inset-y-3 -left-3 w-full bg-white/15 dark:bg-black/30 border border-white/20 shadow-2xl z-10 hidden sm:block rounded-2xl backdrop-blur-sm" />
 
       {/* Main Video Card Frame */}
-      <div
-        onClick={() => openVideoModal(videoSrc, modalTitle)}
-        className="absolute inset-0 w-full h-full rounded-2xl bg-zinc-100 dark:bg-zinc-950 border border-border shadow-2xl overflow-hidden z-20 flex items-center justify-center group cursor-pointer transition-transform duration-500 hover:-translate-y-2 hover:translate-x-2"
-      >
-        <img
-          src={imageSrc}
-          alt={title}
-          loading="lazy"
-          decoding="async"
-          className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 pointer-events-none"
-        />
+      <div className="absolute inset-0 w-full h-full rounded-2xl bg-zinc-100 dark:bg-zinc-950 border border-border shadow-2xl overflow-hidden z-20 flex items-center justify-center group">
+        {isPlaying ? (
+          isEmbed ? (
+            <iframe
+              src={embedUrl}
+              title={title}
+              className="w-full h-full border-0 rounded-2xl"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              referrerPolicy="strict-origin-when-cross-origin"
+            />
+          ) : (
+            <video
+              src={videoSrc}
+              controls
+              autoPlay
+              className="w-full h-full object-cover rounded-2xl"
+            />
+          )
+        ) : (
+          <div
+            onClick={() => setIsPlaying(true)}
+            className="relative w-full h-full flex items-center justify-center cursor-pointer"
+          >
+            <img
+              src={imageSrc}
+              alt={title}
+              loading="lazy"
+              decoding="async"
+              className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 pointer-events-none"
+            />
 
-        <div className="absolute inset-0 bg-black/40 dark:bg-black/55 group-hover:bg-black/30 transition-colors duration-500 z-10" />
+            <div className="absolute inset-0 bg-black/40 dark:bg-black/55 group-hover:bg-black/30 transition-colors duration-500 z-10" />
 
-        <div className="relative z-20 flex flex-col items-center gap-3 text-center">
-          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#C00000] text-white flex items-center justify-center shadow-[0_0_30px_rgba(192,0,0,0.6)] backdrop-blur-md group-hover:scale-110 transition-all duration-300 border border-white/20">
-            <Play className="w-8 h-8 sm:w-10 sm:h-10 fill-white text-white translate-x-0.5" />
+            <div className="relative z-20 flex flex-col items-center gap-3 text-center">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#C00000]/30 border border-white/40 text-white flex items-center justify-center shadow-[0_0_25px_rgba(192,0,0,0.4)] group-hover:scale-110 group-hover:bg-[#C00000]/50 transition-all duration-300">
+                <Play className="w-8 h-8 sm:w-10 sm:h-10 fill-white text-white translate-x-0.5" />
+              </div>
+              <span className="text-xs sm:text-sm font-bold tracking-widest text-white uppercase drop-shadow-md">
+                {title}
+              </span>
+            </div>
           </div>
-          <span className="text-xs sm:text-sm font-bold tracking-widest text-white uppercase drop-shadow-md">
-            {title}
-          </span>
-        </div>
+        )}
       </div>
     </div>
   );
@@ -145,28 +185,19 @@ export function PlatformSection() {
             </div>
           </div>
 
-          {/* Right Side - Dual Video Player Showcase */}
-          <div className="relative w-full flex flex-col gap-8 lg:ml-4 sm:ml-8 order-2 lg:order-2">
-            {/* Video Card 1: Watch Platform Overview */}
+          {/* Right Side - Hero Video Player & Platform Highlights */}
+          <div className="relative w-full flex flex-col gap-6 lg:ml-4 sm:ml-8 order-2 lg:order-2">
+            {/* Video Card: Watch Platform Overview */}
             <PlatformVideoCard
               title="Watch Platform Overview"
               imageSrc="/2.png"
-              videoSrc="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-              modalTitle="Platform Architecture Overview"
-            />
-
-            {/* Video Card 2: Watch Investor Dashboard */}
-            <PlatformVideoCard
-              title="Watch Investor Dashboard"
-              imageSrc="/3.png"
-              videoSrc="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4"
-              modalTitle="Investor Experience Dashboard"
+              videoSrc="https://vimeo.com/1228043169/02e4df1e71?fl=ip&fe=ec&share=copy"
             />
           </div>
         </div>
 
-        {/* Bottom Block: Radical Transparency (Integrated inside THE PLATFORM section) */}
-        <div className="flex flex-col gap-8 pt-10 border-t border-white/20">
+        {/* Standalone Sub-Section Block: Radical Transparency */}
+        <div className="flex flex-col gap-8 pt-8 lg:pt-14">
           <div className="flex flex-col items-start text-left">
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-white drop-shadow-sm mb-2">
               Radical <span className="text-white/80">Transparency.</span>
@@ -218,7 +249,7 @@ export function PlatformSection() {
             {/* Right Column: Image Showcase with Navigation Buttons */}
             <div className="lg:col-span-7 flex flex-col justify-end h-full order-1 lg:order-2 w-full">
               <div className="relative group/gallery w-full">
-                <div className="relative w-full aspect-[16/10] sm:aspect-[4/3] lg:aspect-[16/11] rounded-2xl sm:rounded-3xl md:rounded-[2.5rem] overflow-hidden bg-muted/30 border border-border/40 shadow-xl">
+                <div className="relative w-full aspect-video rounded-2xl sm:rounded-3xl md:rounded-[2.5rem] overflow-hidden bg-muted/30 border border-border/40 shadow-xl">
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={activeIndex}

@@ -19,6 +19,11 @@ export function openVideoModal(url?: string, title?: string) {
   if (openModalHandler) {
     openModalHandler(url, title);
   }
+  if (typeof window !== "undefined") {
+    window.dispatchEvent(
+      new CustomEvent("open-video-modal", { detail: { url, title } })
+    );
+  }
 }
 
 function getFormattedEmbedUrl(url: string): string {
@@ -27,14 +32,14 @@ function getFormattedEmbedUrl(url: string): string {
   }
   if (url.includes("vimeo.com")) {
     if (url.includes("player.vimeo.com/video/")) {
-      return url.includes("autoplay") ? url : `${url}${url.includes("?") ? "&" : "?"}autoplay=1`;
+      return url.includes("autoplay") ? url : `${url}${url.includes("?") ? "&" : "?"}autoplay=1&autopause=0`;
     }
     const matches = url.match(/vimeo\.com\/(?:video\/)?(\d+)(?:\/([a-zA-Z0-9]+))?/);
     if (matches && matches[1]) {
       const videoId = matches[1];
       const hash = matches[2];
       const hashParam = hash ? `?h=${hash}&` : "?";
-      return `https://player.vimeo.com/video/${videoId}${hashParam}autoplay=1&title=0&byline=0&portrait=0`;
+      return `https://player.vimeo.com/video/${videoId}${hashParam}autoplay=1&autopause=0&title=0&byline=0&portrait=0`;
     }
   }
   return url;
@@ -54,7 +59,7 @@ export function VideoModal() {
   const [currentUrl, setCurrentUrl] = useState("");
 
   useEffect(() => {
-    openModalHandler = (url?: string, title?: string) => {
+    const handleOpen = (url?: string, title?: string) => {
       const targetUrl = getFormattedEmbedUrl(url || "");
 
       setCurrentUrl(targetUrl);
@@ -67,8 +72,20 @@ export function VideoModal() {
       });
     };
 
+    openModalHandler = handleOpen;
+
+    const handleCustomEvent = (e: Event) => {
+      const detail = (e as CustomEvent).detail;
+      if (detail) {
+        handleOpen(detail.url, detail.title);
+      }
+    };
+
+    window.addEventListener("open-video-modal", handleCustomEvent);
+
     return () => {
       openModalHandler = null;
+      window.removeEventListener("open-video-modal", handleCustomEvent);
     };
   }, []);
 
@@ -108,6 +125,7 @@ export function VideoModal() {
       videoRef.current.pause();
     }
     setIsPlaying(false);
+    setCurrentUrl("");
     setModalState((prev) => ({ ...prev, isOpen: false }));
   };
 
@@ -197,8 +215,9 @@ export function VideoModal() {
                   src={currentUrl}
                   title={modalState.title}
                   className="w-full h-full border-0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
+                  referrerPolicy="strict-origin-when-cross-origin"
                 />
               ) : videoError ? (
                 <div className="flex flex-col items-center justify-center p-8 text-center gap-4 text-white">

@@ -135,7 +135,7 @@ export default function VerticalTabs() {
 
           <div className="lg:col-span-7 flex flex-col justify-end h-full order-1 lg:order-2 w-full">
             <div className="relative group/gallery w-full">
-              <div className="relative w-full aspect-[16/10] sm:aspect-[4/3] lg:aspect-[16/11] rounded-2xl sm:rounded-3xl md:rounded-[2.5rem] overflow-hidden bg-muted/30 border border-border/40 shadow-xl">
+              <div className="relative w-full aspect-video rounded-2xl sm:rounded-3xl md:rounded-[2.5rem] overflow-hidden bg-muted/30 border border-border/40 shadow-xl">
                 <AnimatePresence>
                   <motion.div
                     key={activeIndex}

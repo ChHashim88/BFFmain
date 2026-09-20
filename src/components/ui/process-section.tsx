@@ -125,7 +125,7 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
           </div>
 
           {/* Right Side - Creative Sleek Glass Execution Card (NO Red Shadow - Hidden on Mobile) */}
-          <div className="hidden lg:block relative w-full aspect-[4/3] sm:aspect-video lg:aspect-[4/3] xl:aspect-[16/10]">
+          <div className="hidden lg:block relative w-full aspect-video">
             {/* Layered Backdrop Cards */}
             <div className="absolute inset-y-5 -left-5 w-full rounded-3xl bg-zinc-200/50 dark:bg-zinc-900/50 border border-zinc-300/40 dark:border-zinc-800/40 shadow-lg z-0 hidden sm:block" />
             <div className="absolute inset-y-2.5 -left-2.5 w-full rounded-3xl bg-zinc-300/50 dark:bg-zinc-900/70 border border-zinc-300/50 dark:border-zinc-800/60 shadow-xl z-10 hidden sm:block" />
