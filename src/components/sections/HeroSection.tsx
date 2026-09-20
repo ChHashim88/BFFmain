@@ -139,7 +139,7 @@ export function HeroSection() {
               </span>
 
               {/* Line 2 */}
-              <span className="block text-destructive whitespace-pre-wrap text-left" aria-hidden="true">
+              <span className="block text-destructive whitespace-pre-wrap text-center lg:text-left" aria-hidden="true">
                 <span>{LINE_2.slice(0, line2Count)}</span>
                 {showCursor && typedCount > 15 && <CursorIndicator />}
                 <span className="opacity-0 select-none pointer-events-none" aria-hidden="true">

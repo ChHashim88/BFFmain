@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { ChevronDown, Play, Pause } from "lucide-react";
 
 import { TypewriterText } from "@/components/ui/TypewriterText";
@@ -9,6 +9,34 @@ import { TypewriterText } from "@/components/ui/TypewriterText";
 
 export function ProblemSection() {
   const [isPlaying, setIsPlaying] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+
+  useEffect(() => {
+    if (!isPlaying) return;
+
+    const element = containerRef.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            if (iframeRef.current?.contentWindow) {
+              iframeRef.current.contentWindow.postMessage(
+                JSON.stringify({ method: "pause" }),
+                "*"
+              );
+            }
+          }
+        });
+      },
+      { threshold: 0 }
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, [isPlaying]);
 
   return (
     <section
@@ -61,9 +89,10 @@ export function ProblemSection() {
               <div className="absolute inset-y-6 -left-6 w-full bg-white/10 dark:bg-black/20 border border-white/20 shadow-2xl z-0 hidden sm:block rounded-2xl backdrop-blur-sm" />
               <div className="absolute inset-y-3 -left-3 w-full bg-white/15 dark:bg-black/30 border border-white/20 shadow-2xl z-10 hidden sm:block rounded-2xl backdrop-blur-sm" />
 
-              <div className="absolute inset-0 w-full h-full rounded-2xl bg-zinc-100 dark:bg-zinc-950 border border-border shadow-2xl overflow-hidden z-20 flex items-center justify-center group">
+              <div ref={containerRef} className="absolute inset-0 w-full h-full rounded-2xl bg-zinc-100 dark:bg-zinc-950 border border-border shadow-2xl overflow-hidden z-20 flex items-center justify-center group">
                 {isPlaying ? (
                   <iframe
+                    ref={iframeRef}
                     src="https://player.vimeo.com/video/1227838533?h=efbb39337c&autoplay=1&autopause=0&title=0&byline=0&portrait=0"
                     title="Film investing has never been built for investors"
                     className="w-full h-full border-0 rounded-2xl"

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
 import MobileRadialCarousel from "@/components/ui/mobile-radial-carousel";
@@ -109,9 +109,42 @@ function getEmbedUrl(url: string): string {
 
 export function TimelineSection() {
   const [isPlaying, setIsPlaying] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
   const videoSrc = "https://vimeo.com/1228043168/0d79dcb98b?fl=ip&fe=ec&share=copy";
   const embedUrl = getEmbedUrl(videoSrc);
   const isEmbed = videoSrc.includes("vimeo.com") || videoSrc.includes("youtube.com") || videoSrc.includes("youtu.be");
+
+  useEffect(() => {
+    if (!isPlaying) return;
+
+    const element = containerRef.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            if (iframeRef.current?.contentWindow) {
+              iframeRef.current.contentWindow.postMessage(
+                JSON.stringify({ method: "pause" }),
+                "*"
+              );
+            }
+            if (videoRef.current) {
+              videoRef.current.pause();
+            }
+          }
+        });
+      },
+      { threshold: 0 }
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, [isPlaying]);
 
   return (
     <section className="relative w-full bg-background py-16 md:py-20 lg:py-24 px-6 md:px-12 xl:px-24 flex justify-center overflow-hidden">
@@ -150,10 +183,11 @@ export function TimelineSection() {
           <div className="absolute inset-y-3 -left-3 w-full bg-zinc-300/50 dark:bg-zinc-900/70 border border-border/50 shadow-2xl z-10 hidden sm:block rounded-2xl backdrop-blur-sm" />
 
           {/* Main Video frame */}
-          <div className="absolute inset-0 w-full h-full rounded-2xl bg-zinc-100 dark:bg-zinc-950 border border-border shadow-2xl overflow-hidden z-20 flex items-center justify-center group">
+          <div ref={containerRef} className="absolute inset-0 w-full h-full rounded-2xl bg-zinc-100 dark:bg-zinc-950 border border-border shadow-2xl overflow-hidden z-20 flex items-center justify-center group">
             {isPlaying ? (
               isEmbed ? (
                 <iframe
+                  ref={iframeRef}
                   src={embedUrl}
                   title="Film Is Next Overview"
                   className="w-full h-full border-0 rounded-2xl"
@@ -163,6 +197,7 @@ export function TimelineSection() {
                 />
               ) : (
                 <video
+                  ref={videoRef}
                   src={videoSrc}
                   controls
                   autoPlay

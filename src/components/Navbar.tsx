@@ -71,9 +71,31 @@ export function Navbar() {
     return () => observer.disconnect();
   }, []);
 
-  const handleLinkClick = (targetId: string) => {
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
     setActiveSection(targetId);
     setMobileMenuOpen(false);
+
+    if (!targetId || targetId === "top") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    const element = document.getElementById(targetId);
+    if (element) {
+      const navbarHeight = 85;
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - navbarHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+
+      if (typeof window !== "undefined" && window.history.pushState) {
+        window.history.pushState(null, "", `#${targetId}`);
+      }
+    }
   };
 
   const isParentActive = (link: NavLink) => {
@@ -92,7 +114,7 @@ export function Navbar() {
 
       <div className="relative z-10 mx-auto flex h-14 items-center justify-between pl-2 pr-3 lg:pl-2 lg:pr-4">
         <div className="shrink-0">
-          <a href="#" className="flex items-center">
+          <a href="#" onClick={(e) => handleLinkClick(e, "top")} className="flex items-center">
             <img
               src="/images/1212.png"
               alt="BFF Logo"
@@ -116,7 +138,7 @@ export function Navbar() {
                     >
                       <a
                         href={link.href}
-                        onClick={() => handleLinkClick(link.id)}
+                        onClick={(e) => handleLinkClick(e, link.id)}
                         className="block transition-colors duration-150"
                       >
                         {link.label}
@@ -137,7 +159,7 @@ export function Navbar() {
                             <a
                               key={sublink.label}
                               href={sublink.href}
-                              onClick={() => handleLinkClick(sublink.id)}
+                              onClick={(e) => handleLinkClick(e, sublink.id)}
                               className={`px-3 py-2.5 text-xs transition-colors duration-150 rounded-lg ${subActive
                                 ? "bg-destructive/15 text-destructive font-semibold"
                                 : "text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-destructive"
@@ -152,7 +174,7 @@ export function Navbar() {
                   ) : (
                     <a
                       href={link.href}
-                      onClick={() => handleLinkClick(link.id)}
+                      onClick={(e) => handleLinkClick(e, link.id)}
                       className={`block py-4 transition-colors duration-150 relative ${active ? "text-destructive font-bold" : "hover:text-destructive"
                         }`}
                     >
@@ -234,7 +256,7 @@ export function Navbar() {
                                 <a
                                   key={sublink.label}
                                   href={sublink.href}
-                                  onClick={() => handleLinkClick(sublink.id)}
+                                  onClick={(e) => handleLinkClick(e, sublink.id)}
                                   className={`block py-1.5 px-3 text-xs transition-colors rounded-lg ${subActive
                                     ? "text-destructive font-semibold bg-destructive/15"
                                     : "text-muted-foreground hover:text-destructive hover:bg-muted/30"
@@ -250,7 +272,7 @@ export function Navbar() {
                     ) : (
                       <a
                         href={link.href}
-                        onClick={() => handleLinkClick(link.id)}
+                        onClick={(e) => handleLinkClick(e, link.id)}
                         className={`flex items-center justify-between py-2.5 px-3 text-sm font-semibold transition-colors rounded-xl ${active
                           ? "text-destructive bg-destructive/10"
                           : "text-foreground hover:text-destructive hover:bg-muted/40"

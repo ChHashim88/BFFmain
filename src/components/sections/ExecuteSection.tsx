@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import GlassCard from "@/components/ui/glass-card";
 import { Search, CheckCircle2, Clapperboard, Globe, ShieldCheck, Play } from "lucide-react";
 import { TypewriterText } from "@/components/ui/TypewriterText";
@@ -23,9 +23,42 @@ function getEmbedUrl(url: string): string {
 
 export function ExecuteSection() {
   const [isPlaying, setIsPlaying] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
   const videoSrc = "https://vimeo.com/1227838485/cc66c6a81e?fl=ip&fe=ec&share=copy";
   const embedUrl = getEmbedUrl(videoSrc);
   const isEmbed = videoSrc.includes("vimeo.com") || videoSrc.includes("youtube.com") || videoSrc.includes("youtu.be");
+
+  useEffect(() => {
+    if (!isPlaying) return;
+
+    const element = containerRef.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            if (iframeRef.current?.contentWindow) {
+              iframeRef.current.contentWindow.postMessage(
+                JSON.stringify({ method: "pause" }),
+                "*"
+              );
+            }
+            if (videoRef.current) {
+              videoRef.current.pause();
+            }
+          }
+        });
+      },
+      { threshold: 0 }
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, [isPlaying]);
 
   return (
     <section
@@ -67,10 +100,11 @@ export function ExecuteSection() {
             <div className="absolute inset-y-6 -left-6 w-full bg-zinc-200 dark:bg-zinc-900 border border-border/40 shadow-2xl z-0 hidden sm:block rounded-2xl" />
             <div className="absolute inset-y-3 -left-3 w-full bg-zinc-300 dark:bg-zinc-900 border border-border/50 shadow-2xl z-10 hidden sm:block rounded-2xl" />
 
-            <div className="absolute inset-0 w-full h-full rounded-2xl bg-zinc-100 dark:bg-zinc-950 border border-border shadow-2xl overflow-hidden z-20 flex items-center justify-center group">
+            <div ref={containerRef} className="absolute inset-0 w-full h-full rounded-2xl bg-zinc-100 dark:bg-zinc-950 border border-border shadow-2xl overflow-hidden z-20 flex items-center justify-center group">
               {isPlaying ? (
                 isEmbed ? (
                   <iframe
+                    ref={iframeRef}
                     src={embedUrl}
                     title="Built To Execute Overview"
                     className="w-full h-full border-0 rounded-2xl"
@@ -80,6 +114,7 @@ export function ExecuteSection() {
                   />
                 ) : (
                   <video
+                    ref={videoRef}
                     src={videoSrc}
                     controls
                     autoPlay

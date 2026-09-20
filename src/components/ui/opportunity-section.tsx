@@ -23,9 +23,42 @@ function getEmbedUrl(url: string): string {
 
 export default function OpportunitySection() {
   const [isPlaying, setIsPlaying] = React.useState(false);
+  const containerRef = React.useRef<HTMLDivElement>(null);
+  const iframeRef = React.useRef<HTMLIFrameElement>(null);
+  const videoRef = React.useRef<HTMLVideoElement>(null);
+
   const videoSrc = "https://vimeo.com/1228043170/264e12457f?fl=ip&fe=ec&share=copy";
   const embedUrl = getEmbedUrl(videoSrc);
   const isEmbed = videoSrc.includes("vimeo.com") || videoSrc.includes("youtube.com") || videoSrc.includes("youtu.be");
+
+  React.useEffect(() => {
+    if (!isPlaying) return;
+
+    const element = containerRef.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            if (iframeRef.current?.contentWindow) {
+              iframeRef.current.contentWindow.postMessage(
+                JSON.stringify({ method: "pause" }),
+                "*"
+              );
+            }
+            if (videoRef.current) {
+              videoRef.current.pause();
+            }
+          }
+        });
+      },
+      { threshold: 0 }
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, [isPlaying]);
 
   return (
     <section
@@ -95,10 +128,11 @@ export default function OpportunitySection() {
               <div className="absolute inset-y-3 -left-3 w-full bg-white/15 dark:bg-black/30 border border-white/20 shadow-2xl z-10 hidden sm:block rounded-2xl backdrop-blur-sm" />
 
               {/* Video Card Container */}
-              <div className="absolute inset-0 w-full h-full rounded-2xl bg-zinc-100 dark:bg-zinc-950 border border-border shadow-2xl overflow-hidden z-20 flex items-center justify-center group">
+              <div ref={containerRef} className="absolute inset-0 w-full h-full rounded-2xl bg-zinc-100 dark:bg-zinc-950 border border-border shadow-2xl overflow-hidden z-20 flex items-center justify-center group">
                 {isPlaying ? (
                   isEmbed ? (
                     <iframe
+                      ref={iframeRef}
                       src={embedUrl}
                       title="Investing Has Changed"
                       className="w-full h-full border-0 rounded-2xl"
@@ -108,6 +142,7 @@ export default function OpportunitySection() {
                     />
                   ) : (
                     <video
+                      ref={videoRef}
                       src={videoSrc}
                       controls
                       autoPlay

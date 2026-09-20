@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 import { Play } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft01Icon, ArrowRight01Icon } from "@hugeicons/core-free-icons";
@@ -56,8 +56,41 @@ function PlatformVideoCard({
   videoSrc: string;
 }) {
   const [isPlaying, setIsPlaying] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
   const embedUrl = getEmbedUrl(videoSrc);
   const isEmbed = videoSrc.includes("vimeo.com") || videoSrc.includes("youtube.com") || videoSrc.includes("youtu.be");
+
+  useEffect(() => {
+    if (!isPlaying) return;
+
+    const element = containerRef.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            if (iframeRef.current?.contentWindow) {
+              iframeRef.current.contentWindow.postMessage(
+                JSON.stringify({ method: "pause" }),
+                "*"
+              );
+            }
+            if (videoRef.current) {
+              videoRef.current.pause();
+            }
+          }
+        });
+      },
+      { threshold: 0 }
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, [isPlaying]);
 
   return (
     <div className="relative w-full aspect-video">
@@ -66,10 +99,11 @@ function PlatformVideoCard({
       <div className="absolute inset-y-3 -left-3 w-full bg-white/15 dark:bg-black/30 border border-white/20 shadow-2xl z-10 hidden sm:block rounded-2xl backdrop-blur-sm" />
 
       {/* Main Video Card Frame */}
-      <div className="absolute inset-0 w-full h-full rounded-2xl bg-zinc-100 dark:bg-zinc-950 border border-border shadow-2xl overflow-hidden z-20 flex items-center justify-center group">
+      <div ref={containerRef} className="absolute inset-0 w-full h-full rounded-2xl bg-zinc-100 dark:bg-zinc-950 border border-border shadow-2xl overflow-hidden z-20 flex items-center justify-center group">
         {isPlaying ? (
           isEmbed ? (
             <iframe
+              ref={iframeRef}
               src={embedUrl}
               title={title}
               className="w-full h-full border-0 rounded-2xl"
@@ -79,6 +113,7 @@ function PlatformVideoCard({
             />
           ) : (
             <video
+              ref={videoRef}
               src={videoSrc}
               controls
               autoPlay

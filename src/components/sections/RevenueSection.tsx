@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Play } from "lucide-react";
 import { TypewriterText } from "@/components/ui/TypewriterText";
 
@@ -22,9 +22,42 @@ function getEmbedUrl(url: string): string {
 
 export function RevenueSection() {
   const [isPlaying, setIsPlaying] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
   const videoSrc = "https://vimeo.com/1227821634/7609591f16?fl=ip&fe=ec&share=copy";
   const embedUrl = getEmbedUrl(videoSrc);
   const isEmbed = videoSrc.includes("vimeo.com") || videoSrc.includes("youtube.com") || videoSrc.includes("youtu.be");
+
+  useEffect(() => {
+    if (!isPlaying) return;
+
+    const element = containerRef.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            if (iframeRef.current?.contentWindow) {
+              iframeRef.current.contentWindow.postMessage(
+                JSON.stringify({ method: "pause" }),
+                "*"
+              );
+            }
+            if (videoRef.current) {
+              videoRef.current.pause();
+            }
+          }
+        });
+      },
+      { threshold: 0 }
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, [isPlaying]);
 
   return (
     <section
@@ -61,10 +94,11 @@ export function RevenueSection() {
               <div className="absolute inset-y-6 -left-6 w-full bg-white/10 dark:bg-black/20 border border-white/20 shadow-2xl z-0 hidden sm:block rounded-2xl backdrop-blur-sm" />
               <div className="absolute inset-y-3 -left-3 w-full bg-white/15 dark:bg-black/30 border border-white/20 shadow-2xl z-10 hidden sm:block rounded-2xl backdrop-blur-sm" />
 
-              <div className="absolute inset-0 w-full h-full rounded-2xl bg-zinc-100 dark:bg-zinc-950 border border-border shadow-2xl overflow-hidden z-20 flex items-center justify-center group">
+              <div ref={containerRef} className="absolute inset-0 w-full h-full rounded-2xl bg-zinc-100 dark:bg-zinc-950 border border-border shadow-2xl overflow-hidden z-20 flex items-center justify-center group">
                 {isPlaying ? (
                   isEmbed ? (
                     <iframe
+                      ref={iframeRef}
                       src={embedUrl}
                       title="Your chance to own the platform"
                       className="w-full h-full border-0 rounded-2xl"
@@ -74,6 +108,7 @@ export function RevenueSection() {
                     />
                   ) : (
                     <video
+                      ref={videoRef}
                       src={videoSrc}
                       controls
                       autoPlay
