@@ -1,9 +1,49 @@
 "use client";
 
 import React from "react";
-import { TrendingUp, Play } from "lucide-react";
+import { TrendingUp, Play, ArrowUpRight } from "lucide-react";
+import { motion } from "framer-motion";
 import { TypewriterText } from "@/components/ui/TypewriterText";
 import { openVideoModal } from "@/components/ui/VideoModal";
+
+const BANNER_ITEMS = [
+  {
+    image: "/f1.jpeg",
+    title: "Discover",
+    subtitle: "Curated Opportunities",
+    tag: "01 / EXPLORE",
+  },
+  {
+    image: "/f2.jpeg",
+    title: "Evaluate",
+    subtitle: "Integrated Film Plans",
+    tag: "02 / RIGOR",
+  },
+  {
+    image: "/f3.jpeg",
+    title: "Transact",
+    subtitle: "Direct Participation",
+    tag: "03 / STRUCTURE",
+  },
+  {
+    image: "/f4.jpeg",
+    title: "Manage",
+    subtitle: "Unified Portfolio",
+    tag: "04 / HOLDINGS",
+  },
+  {
+    image: "/f5.jpeg",
+    title: "Understand",
+    subtitle: "Radical Transparency",
+    tag: "05 / REPORTING",
+  },
+  {
+    image: "/f6.jpeg",
+    title: "Infrastructure",
+    subtitle: "Modern Film Finance",
+    tag: "06 / ECOSYSTEM",
+  },
+];
 
 function getEmbedUrl(url: string): string {
   if (url.includes("vimeo.com")) {
@@ -67,7 +107,7 @@ export default function OpportunitySection() {
     >
       <div className="mx-auto w-full max-w-[1350px] flex flex-col gap-12 lg:gap-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left Column - All Copy Shown in Full (Icons Removed) */}
+          {/* Left Column - All Copy Shown in Full */}
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
             <div>
               <TypewriterText
@@ -179,33 +219,65 @@ export default function OpportunitySection() {
           </div>
         </div>
 
-        {/* Full-Width Structural Shift Card */}
-        <div className="relative w-full rounded-3xl bg-gradient-to-r from-[#090909] via-[#121212] to-[#171717] border border-zinc-800/80 p-6 sm:p-8 md:p-10 shadow-2xl flex flex-col md:flex-row items-center gap-6 sm:gap-10 overflow-hidden text-left">
+        {/* Full-Width Structural Shift Card with Running Banner */}
+        <div className="relative w-full rounded-3xl bg-gradient-to-r from-[#090909] via-[#121212] to-[#171717] border border-zinc-800/80 p-6 sm:p-8 md:p-10 shadow-2xl flex flex-col gap-8 overflow-hidden text-left">
           {/* Ambient Red Radial Glow */}
           <div className="absolute left-0 top-1/2 -translate-y-1/2 w-80 h-80 bg-[#C00000]/20 rounded-full blur-3xl pointer-events-none" />
 
-          {/* Red Glowing Icon Circle */}
-          <div className="relative z-10 flex h-16 w-16 md:h-20 md:w-20 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#C00000] via-[#470003] to-[#101010] border border-red-500/70 text-white shadow-[0_0_25px_rgba(192,0,0,0.4)]">
-            <TrendingUp size={32} strokeWidth={1.7} />
+          {/* Top Header Row */}
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-6 sm:gap-10">
+            {/* Red Glowing Icon Circle */}
+            <div className="relative z-10 flex h-16 w-16 md:h-20 md:w-20 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#C00000] via-[#470003] to-[#101010] border border-red-500/70 text-white shadow-[0_0_25px_rgba(192,0,0,0.4)]">
+              <TrendingUp size={32} strokeWidth={1.7} />
+            </div>
+
+            {/* Content Text */}
+            <div className="relative z-10 max-w-4xl space-y-2.5">
+              <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                Investing itself has undergone a <span className="text-[#C00000]">structural shift.</span>
+              </h3>
+              <p className="text-zinc-300 leading-relaxed text-sm md:text-base font-normal">
+                Platforms did more than open access to startups, real estate, and alternative assets. They created the infrastructure that made those opportunities easier to discover, evaluate, transact, manage, and understand.
+              </p>
+            </div>
           </div>
 
-          {/* Content Text */}
-          <div className="relative z-10 max-w-4xl space-y-2.5">
-            <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-              Investing itself has undergone a <span className="text-[#C00000]">structural shift.</span>
-            </h3>
-            <p className="text-zinc-300 leading-relaxed text-sm md:text-base font-normal">
-              Platforms did more than open access to startups, real estate, and alternative assets. They created the infrastructure that made those opportunities easier to discover, evaluate, transact, manage, and understand.
-            </p>
-          </div>
+          {/* Running Image Marquee Banner (f1.jpeg to f6.jpeg - Ultra Compact) */}
+          <div className="relative w-full mt-1 pt-1 pb-1 overflow-hidden group/marquee">
+            {/* Left and Right Gradient Mask Fades */}
+            <div className="absolute left-0 top-0 bottom-0 w-10 sm:w-16 bg-gradient-to-r from-[#0d0d0d] to-transparent z-20 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-10 sm:w-16 bg-gradient-to-l from-[#0d0d0d] to-transparent z-20 pointer-events-none" />
 
-          {/* Subtle Decorative Light Trails */}
-          <div className="absolute right-0 top-0 w-1/2 h-full pointer-events-none opacity-30 hidden sm:flex flex-col justify-around overflow-hidden">
-            <div className="w-full h-px bg-gradient-to-r from-transparent via-[#C00000]/50 to-transparent transform -rotate-12 translate-x-10" />
-            <div className="w-full h-px bg-gradient-to-r from-transparent via-[#C00000]/70 to-transparent transform -rotate-12 translate-x-4" />
+            <div className="flex overflow-hidden">
+              <motion.div
+                className="flex gap-3 sm:gap-4 shrink-0"
+                animate={{ x: ["0%", "-50%"] }}
+                transition={{
+                  duration: 18,
+                  ease: "linear",
+                  repeat: Infinity,
+                }}
+              >
+                {[...BANNER_ITEMS, ...BANNER_ITEMS, ...BANNER_ITEMS, ...BANNER_ITEMS].map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="relative w-24 sm:w-28 md:w-36 h-14 sm:h-16 md:h-20 shrink-0 rounded-lg overflow-hidden border border-white/20 bg-black/40 shadow-md group/card hover:border-[#C00000] hover:shadow-[0_0_15px_rgba(192,0,0,0.5)] transition-all duration-300 cursor-pointer"
+                  >
+                    <img
+                      src={item.image}
+                      alt={`Banner item ${idx}`}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-300 pointer-events-none"
+                    />
+                  </div>
+                ))}
+              </motion.div>
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
 }
+

@@ -242,7 +242,7 @@ export function PlatformSection() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start mt-2">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mt-2">
             {/* Left Column: Radical Transparency Items */}
             <div className="lg:col-span-5 flex flex-col justify-center order-2 lg:order-1 pt-4">
               <div className="flex flex-col space-y-0">
@@ -282,7 +282,7 @@ export function PlatformSection() {
             </div>
 
             {/* Right Column: Image Showcase with Navigation Buttons */}
-            <div className="lg:col-span-7 flex flex-col justify-end h-full order-1 lg:order-2 w-full">
+            <div className="lg:col-span-7 flex flex-col justify-center items-center my-auto order-1 lg:order-2 w-full">
               <div className="relative group/gallery w-full">
                 <div className="relative w-full aspect-video rounded-2xl sm:rounded-3xl md:rounded-[2.5rem] overflow-hidden bg-muted/30 border border-border/40 shadow-xl">
                   <AnimatePresence mode="wait">

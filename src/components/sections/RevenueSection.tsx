@@ -26,7 +26,7 @@ export function RevenueSection() {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const videoSrc = "https://vimeo.com/1227821634/7609591f16?fl=ip&fe=ec&share=copy";
+  const videoSrc = "https://vimeo.com/1227838503/9442feddbc?fl=pl&fe=sh";
   const embedUrl = getEmbedUrl(videoSrc);
   const isEmbed = videoSrc.includes("vimeo.com") || videoSrc.includes("youtube.com") || videoSrc.includes("youtu.be");
 

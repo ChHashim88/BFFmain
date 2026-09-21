@@ -1,7 +1,7 @@
 "use client";
 
 import GlassCard from "@/components/ui/glass-card";
-import { Layers, Cpu, TrendingUp, Sparkles } from "lucide-react";
+import { Server, Cpu, TrendingUp, Sparkles } from "lucide-react";
 
 export function RevenueCardsSection() {
   return (
@@ -10,7 +10,7 @@ export function RevenueCardsSection() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 items-stretch">
           <GlassCard
             variant="red"
-            icon={Layers}
+            icon={Server}
             delay={0.1}
             title="Platform Fees"
             description="Fees associated with bringing film offerings to market and supporting them through the BFF platform."
