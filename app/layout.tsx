@@ -13,7 +13,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Big Film Fund — Film Investing. Reimagined.",
+  title: "Big Film Fund ",
   description:
     "Big Film Fund is creating a new way to finance movies — powered by a technology platform that connects investors, filmmakers, and audiences.",
   keywords: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     apple: "/favi.png",
   },
   openGraph: {
-    title: "Big Film Fund — Film Investing. Reimagined.",
+    title: "Big Film Fund",
     description:
       "Big Film Fund is creating a new way to finance movies — powered by a technology platform that connects investors, filmmakers, and audiences.",
     type: "website",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Big Film Fund — Film Investing. Reimagined.",
+    title: "Big Film Fund",
     description:
       "Big Film Fund is creating a new way to finance movies — powered by a technology platform that connects investors, filmmakers, and audiences.",
   },

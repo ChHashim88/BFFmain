@@ -42,6 +42,17 @@ const BANNER_ITEMS = [
     title: "Infrastructure",
     subtitle: "Modern Film Finance",
     tag: "06 / ECOSYSTEM",
+  }, {
+    image: "/f7.jpeg",
+    title: "rally",
+    subtitle: "Modern Film Finance",
+    tag: "06 / EC",
+  },
+  {
+    image: "/f8.jpeg",
+    title: "Anglelist",
+    subtitle: "Modern Film Finance",
+    tag: "06 / ECOS",
   },
 ];
 
@@ -205,7 +216,7 @@ export default function OpportunitySection() {
                     <div className="absolute inset-0 bg-black/40 dark:bg-black/55 group-hover:bg-black/30 transition-colors duration-500 z-10" />
 
                     <div className="relative z-20 flex flex-col items-center gap-3 text-center">
-                      <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#C00000]/30 border border-white/40 text-white flex items-center justify-center shadow-[0_0_25px_rgba(192,0,0,0.4)] group-hover:scale-110 group-hover:bg-[#C00000]/50 transition-all duration-300">
+                      <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#C00000] border border-white/40 text-white flex items-center justify-center shadow-[0_0_25px_rgba(192,0,0,0.6)] group-hover:scale-110 group-hover:bg-[#a00000] transition-all duration-300">
                         <Play className="w-8 h-8 sm:w-10 sm:h-10 fill-white text-white translate-x-0.5" />
                       </div>
                       <span className="text-xs sm:text-sm font-bold tracking-widest text-white uppercase drop-shadow-md">

@@ -11,8 +11,12 @@ export function PrinciplesSection() {
       <div className="mx-auto w-full max-w-[1350px] grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
         <div id="clean-picture" className="w-full min-h-[580px] lg:min-h-[640px] h-full scroll-mt-28">
           <DestinationCard
-            imageUrl="/images/1.jpeg"
-            location="01 — Each Film. One Clean Economic Picture."
+            imageUrl="/Bff1.jpeg"
+            location={
+              <>
+                <span className="text-[#C00000] font-bold mr-2">01</span> Each Film. One Clean Economic Picture.
+              </>
+            }
             href="#"
             buttonText="See How"
             themeColor="0 84% 30%"
@@ -60,8 +64,12 @@ export function PrinciplesSection() {
         </div>
         <div id="no-back" className="w-full min-h-[580px] lg:min-h-[640px] h-full scroll-mt-28">
           <DestinationCard
-            imageUrl="/images/2.jpeg"
-            location="02 — No Back of the Line."
+            imageUrl="/Bff2.jpeg"
+            location={
+              <>
+                <span className="text-[#C00000] font-bold mr-2">02</span> No Back of the Line.
+              </>
+            }
             flag=""
             stats=""
             href="#"
@@ -117,8 +125,12 @@ export function PrinciplesSection() {
         </div>
         <div id="discipline" className="w-full min-h-[580px] lg:min-h-[640px] h-full scroll-mt-28">
           <DestinationCard
-            imageUrl="/images/3.jpeg"
-            location="03 — Commercial Discipline, Built In"
+            imageUrl="/Bff3.jpeg"
+            location={
+              <>
+                <span className="text-[#C00000] font-bold mr-2">03</span> Commercial Discipline, Built In
+              </>
+            }
             flag=""
             stats=""
             href="#"

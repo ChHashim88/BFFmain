@@ -140,7 +140,7 @@ export function ExecuteSection() {
 
                   {/* Centered Play Button & Label */}
                   <div className="relative z-20 flex flex-col items-center gap-3 text-center">
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#C00000]/30 border border-white/40 text-white flex items-center justify-center shadow-[0_0_25px_rgba(192,0,0,0.4)] group-hover:scale-110 group-hover:bg-[#C00000]/50 transition-all duration-300">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#C00000] border border-white/40 text-white flex items-center justify-center shadow-[0_0_25px_rgba(192,0,0,0.6)] group-hover:scale-110 group-hover:bg-[#a00000] transition-all duration-300">
                       <Play className="w-8 h-8 sm:w-10 sm:h-10 fill-white text-white translate-x-0.5" />
                     </div>
                     <span className="text-xs sm:text-sm font-bold tracking-widest text-white uppercase drop-shadow-md">
@@ -153,56 +153,56 @@ export function ExecuteSection() {
           </div>
         </div>
 
-        {/* 5 Execution Bento Grid Cards */}
-        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch pt-4 pb-2">
-          {/* Card 1: Wide Hero Bento Card (Top Left - Spans 2 Columns) */}
+        {/* 5 Execution Cards in a Single Row */}
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-5 items-stretch pt-4 pb-2">
+          {/* Card 1 */}
           <GlassCard
             variant="red"
             icon={Search}
             delay={0.1}
             title="Project Access"
             description="A growing pipeline sourced through filmmakers, producers, representatives, and development relationships."
-            className="sm:col-span-2 lg:col-span-2 min-h-[250px] sm:min-h-[270px]"
+            className="w-full min-h-[240px] sm:min-h-[260px]"
           />
 
-          {/* Card 2: Top Right Card */}
+          {/* Card 2 */}
           <GlassCard
             variant="red"
             icon={CheckCircle2}
             delay={0.2}
             title="Disciplined Greenlight"
             description="A rigorous evaluation methodology testing creative strength, audience thesis, commercial potential, and risk."
-            className="sm:col-span-1 lg:col-span-1 min-h-[250px] sm:min-h-[270px]"
+            className="w-full min-h-[240px] sm:min-h-[260px]"
           />
 
-          {/* Card 3: Bottom Left Card */}
+          {/* Card 3 */}
           <GlassCard
             variant="red"
             icon={Clapperboard}
             delay={0.3}
             title="Production Execution"
             description="Experienced producers, defined budgets, clear agreements, accountable milestones, and professional oversight."
-            className="sm:col-span-1 lg:col-span-1 min-h-[250px] sm:min-h-[270px]"
+            className="w-full min-h-[240px] sm:min-h-[260px]"
           />
 
-          {/* Card 4: Bottom Center Card */}
+          {/* Card 4 */}
           <GlassCard
             variant="red"
             icon={Globe}
             delay={0.4}
             title="Distribution"
             description="Global distribution experience and commercial relationships that inform positioning to reach audiences."
-            className="sm:col-span-1 lg:col-span-1 min-h-[250px] sm:min-h-[270px]"
+            className="w-full min-h-[240px] sm:min-h-[260px]"
           />
 
-          {/* Card 5: Bottom Right Card */}
+          {/* Card 5 */}
           <GlassCard
             variant="red"
             icon={ShieldCheck}
             delay={0.5}
             title="Platform Oversight"
             description="Standalone structures, disciplined capital management, consistent reporting, and ongoing visibility."
-            className="sm:col-span-2 lg:col-span-1 min-h-[250px] sm:min-h-[270px]"
+            className="w-full min-h-[240px] sm:min-h-[260px]"
           />
         </div>
       </div>

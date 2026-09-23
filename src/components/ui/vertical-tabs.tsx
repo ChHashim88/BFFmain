@@ -17,13 +17,13 @@ const SERVICES = [
     id: "02",
     title: "Independence",
     description: "Because every film has its own entity, capitalization, accounting, revenue, and distributions, investors can follow each project as an individual investment while viewing their film holdings together in one place.",
-    image: "/RT2.jpeg",
+    image: "/Rt33.png",
   },
   {
     id: "03",
     title: "Dashboard",
     description: "The BFF dashboard is designed to provide ongoing visibility into project progress, financial reporting, revenue activity, and distributions-without forcing investors to navigate disconnected entities, reports, and intermediaries.",
-    image: "/RT3.jpeg",
+    image: "/RT3.png",
   },
 ];
 

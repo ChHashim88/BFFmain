@@ -136,7 +136,7 @@ function PlatformVideoCard({
             <div className="absolute inset-0 bg-black/40 dark:bg-black/55 group-hover:bg-black/30 transition-colors duration-500 z-10" />
 
             <div className="relative z-20 flex flex-col items-center gap-3 text-center">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#C00000]/30 border border-white/40 text-white flex items-center justify-center shadow-[0_0_25px_rgba(192,0,0,0.4)] group-hover:scale-110 group-hover:bg-[#C00000]/50 transition-all duration-300">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#C00000] border border-white/40 text-white flex items-center justify-center shadow-[0_0_25px_rgba(192,0,0,0.6)] group-hover:scale-110 group-hover:bg-[#a00000] transition-all duration-300">
                 <Play className="w-8 h-8 sm:w-10 sm:h-10 fill-white text-white translate-x-0.5" />
               </div>
               <span className="text-xs sm:text-sm font-bold tracking-widest text-white uppercase drop-shadow-md">
@@ -163,14 +163,14 @@ const RADICAL_SERVICES = [
     title: "Independence",
     description:
       "Because every film has its own entity, capitalization, accounting, revenue, and distributions, investors can follow each project as an individual investment while viewing their film holdings together in one place.",
-    image: "/RT2.jpeg",
+    image: "/Rt33.png",
   },
   {
     id: "visibility",
     title: "Visibility",
     description:
       "The BFF dashboard is designed to provide ongoing visibility into project progress, financial reporting, revenue activity, and distributions-without forcing investors to navigate disconnected entities, reports, and intermediaries.",
-    image: "/RT3.jpeg",
+    image: "/RT3.png",
   },
 ];
 
